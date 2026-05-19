@@ -1,0 +1,13 @@
+Please prepare this Next.js website for deployment on Vercel.
+
+Requirements:
+1. Ensure the project builds successfully.
+2. Check package.json scripts.
+3. Ensure environment variables are documented if needed.
+4. Create a short deployment guide in DEPLOYMENT.md.
+5. Add notes for updating content after deployment.
+6. Confirm whether the site can be deployed directly to Vercel from GitHub.
+
+Do not deploy without explaining the steps clearly.
+
+Run build and fix all errors.

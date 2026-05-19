@@ -1,0 +1,36 @@
+Please improve the project data system.
+
+Goal:
+Make it very easy for a non-developer to add, edit, and remove Aramphabot Studio projects.
+
+Requirements:
+1. Create a central project data file.
+2. Define TypeScript types for project data.
+3. Each project should include:
+   - slug
+   - title
+   - location
+   - year
+   - status
+   - type
+   - scope
+   - area
+   - shortDescription
+   - concept
+   - designNarrative
+   - keyDesignMoves
+   - materials
+   - coverImage
+   - galleryImages
+4. Connect the Projects page to this data file.
+5. Connect the Project Detail Template to this data file.
+6. Add graceful handling when a project image is missing.
+7. Add example placeholder projects for:
+   - Boutique Hotel
+   - Pool Villa
+   - Cafe
+   - Restaurant
+   - Commercial Interior
+8. Add clear comments in the project data file explaining how to edit content.
+
+Run build and fix all errors.

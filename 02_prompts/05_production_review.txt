@@ -1,0 +1,26 @@
+Please perform a full production-readiness review of this website.
+
+Check:
+1. Build errors
+2. TypeScript errors
+3. Lint errors
+4. Broken links
+5. Missing pages
+6. Mobile responsiveness
+7. Basic accessibility
+8. SEO metadata
+9. Image handling
+10. Placeholder content
+11. Contact form behavior
+12. Navigation consistency
+13. Footer consistency
+14. Performance issues
+15. Code cleanliness
+
+Then fix all issues that can be fixed directly.
+
+After fixing, provide:
+- What was checked
+- What was fixed
+- Any remaining manual tasks
+- Whether the website is ready to deploy

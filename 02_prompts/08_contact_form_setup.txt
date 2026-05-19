@@ -1,0 +1,26 @@
+Please improve the Contact page and contact form.
+
+Goal:
+Create a professional inquiry form suitable for architecture and interior design clients.
+
+Fields:
+- Name
+- Email
+- Phone
+- Company / Organization
+- Project type
+- Project location
+- Approximate project size
+- Project timeline
+- Budget range
+- Message
+
+Requirements:
+1. Use a clean and elegant layout.
+2. Validate required fields.
+3. Make the form accessible.
+4. Do not expose private credentials.
+5. If no backend/email service is configured, create a safe placeholder implementation and document how to connect a real service later.
+6. Add a short note explaining what information clients should prepare before contacting the studio.
+
+Run build and fix all errors.

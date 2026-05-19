@@ -1,0 +1,66 @@
+You are a senior full-stack developer, UI/UX designer, and digital brand strategist.
+
+Please build a production-ready corporate portfolio website for Aramphabot Studio Co., Ltd., an architecture and interior design studio based in Bangkok, Thailand.
+
+Use the AGENTS.md instructions and all files in the 01_brief folder as the main source of truth.
+
+Goal:
+Create a refined, elegant, world-class architecture studio website that can be used as the official company website.
+
+Tech stack:
+- Next.js
+- TypeScript
+- Tailwind CSS
+
+Main requirements:
+1. Create a complete Next.js website structure.
+2. Build pages:
+   - Home
+   - About
+   - Projects
+   - Project Detail Template
+   - Services
+   - Process
+   - Journal / Insights
+   - Contact
+3. Create reusable components:
+   - Header
+   - Footer
+   - Hero
+   - SectionIntro
+   - ProjectCard
+   - ServiceCard
+   - ProcessStep
+   - JournalCard
+   - ContactForm
+   - ProjectGallery
+4. Create a clean content/data structure so the studio owner can update project information easily.
+5. Use a quiet luxury editorial architecture design style.
+6. Make the website fully responsive for mobile, tablet, and desktop.
+7. Add SEO metadata.
+8. Use accessible semantic HTML.
+9. Use placeholder images where real images are not available.
+10. Avoid fake claims, fake awards, or fake clients.
+11. Ensure the project runs without errors.
+12. Run build and fix all issues.
+
+Design direction:
+The website should feel like a premium architecture magazine and a world-class architecture studio portfolio. It should be calm, minimal, warm, refined, image-led, and professional.
+
+Brand keywords:
+Architecture, atmosphere, narrative, context, material, proportion, sensory experience, quiet luxury, hospitality design, residential design, commercial design, spatial storytelling.
+
+Suggested headline:
+Architecture of Place, Memory, and Quiet Experience.
+
+Suggested subheadline:
+Aramphabot Studio creates architecture and interiors shaped by context, narrative, material sensitivity, and the emotional rhythm of space.
+
+Please implement the full website now.
+
+After finishing, provide:
+- Summary of what you built
+- File structure
+- How to run locally
+- Remaining placeholders
+- Recommended next steps

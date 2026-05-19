@@ -1,0 +1,19 @@
+Please add bilingual support for the Aramphabot Studio website.
+
+Goal:
+Add Thai and English language support without breaking the existing design.
+
+Requirements:
+1. Add a language switcher in the header.
+2. Support English as the default language.
+3. Support Thai as a second language.
+4. Keep all content in structured data files.
+5. Do not hard-code long copy directly inside components.
+6. Preserve SEO metadata for both languages.
+7. Keep the design elegant and minimal.
+8. Make sure line heights and spacing work well for Thai text.
+
+Important:
+If full international routing is too large for one task, create a clear and scalable foundation first, then explain the next steps.
+
+Run build and fix all errors.

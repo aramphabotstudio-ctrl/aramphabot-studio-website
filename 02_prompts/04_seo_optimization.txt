@@ -1,0 +1,26 @@
+Please improve SEO for the Aramphabot Studio website.
+
+Requirements:
+1. Add proper metadata for all main pages.
+2. Add Open Graph metadata for social sharing.
+3. Add title and description for each page.
+4. Add structured content hierarchy with proper h1, h2, h3.
+5. Improve alt text for images.
+6. Add sitemap if appropriate.
+7. Add robots file if appropriate.
+8. Make sure the website is optimized for architecture studio keywords.
+
+Target keywords:
+- architecture studio Bangkok
+- architecture firm Thailand
+- hospitality design Thailand
+- interior design studio Bangkok
+- boutique hotel design
+- pool villa design Thailand
+- cafe design Bangkok
+- restaurant design Thailand
+- Aramphabot Studio
+
+Do not keyword-stuff. Keep the writing refined and natural.
+
+Run build and fix all errors.

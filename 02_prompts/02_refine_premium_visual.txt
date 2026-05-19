@@ -1,0 +1,25 @@
+Please refine the visual design of the Aramphabot Studio website to make it feel more premium, editorial, and architectural.
+
+Focus on:
+1. Better spacing and proportion
+2. More refined typography
+3. Stronger visual hierarchy
+4. More elegant project cards
+5. Better mobile experience
+6. Better image presentation
+7. More architectural editorial feeling
+8. Subtle hover transitions
+9. Warmer quiet luxury color palette
+10. Cleaner navigation and footer
+
+The website should not feel like a generic template. It should feel like a serious architecture studio with international design ambition.
+
+Please inspect all pages and components, then improve the design system consistently.
+
+Constraints:
+- Do not add fake awards.
+- Do not invent fake clients.
+- Do not make the design too decorative.
+- Keep the tone calm, premium, and architectural.
+
+Run build after changes and fix all errors.
