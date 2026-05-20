@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import type { MouseEvent, ReactNode } from "react";
+import type { FormEvent, MouseEvent, ReactNode } from "react";
 import {
   ArrowUpRight,
   Building2,
@@ -57,6 +57,18 @@ type RouteState = {
   pageId: SeoPageId;
   projectSlug?: string;
 };
+type ContactStatus = {
+  message: string;
+  draft?: string;
+};
+
+const contactFields = [
+  { label: "Name", name: "name", type: "text", autoComplete: "name", required: true },
+  { label: "Email", name: "email", type: "email", autoComplete: "email", required: true },
+  { label: "Phone", name: "phone", type: "tel", autoComplete: "tel", required: false },
+  { label: "Project type", name: "projectType", type: "text", autoComplete: "off", required: false },
+  { label: "Project location", name: "projectLocation", type: "text", autoComplete: "address-level2", required: false },
+];
 
 function getRouteStateFromLocation(): RouteState {
   if (typeof window === "undefined") {
@@ -167,6 +179,7 @@ function App() {
   const [routeState, setRouteState] = useState<RouteState>(() => getRouteStateFromLocation());
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<ProjectFilter>("All");
+  const [contactStatus, setContactStatus] = useState<ContactStatus | null>(null);
   const [selectedProjectSlug, setSelectedProjectSlug] = useState(() => {
     const initialRoute = getRouteStateFromLocation();
     const routedProject =
@@ -194,6 +207,9 @@ function App() {
 
       if (routedProject) {
         setSelectedProjectSlug(routedProject.slug);
+      } else if (nextRoute.projectSlug) {
+        window.history.replaceState(null, "", "/projects");
+        setRouteState({ pageId: "projects" });
       }
 
       scrollToPage(nextRoute.pageId);
@@ -262,6 +278,46 @@ function App() {
     setRouteState({ pageId: "projects", projectSlug: project.slug });
   }
 
+  function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    if (!form.reportValidity()) {
+      return;
+    }
+
+    const data = new FormData(form);
+    const value = (key: string) => String(data.get(key) || "").trim();
+    const draft = [
+      "New project enquiry for Aramphabot Studio",
+      "",
+      `Name: ${value("name")}`,
+      `Email: ${value("email")}`,
+      `Phone: ${value("phone") || "Not provided"}`,
+      `Project type: ${value("projectType") || "Not provided"}`,
+      `Project location: ${value("projectLocation") || "Not provided"}`,
+      "",
+      "Message:",
+      value("message"),
+    ].join("\n");
+
+    const recipient = siteConfig.contact.email.trim();
+    if (recipient) {
+      const mailto = new URL(`mailto:${recipient}`);
+      mailto.searchParams.set("subject", "Project enquiry for Aramphabot Studio");
+      mailto.searchParams.set("body", draft);
+      window.location.href = mailto.toString();
+      setContactStatus({ message: "Your email app is opening with the prepared enquiry." });
+      return;
+    }
+
+    setContactStatus({
+      message:
+        "Enquiry prepared. Add the studio email in src/data/site.ts to enable the mail draft link.",
+      draft,
+    });
+  }
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-ivory text-ink">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-bone/90 backdrop-blur-xl">
@@ -308,10 +364,11 @@ function App() {
           </a>
 
           <button
-            className="inline-flex size-11 items-center justify-center border border-ink/20 bg-bone/70 transition hover:border-ink lg:hidden"
+            className="inline-flex size-11 items-center justify-center border border-ink/35 bg-bone text-ink shadow-soft transition hover:border-ink lg:hidden"
             type="button"
             aria-label="Toggle navigation"
             aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
             onClick={() => setMenuOpen((value) => !value)}
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -319,7 +376,7 @@ function App() {
         </nav>
 
         {menuOpen ? (
-          <div className="border-t border-ink/10 bg-bone px-5 py-6 lg:hidden">
+          <div id="mobile-navigation" className="border-t border-ink/10 bg-bone px-5 py-6 lg:hidden">
             <div className="grid gap-1 text-sm uppercase tracking-[0.18em]">
               {navigation.map((item) => (
                 <a
@@ -346,6 +403,9 @@ function App() {
             src="/images/architecture-hero.jpg"
             alt="Warm architectural planes representing Aramphabot Studio architecture and interior design in Bangkok"
             className="absolute inset-0 h-full w-full object-cover"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,27,22,0.86),rgba(31,27,22,0.38)_52%,rgba(244,239,228,0.05))]" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ivory to-transparent" />
@@ -524,6 +584,8 @@ function App() {
                     src={post.image.src}
                     alt={post.image.alt}
                     className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="pt-5">
@@ -601,14 +663,18 @@ function App() {
               </div>
             </div>
 
-            <form className="grid gap-6" aria-label="Project enquiry form">
+            <form className="grid gap-6" aria-label="Project enquiry form" onSubmit={handleContactSubmit}>
               <div className="grid gap-6 md:grid-cols-2">
-                {["Name", "Email", "Phone", "Project type", "Project location"].map((label) => (
-                  <label key={label} className="grid gap-3 border-b border-bone/20 pb-3 md:last:col-span-2">
-                    <span className="text-[11px] uppercase tracking-[0.18em] text-bone/48">{label}</span>
+                {contactFields.map((field) => (
+                  <label key={field.name} className="grid gap-3 border-b border-bone/20 pb-3 md:last:col-span-2">
+                    <span className="text-[11px] uppercase tracking-[0.18em] text-bone/48">{field.label}</span>
                     <input
                       className="bg-transparent text-base text-bone outline-none placeholder:text-bone/30"
-                      placeholder={label}
+                      placeholder={field.label}
+                      name={field.name}
+                      type={field.type}
+                      autoComplete={field.autoComplete}
+                      required={field.required}
                     />
                   </label>
                 ))}
@@ -618,11 +684,27 @@ function App() {
                 <textarea
                   className="min-h-32 bg-transparent text-base leading-7 text-bone outline-none placeholder:text-bone/30"
                   placeholder="Tell us about the site, timeline, scope, and atmosphere."
+                  name="message"
+                  required
                 />
               </label>
+              {contactStatus ? (
+                <div
+                  className="border border-bone/20 bg-bone/5 p-4 text-sm leading-7 text-bone/72"
+                  role="status"
+                  aria-live="polite"
+                >
+                  <p>{contactStatus.message}</p>
+                  {contactStatus.draft ? (
+                    <pre className="mt-4 max-h-56 overflow-auto whitespace-pre-wrap border-t border-bone/15 pt-4 font-sans text-xs leading-6 text-bone/62">
+                      {contactStatus.draft}
+                    </pre>
+                  ) : null}
+                </div>
+              ) : null}
               <button
                 className="group mt-2 inline-flex w-full items-center justify-between border border-bone/30 px-6 py-4 text-[11px] uppercase tracking-[0.2em] transition duration-300 hover:bg-bone hover:text-ink sm:w-auto sm:min-w-72"
-                type="button"
+                type="submit"
               >
                 Prepare Enquiry
                 <ArrowUpRight className="transition group-hover:translate-x-1 group-hover:-translate-y-1" size={16} aria-hidden="true" />
@@ -707,6 +789,8 @@ function ProjectCard({
     <button
       type="button"
       onClick={onSelect}
+      aria-pressed={selected}
+      aria-label={`View project details for ${project.title}`}
       className={`group block text-left focus:outline-none ${featured ? "xl:col-span-2" : ""}`}
     >
       <article
@@ -832,6 +916,7 @@ function ProjectImage({
       alt={source.alt}
       className={className}
       loading="lazy"
+      decoding="async"
       onError={() => setFailed(true)}
     />
   );

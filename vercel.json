@@ -1,0 +1,32 @@
+{
+  "rewrites": [
+    { "source": "/about", "destination": "/" },
+    { "source": "/projects", "destination": "/" },
+    { "source": "/projects/:slug", "destination": "/" },
+    { "source": "/services", "destination": "/" },
+    { "source": "/process", "destination": "/" },
+    { "source": "/journal", "destination": "/" },
+    { "source": "/research", "destination": "/" },
+    { "source": "/contact", "destination": "/" }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    }
+  ]
+}
