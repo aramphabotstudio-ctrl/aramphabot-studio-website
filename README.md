@@ -17,3 +17,7 @@ Open `http://localhost:5173`.
 npm run build
 npm run preview
 ```
+
+## Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for the Vercel deployment checklist, environment variables, and post-launch content update notes.
