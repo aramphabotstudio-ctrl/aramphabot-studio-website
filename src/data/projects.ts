@@ -31,7 +31,7 @@ const image = (src: string, alt: string): ImageAsset => ({
 
 export const projectImageFallback = image(
   "/images/architecture-hero.jpg",
-  "Warm abstract architectural placeholder image"
+  "Warm architectural placeholder for Aramphabot Studio architecture and interior design work"
 );
 
 export const projects: Project[] = [
@@ -61,12 +61,12 @@ export const projects: Project[] = [
     materials: ["Limestone", "Textured plaster", "Timber", "Muted bronze metal"],
     coverImage: image(
       "/images/hospitality.jpg",
-      "Boutique hotel placeholder with layered warm materials"
+      "Boutique hotel design placeholder with layered warm materials for hospitality design in Thailand"
     ),
     galleryImages: [
-      image("/images/gallery-light.jpg", "Placeholder image of light and architectural planes"),
-      image("/images/gallery-material.jpg", "Placeholder image of material-toned spatial composition"),
-      image("/images/gallery-lounge.jpg", "Placeholder image of hospitality lounge atmosphere"),
+      image("/images/gallery-light.jpg", "Architectural light study placeholder for a boutique hotel arrival sequence"),
+      image("/images/gallery-material.jpg", "Material palette placeholder with stone, timber, and warm plaster tones"),
+      image("/images/gallery-lounge.jpg", "Hospitality lounge atmosphere placeholder for a calm guest experience"),
     ],
     featured: true,
     placeholder: true,
@@ -97,12 +97,12 @@ export const projects: Project[] = [
     materials: ["Timber", "Limestone", "Textured plaster", "Soft neutral fabric"],
     coverImage: image(
       "/images/residence.jpg",
-      "Pool villa placeholder with warm light planes"
+      "Pool villa design Thailand placeholder with warm light, privacy, and water-led atmosphere"
     ),
     galleryImages: [
-      image("/images/home-interior.jpg", "Placeholder image of warm interior atmosphere"),
-      image("/images/gallery-material.jpg", "Placeholder image of warm material detail"),
-      image("/images/about-interior.jpg", "Placeholder image of soft light and spatial sequence"),
+      image("/images/home-interior.jpg", "Warm residential interior placeholder for a private pool villa retreat"),
+      image("/images/gallery-material.jpg", "Natural material detail placeholder for villa architecture and interiors"),
+      image("/images/about-interior.jpg", "Soft light and spatial sequence placeholder for residential design"),
     ],
     featured: true,
     placeholder: true,
@@ -133,12 +133,12 @@ export const projects: Project[] = [
     materials: ["Stone", "Timber veneer", "Warm metal", "Textured wall finish"],
     coverImage: image(
       "/images/commercial.jpg",
-      "Cafe interior placeholder with precise material contrast"
+      "Cafe design Bangkok placeholder with precise material contrast and a clear service counter rhythm"
     ),
     galleryImages: [
-      image("/images/services-interior.jpg", "Placeholder image of commercial interior composition"),
-      image("/images/gallery-material.jpg", "Placeholder image of material-toned spatial composition"),
-      image("/images/commercial.jpg", "Placeholder image of architectural facade lines"),
+      image("/images/services-interior.jpg", "Commercial interior placeholder for cafe seating and service flow"),
+      image("/images/gallery-material.jpg", "Material composition placeholder for a refined cafe interior"),
+      image("/images/commercial.jpg", "Facade and threshold placeholder for an urban cafe in Bangkok"),
     ],
     featured: true,
     placeholder: true,
@@ -169,12 +169,12 @@ export const projects: Project[] = [
     materials: ["Timber", "Stone aggregate", "Bronze-toned metal", "Lime plaster"],
     coverImage: image(
       "/images/journal-hospitality.jpg",
-      "Restaurant placeholder with layered hospitality atmosphere"
+      "Restaurant design Thailand placeholder with layered hospitality atmosphere and warm evening light"
     ),
     galleryImages: [
-      image("/images/hospitality.jpg", "Placeholder image of hospitality lounge atmosphere"),
-      image("/images/gallery-light.jpg", "Placeholder image of light and architectural planes"),
-      image("/images/journal-material.jpg", "Placeholder image of warm material palette"),
+      image("/images/hospitality.jpg", "Hospitality dining atmosphere placeholder for restaurant design"),
+      image("/images/gallery-light.jpg", "Architectural light placeholder for a restaurant threshold and view sequence"),
+      image("/images/journal-material.jpg", "Warm material palette placeholder for restaurant interiors"),
     ],
     placeholder: true,
   },
@@ -204,12 +204,12 @@ export const projects: Project[] = [
     materials: ["Warm gray render", "Stone tile", "Timber-look finish", "Bronze metal"],
     coverImage: image(
       "/images/workplace.jpg",
-      "Commercial interior placeholder with layered work-focused atmosphere"
+      "Commercial interior placeholder with layered workplace atmosphere and restrained material identity"
     ),
     galleryImages: [
-      image("/images/workplace.jpg", "Placeholder image of workplace interior atmosphere"),
-      image("/images/services-interior.jpg", "Placeholder image of commercial material and light"),
-      image("/images/adaptive.jpg", "Placeholder image of flexible commercial planning"),
+      image("/images/workplace.jpg", "Workplace interior atmosphere placeholder for commercial interior design"),
+      image("/images/services-interior.jpg", "Commercial material and light placeholder for a refined interior experience"),
+      image("/images/adaptive.jpg", "Flexible commercial planning placeholder for showroom, retail, or workplace use"),
     ],
     placeholder: true,
   },

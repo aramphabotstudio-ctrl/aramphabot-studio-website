@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import type { ReactNode } from "react";
+import { useEffect, useMemo, useState } from "react";
+import type { MouseEvent, ReactNode } from "react";
 import {
   ArrowUpRight,
   Building2,
@@ -22,8 +22,19 @@ import {
   projects,
 } from "@/data/projects";
 import { services } from "@/data/services";
+import {
+  defaultSeo,
+  getAbsoluteAssetUrl,
+  getAbsoluteUrl,
+  getProjectPath,
+  getProjectSeo,
+  getStructuredData,
+  seoById,
+  seoByPath,
+} from "@/data/seo";
 import { navigation, siteConfig } from "@/data/site";
 import type { ImageAsset, Project, ProjectCategory } from "@/types/content";
+import type { SeoEntry, SeoPageId } from "@/data/seo";
 
 const facts = [
   ["Legal name", companyFacts.legalNameEn],
@@ -42,11 +53,127 @@ const heroFacts = [
 
 const initialProject = featuredProjects[0] ?? projects[0];
 type ProjectFilter = "All" | ProjectCategory;
+type RouteState = {
+  pageId: SeoPageId;
+  projectSlug?: string;
+};
+
+function getRouteStateFromLocation(): RouteState {
+  if (typeof window === "undefined") {
+    return { pageId: "home" };
+  }
+
+  return getRouteStateFromPath(window.location.pathname, window.location.hash);
+}
+
+function getRouteStateFromPath(pathname: string, hash = ""): RouteState {
+  const path = pathname.replace(/\/$/, "") || "/";
+  const hashId = hash.replace("#", "") as SeoPageId;
+
+  if (hashId && seoById[hashId]) {
+    return { pageId: hashId };
+  }
+
+  if (path.startsWith("/projects/")) {
+    const projectSlug = path.split("/").filter(Boolean)[1];
+    return { pageId: "projects", projectSlug };
+  }
+
+  const pageFromPath = seoByPath[path];
+  if (pageFromPath) {
+    return { pageId: pageFromPath.id };
+  }
+
+  return { pageId: "home" };
+}
+
+function scrollToPage(pageId: SeoPageId) {
+  window.requestAnimationFrame(() => {
+    const target = document.getElementById(pageId);
+    if (target) {
+      target.scrollIntoView({ block: "start" });
+    }
+  });
+}
+
+function updateDocumentMetadata(page: SeoEntry, project?: Project) {
+  document.title = page.title;
+
+  setMetaTag("name", "description", page.description);
+  setMetaTag("name", "robots", "index, follow");
+  setMetaTag("name", "author", siteConfig.name);
+  setMetaTag("name", "twitter:card", "summary_large_image");
+  setMetaTag("name", "twitter:title", page.title);
+  setMetaTag("name", "twitter:description", page.description);
+  setMetaTag("name", "twitter:image", getAbsoluteAssetUrl(page.image));
+
+  setMetaTag("property", "og:site_name", siteConfig.name);
+  setMetaTag("property", "og:title", page.title);
+  setMetaTag("property", "og:description", page.description);
+  setMetaTag("property", "og:type", project ? "article" : "website");
+  setMetaTag("property", "og:url", getAbsoluteUrl(page.path));
+  setMetaTag("property", "og:image", getAbsoluteAssetUrl(page.image));
+  setMetaTag(
+    "property",
+    "og:image:alt",
+    project?.coverImage.alt || "Aramphabot Studio architecture and interior design portfolio"
+  );
+  setMetaTag("property", "og:locale", "en_TH");
+
+  setCanonicalLink(getAbsoluteUrl(page.path));
+  setStructuredData(getStructuredData(page, project));
+}
+
+function setMetaTag(attribute: "name" | "property", key: string, content: string) {
+  let element = document.head.querySelector<HTMLMetaElement>(
+    `meta[${attribute}="${key}"]`
+  );
+
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute(attribute, key);
+    document.head.appendChild(element);
+  }
+
+  element.content = content;
+}
+
+function setCanonicalLink(href: string) {
+  let element = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+
+  if (!element) {
+    element = document.createElement("link");
+    element.rel = "canonical";
+    document.head.appendChild(element);
+  }
+
+  element.href = href;
+}
+
+function setStructuredData(data: Array<Record<string, unknown>>) {
+  let element = document.getElementById("structured-data") as HTMLScriptElement | null;
+
+  if (!element) {
+    element = document.createElement("script");
+    element.id = "structured-data";
+    element.type = "application/ld+json";
+    document.head.appendChild(element);
+  }
+
+  element.textContent = JSON.stringify(data);
+}
 
 function App() {
+  const [routeState, setRouteState] = useState<RouteState>(() => getRouteStateFromLocation());
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<ProjectFilter>("All");
-  const [selectedProjectSlug, setSelectedProjectSlug] = useState(initialProject.slug);
+  const [selectedProjectSlug, setSelectedProjectSlug] = useState(() => {
+    const initialRoute = getRouteStateFromLocation();
+    const routedProject =
+      initialRoute.projectSlug && getProjectBySlug(initialRoute.projectSlug);
+
+    return routedProject ? routedProject.slug : initialProject.slug;
+  });
   const selectedProject = getProjectBySlug(selectedProjectSlug) ?? initialProject;
 
   const filteredProjects = useMemo(() => {
@@ -56,6 +183,63 @@ function App() {
 
     return projects.filter((project) => project.type === activeCategory);
   }, [activeCategory]);
+
+  useEffect(() => {
+    const syncRoute = () => {
+      const nextRoute = getRouteStateFromLocation();
+      const routedProject =
+        nextRoute.projectSlug && getProjectBySlug(nextRoute.projectSlug);
+
+      setRouteState(nextRoute);
+
+      if (routedProject) {
+        setSelectedProjectSlug(routedProject.slug);
+      }
+
+      scrollToPage(nextRoute.pageId);
+    };
+
+    syncRoute();
+    window.addEventListener("popstate", syncRoute);
+    window.addEventListener("hashchange", syncRoute);
+
+    return () => {
+      window.removeEventListener("popstate", syncRoute);
+      window.removeEventListener("hashchange", syncRoute);
+    };
+  }, []);
+
+  useEffect(() => {
+    const routedProject =
+      routeState.projectSlug && getProjectBySlug(routeState.projectSlug);
+    const pageSeo = routedProject
+      ? getProjectSeo(routedProject)
+      : seoById[routeState.pageId] ?? defaultSeo;
+
+    updateDocumentMetadata(pageSeo, routedProject || undefined);
+  }, [routeState, selectedProject]);
+
+  function navigateTo(path: string) {
+    const nextRoute = getRouteStateFromPath(path);
+
+    window.history.pushState(null, "", path);
+    setRouteState(nextRoute);
+
+    if (nextRoute.projectSlug) {
+      const nextProject = getProjectBySlug(nextRoute.projectSlug);
+      if (nextProject) {
+        setSelectedProjectSlug(nextProject.slug);
+      }
+    }
+
+    scrollToPage(nextRoute.pageId);
+  }
+
+  function handleNavigation(event: MouseEvent<HTMLAnchorElement>, path: string) {
+    event.preventDefault();
+    setMenuOpen(false);
+    navigateTo(path);
+  }
 
   function handleCategoryChange(category: ProjectFilter) {
     setActiveCategory(category);
@@ -67,13 +251,27 @@ function App() {
     if (nextProject) {
       setSelectedProjectSlug(nextProject.slug);
     }
+
+    window.history.pushState(null, "", "/projects");
+    setRouteState({ pageId: "projects" });
+  }
+
+  function handleProjectSelect(project: Project) {
+    setSelectedProjectSlug(project.slug);
+    window.history.pushState(null, "", getProjectPath(project));
+    setRouteState({ pageId: "projects", projectSlug: project.slug });
   }
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-ivory text-ink">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-bone/90 backdrop-blur-xl">
         <nav className="mx-auto flex h-[72px] max-w-[1540px] items-center justify-between px-5 sm:px-7 lg:h-20 lg:px-10">
-          <a href="#home" className="group inline-flex flex-col" aria-label="Aramphabot Studio home">
+          <a
+            href="/"
+            className="group inline-flex flex-col"
+            aria-label="Aramphabot Studio home"
+            onClick={(event) => handleNavigation(event, "/")}
+          >
             <span className="font-serif text-[1.72rem] leading-none text-ink transition group-hover:text-clay">
               Aramphabot
             </span>
@@ -86,7 +284,13 @@ function App() {
             {navigation.map((item) => (
               <a
                 key={item.href}
-                href={`#${item.href === "/" ? "home" : item.href.slice(1)}`}
+                href={item.href}
+                aria-current={
+                  routeState.pageId === getRouteStateFromPath(item.href).pageId
+                    ? "page"
+                    : undefined
+                }
+                onClick={(event) => handleNavigation(event, item.href)}
                 className="nav-link py-3 transition hover:text-ink"
               >
                 {item.label}
@@ -95,7 +299,8 @@ function App() {
           </div>
 
           <a
-            href="#contact"
+            href="/contact"
+            onClick={(event) => handleNavigation(event, "/contact")}
             className="hidden items-center gap-3 border border-ink/25 px-5 py-3 text-[11px] uppercase tracking-[0.22em] transition duration-300 hover:border-ink hover:bg-ink hover:text-bone lg:inline-flex"
           >
             Discuss
@@ -119,9 +324,9 @@ function App() {
               {navigation.map((item) => (
                 <a
                   key={item.href}
-                  href={`#${item.href === "/" ? "home" : item.href.slice(1)}`}
+                  href={item.href}
                   className="border-b border-ink/10 py-4 text-charcoal transition hover:text-ink"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(event) => handleNavigation(event, item.href)}
                 >
                   {item.label}
                 </a>
@@ -132,10 +337,14 @@ function App() {
       </header>
 
       <main>
-        <section id="home" className="relative min-h-[100svh] overflow-hidden pt-[72px] lg:pt-20">
+        <section
+          id="home"
+          aria-labelledby="home-heading"
+          className="relative min-h-[100svh] overflow-hidden pt-[72px] lg:pt-20"
+        >
           <img
             src="/images/architecture-hero.jpg"
-            alt="Warm architectural planes used as an editorial placeholder visual"
+            alt="Warm architectural planes representing Aramphabot Studio architecture and interior design in Bangkok"
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,27,22,0.86),rgba(31,27,22,0.38)_52%,rgba(244,239,228,0.05))]" />
@@ -146,7 +355,10 @@ function App() {
               <p className="mb-6 max-w-[18rem] text-[11px] uppercase leading-6 tracking-[0.24em] text-bone/78 sm:max-w-none sm:tracking-[0.32em]">
                 Bangkok architecture and interior design studio
               </p>
-              <h1 className="max-w-[21.5rem] font-serif text-[3rem] leading-[0.98] sm:max-w-[44rem] sm:text-7xl md:text-8xl xl:max-w-5xl xl:text-[7.6rem]">
+              <h1
+                id="home-heading"
+                className="max-w-[21.5rem] font-serif text-[3rem] leading-[0.98] sm:max-w-[44rem] sm:text-7xl md:text-8xl xl:max-w-5xl xl:text-[7.6rem]"
+              >
                 {siteConfig.tagline}
               </h1>
               <p className="mt-7 max-w-[20.5rem] text-base leading-7 text-bone/82 sm:max-w-xl sm:text-lg sm:leading-8 md:max-w-2xl md:text-xl">
@@ -250,7 +462,7 @@ function App() {
                 project={project}
                 featured={index === 0 && activeCategory === "All"}
                 selected={selectedProject.slug === project.slug}
-                onSelect={() => setSelectedProjectSlug(project.slug)}
+                onSelect={() => handleProjectSelect(project)}
               />
             ))}
           </div>
@@ -261,7 +473,7 @@ function App() {
         <Section
           id="services"
           eyebrow="Services"
-          title="Design services for buildings, interiors, and spatial experience."
+          title="Design services for architecture, interiors, hospitality, and spatial experience in Thailand."
         >
           <div className="grid border-t border-ink/15 md:grid-cols-2 xl:grid-cols-3">
             {services.map((service) => (
@@ -359,11 +571,18 @@ function App() {
           </div>
         </Section>
 
-        <section id="contact" className="bg-ink px-5 py-24 text-bone sm:px-7 lg:px-10 lg:py-32">
+        <section
+          id="contact"
+          aria-labelledby="contact-heading"
+          className="bg-ink px-5 py-24 text-bone sm:px-7 lg:px-10 lg:py-32"
+        >
           <div className="mx-auto grid max-w-[1540px] gap-14 lg:grid-cols-[0.85fr_1.15fr]">
             <div className="max-w-2xl">
               <p className="text-[11px] uppercase tracking-[0.3em] text-bone/50">Contact</p>
-              <h2 className="mt-6 font-serif text-[2.7rem] leading-[1.02] sm:text-6xl lg:text-7xl">
+              <h2
+                id="contact-heading"
+                className="mt-6 font-serif text-[2.7rem] leading-[1.02] sm:text-6xl lg:text-7xl"
+              >
                 Start with a site, a story, and the atmosphere people should remember.
               </h2>
               <div className="mt-10 space-y-5 text-bone/68">
@@ -424,7 +643,8 @@ function App() {
             case studies remain placeholders until owner-approved material is supplied.
           </p>
           <a
-            href="#home"
+            href="/"
+            onClick={(event) => handleNavigation(event, "/")}
             className="justify-self-start text-[11px] uppercase tracking-[0.2em] transition hover:text-bone md:justify-self-end"
           >
             Back to top
@@ -448,12 +668,21 @@ function Section({
   children: ReactNode;
   className?: string;
 }) {
+  const headingId = `${id}-heading`;
+
   return (
-    <section id={id} className={`px-5 py-24 sm:px-7 lg:px-10 lg:py-32 ${className}`}>
+    <section
+      id={id}
+      aria-labelledby={headingId}
+      className={`px-5 py-24 sm:px-7 lg:px-10 lg:py-32 ${className}`}
+    >
       <div className="mx-auto max-w-[1540px]">
         <div className="mb-12 grid gap-7 border-t border-ink/15 pt-7 lg:mb-16 lg:grid-cols-[0.32fr_0.68fr]">
           <p className="text-[11px] uppercase tracking-[0.28em] text-taupe">{eyebrow}</p>
-          <h2 className="max-w-5xl font-serif text-[2.65rem] leading-[1.02] text-ink sm:text-6xl lg:text-7xl">
+          <h2
+            id={headingId}
+            className="max-w-5xl font-serif text-[2.65rem] leading-[1.02] text-ink sm:text-6xl lg:text-7xl"
+          >
             {title}
           </h2>
         </div>
@@ -511,7 +740,11 @@ function ProjectCard({
 
 function ProjectDetail({ project }: { project: Project }) {
   return (
-    <article className="mt-20 border-t border-ink/15 pt-8 lg:mt-28">
+    <article
+      id="project-detail"
+      aria-labelledby="project-detail-heading"
+      className="mt-20 border-t border-ink/15 pt-8 lg:mt-28"
+    >
       <div className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
         <div className="image-frame aspect-[4/5] bg-stone lg:sticky lg:top-28 lg:aspect-[5/6]">
           <ProjectImage
@@ -524,7 +757,10 @@ function ProjectDetail({ project }: { project: Project }) {
           <p className="text-[11px] uppercase tracking-[0.22em] text-clay">
             Selected template / {project.type}
           </p>
-          <h3 className="mt-5 font-serif text-[3rem] leading-[0.98] sm:text-6xl lg:text-7xl">
+          <h3
+            id="project-detail-heading"
+            className="mt-5 font-serif text-[3rem] leading-[0.98] sm:text-6xl lg:text-7xl"
+          >
             {project.title}
           </h3>
           <p className="mt-7 max-w-2xl text-xl leading-9 text-charcoal/75">{project.concept}</p>

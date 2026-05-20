@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aramphabot-studio.local/sitemap.xml

@@ -15,8 +15,8 @@ export const journalPosts: JournalPost[] = [
     excerpt:
       "Arrival, pause, reveal, intimacy, and service movement shape how a guest remembers a place.",
     image: image(
-      "/images/hospitality.svg",
-      "Placeholder hospitality atmosphere with layered seating"
+      "/images/journal-hospitality.jpg",
+      "Hospitality design Thailand journal placeholder with layered seating and guest atmosphere"
     ),
   },
   {
@@ -28,8 +28,8 @@ export const journalPosts: JournalPost[] = [
     excerpt:
       "Architecture in Bangkok and Thailand asks for shade, breeze, tactility, and an attentive relationship with site.",
     image: image(
-      "/images/context.svg",
-      "Placeholder facade composition with patterned light"
+      "/images/journal-context.jpg",
+      "Architecture firm Thailand journal placeholder showing facade rhythm, shade, and patterned light"
     ),
   },
   {
@@ -41,8 +41,8 @@ export const journalPosts: JournalPost[] = [
     excerpt:
       "Stone, timber, plaster, metal, and fabric hold emotional temperature when they are composed with restraint.",
     image: image(
-      "/images/material.svg",
-      "Placeholder material study with warm light"
+      "/images/journal-material.jpg",
+      "Interior design studio Bangkok journal placeholder with warm material study and restrained light"
     ),
   },
   {
@@ -53,6 +53,9 @@ export const journalPosts: JournalPost[] = [
     readTime: "4 min read",
     excerpt:
       "A strong concept becomes valuable when it guides sequence, detail, buildability, and how people remember a place.",
-    image: image("/images/context.svg", "Placeholder architectural light study"),
+    image: image(
+      "/images/gallery-light.jpg",
+      "Architecture concept journal placeholder with light, proportion, and spatial sequence"
+    ),
   },
 ];

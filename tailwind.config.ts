@@ -8,16 +8,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ivory: "#f5f1e8",
-        bone: "#fbfaf6",
-        ink: "#1e1b18",
-        charcoal: "#2c2a25",
-        stone: "#d9d1c2",
-        linen: "#ebe4d7",
-        taupe: "#8b7f70",
-        clay: "#a36f55",
-        moss: "#5d6756",
-        umber: "#5f4434",
+        ivory: "#f4efe4",
+        bone: "#fbf8f1",
+        ink: "#1f1b16",
+        charcoal: "#29241e",
+        stone: "#d8cebd",
+        linen: "#e9dfcf",
+        taupe: "#817366",
+        clay: "#9a6a4e",
+        moss: "#58624f",
+        umber: "#594132",
+        bronze: "#b28a68",
+        smoke: "#6b6962",
       },
       fontFamily: {
         sans: [
