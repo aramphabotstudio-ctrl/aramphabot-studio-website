@@ -4,7 +4,15 @@ export type ProjectCategory =
   | "Commercial"
   | "Interior"
   | "Restaurant"
+  | "Commercial Interior"
   | "Concept";
+
+export type ProjectStatus =
+  | "Content placeholder"
+  | "Concept"
+  | "In progress"
+  | "Completed"
+  | "To be confirmed";
 
 export type ImageAsset = {
   src: string;
@@ -16,7 +24,7 @@ export type Project = {
   title: string;
   location: string;
   year: string;
-  status: string;
+  status: ProjectStatus;
   type: ProjectCategory;
   scope: string;
   area: string;

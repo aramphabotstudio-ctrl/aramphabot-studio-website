@@ -1,19 +1,43 @@
-import type { Project } from "@/types/content";
+import type { ImageAsset, Project, ProjectCategory } from "@/types/content";
 
-const image = (src: string, alt: string) => ({
+/*
+  Aramphabot Studio project data
+  --------------------------------
+  This is the only file the studio owner needs to edit for project content.
+
+  How to add a project:
+  1. Copy one full object inside the projects array.
+  2. Paste it below the existing projects.
+  3. Change the slug, title, location, year, status, type, scope, area, and text.
+  4. Add real images to public/images/projects/project-slug/.
+  5. Replace coverImage and galleryImages with paths such as:
+     /images/projects/project-slug/cover.jpg
+     /images/projects/project-slug/01.jpg
+  6. Keep placeholder: true until all project information and imagery are verified.
+
+  How to remove a project:
+  - Delete the full object from the opening { to the closing }, including the comma.
+
+  Important:
+  - Do not add fake clients, fake awards, fake completion years, or unapproved claims.
+  - Use "To be confirmed" when a field is not yet verified.
+  - If an image path is empty or wrong, the website will show the fallback image.
+*/
+
+const image = (src: string, alt: string): ImageAsset => ({
   src,
   alt,
 });
 
-// Project editing guide:
-// 1. Copy one complete project object.
-// 2. Change slug, title, location, year, status, type, scope, area, and copy.
-// 3. Replace coverImage and galleryImages with real photos in public/images/projects/[slug]/.
-// 4. Keep placeholder: true until the project information and imagery are verified.
+export const projectImageFallback = image(
+  "/images/architecture-hero.jpg",
+  "Warm abstract architectural placeholder image"
+);
+
 export const projects: Project[] = [
   {
-    slug: "hillside-boutique-hotel",
-    title: "Hillside Boutique Hotel",
+    slug: "boutique-hotel",
+    title: "Boutique Hotel",
     location: "Phuket, Thailand",
     year: "To be confirmed",
     status: "Content placeholder",
@@ -21,35 +45,35 @@ export const projects: Project[] = [
     scope: "Architecture and interior design",
     area: "To be confirmed",
     shortDescription:
-      "A boutique hospitality project shaped by hillside views, arrival sequence, and quiet luxury atmosphere.",
+      "A boutique hospitality placeholder shaped by arrival sequence, hillside views, and a quiet luxury atmosphere.",
     concept:
-      "Architecture as a quiet transition between landscape, guest memory, and the emotional rhythm of arrival.",
+      "Architecture as a calm transition between landscape, guest memory, and the emotional rhythm of arrival.",
     designNarrative: [
       "Use this placeholder page for a boutique hotel or resort project once confirmed photography, site information, project area, and narrative are available.",
-      "The page is structured around concept, design narrative, key moves, material palette, and gallery imagery so the studio can replace the content without changing the template.",
+      "The page is structured around concept, design narrative, key moves, material palette, and gallery imagery so the studio can replace content without changing the template.",
     ],
     keyDesignMoves: [
       "Layered arrival sequence",
-      "Framed hillside views",
+      "Framed landscape views",
       "Shaded guest thresholds",
       "Warm material transitions",
     ],
     materials: ["Limestone", "Textured plaster", "Timber", "Muted bronze metal"],
     coverImage: image(
-      "/images/hospitality.svg",
-      "Abstract boutique hotel placeholder with layered warm materials"
+      "/images/hospitality.jpg",
+      "Boutique hotel placeholder with layered warm materials"
     ),
     galleryImages: [
-      image("/images/context.svg", "Placeholder image of light and architectural planes"),
-      image("/images/material.svg", "Placeholder image of material-toned spatial composition"),
-      image("/images/hospitality.svg", "Placeholder image of hospitality lounge atmosphere"),
+      image("/images/gallery-light.jpg", "Placeholder image of light and architectural planes"),
+      image("/images/gallery-material.jpg", "Placeholder image of material-toned spatial composition"),
+      image("/images/gallery-lounge.jpg", "Placeholder image of hospitality lounge atmosphere"),
     ],
     featured: true,
     placeholder: true,
   },
   {
-    slug: "courtyard-pool-villa",
-    title: "Courtyard Pool Villa",
+    slug: "pool-villa",
+    title: "Pool Villa",
     location: "Southern Thailand",
     year: "To be confirmed",
     status: "Content placeholder",
@@ -57,7 +81,7 @@ export const projects: Project[] = [
     scope: "Architecture and interior design",
     area: "To be confirmed",
     shortDescription:
-      "A private pool villa organized around a calm courtyard, filtered light, and warm material textures.",
+      "A private villa placeholder organized around water, privacy, filtered light, and warm material textures.",
     concept:
       "A domestic retreat shaped by privacy, courtyard air, water, and the slow sequence of daily rituals.",
     designNarrative: [
@@ -72,20 +96,20 @@ export const projects: Project[] = [
     ],
     materials: ["Timber", "Limestone", "Textured plaster", "Soft neutral fabric"],
     coverImage: image(
-      "/images/residential.svg",
-      "Abstract pool villa placeholder with warm light planes"
+      "/images/residence.jpg",
+      "Pool villa placeholder with warm light planes"
     ),
     galleryImages: [
-      image("/images/interior-warm.svg", "Placeholder image of warm interior atmosphere"),
-      image("/images/material.svg", "Placeholder image of warm material detail"),
-      image("/images/context.svg", "Placeholder image of soft light and spatial sequence"),
+      image("/images/home-interior.jpg", "Placeholder image of warm interior atmosphere"),
+      image("/images/gallery-material.jpg", "Placeholder image of warm material detail"),
+      image("/images/about-interior.jpg", "Placeholder image of soft light and spatial sequence"),
     ],
     featured: true,
     placeholder: true,
   },
   {
-    slug: "urban-cafe-interior",
-    title: "Urban Cafe Interior",
+    slug: "cafe",
+    title: "Cafe",
     location: "Bangkok, Thailand",
     year: "To be confirmed",
     status: "Content placeholder",
@@ -93,7 +117,7 @@ export const projects: Project[] = [
     scope: "Interior design",
     area: "To be confirmed",
     shortDescription:
-      "A cafe interior designed around perception, movement, texture, and everyday rituals.",
+      "A cafe placeholder designed around movement, texture, service clarity, and everyday rituals.",
     concept:
       "An urban interior where material, counter rhythm, seating pockets, and light shape a memorable daily pause.",
     designNarrative: [
@@ -108,20 +132,20 @@ export const projects: Project[] = [
     ],
     materials: ["Stone", "Timber veneer", "Warm metal", "Textured wall finish"],
     coverImage: image(
-      "/images/commercial.svg",
-      "Abstract cafe interior placeholder with precise material contrast"
+      "/images/commercial.jpg",
+      "Cafe interior placeholder with precise material contrast"
     ),
     galleryImages: [
-      image("/images/commercial.svg", "Placeholder image of commercial interior composition"),
-      image("/images/material.svg", "Placeholder image of material-toned spatial composition"),
-      image("/images/context.svg", "Placeholder image of architectural facade lines"),
+      image("/images/services-interior.jpg", "Placeholder image of commercial interior composition"),
+      image("/images/gallery-material.jpg", "Placeholder image of material-toned spatial composition"),
+      image("/images/commercial.jpg", "Placeholder image of architectural facade lines"),
     ],
     featured: true,
     placeholder: true,
   },
   {
-    slug: "seaside-restaurant",
-    title: "Seaside Restaurant",
+    slug: "restaurant",
+    title: "Restaurant",
     location: "Eastern Thailand",
     year: "To be confirmed",
     status: "Content placeholder",
@@ -129,70 +153,80 @@ export const projects: Project[] = [
     scope: "Architecture and interior design",
     area: "To be confirmed",
     shortDescription:
-      "A restaurant concept that frames sea breeze, sunset light, and social gathering.",
+      "A restaurant placeholder that frames atmosphere, service flow, social gathering, and evening light.",
     concept:
       "A dining environment composed as a sequence of breeze, horizon, gathering, and warm evening memory.",
     designNarrative: [
-      "Use this placeholder page for restaurant or seaside hospitality work once official visuals and program details are ready.",
+      "Use this placeholder page for restaurant or hospitality work once official visuals and program details are ready.",
       "The template allows the studio to describe guest movement, service clarity, atmosphere, and material logic in one refined project story.",
     ],
     keyDesignMoves: [
-      "Framed horizon views",
+      "Framed view moments",
       "Breeze-led seating orientation",
       "Layered roof and shade",
       "Evening light material palette",
     ],
     materials: ["Timber", "Stone aggregate", "Bronze-toned metal", "Lime plaster"],
     coverImage: image(
-      "/images/hospitality.svg",
-      "Abstract restaurant placeholder with layered hospitality atmosphere"
+      "/images/journal-hospitality.jpg",
+      "Restaurant placeholder with layered hospitality atmosphere"
     ),
     galleryImages: [
-      image("/images/hospitality.svg", "Placeholder image of hospitality lounge atmosphere"),
-      image("/images/context.svg", "Placeholder image of light and architectural planes"),
-      image("/images/material.svg", "Placeholder image of warm material palette"),
+      image("/images/hospitality.jpg", "Placeholder image of hospitality lounge atmosphere"),
+      image("/images/gallery-light.jpg", "Placeholder image of light and architectural planes"),
+      image("/images/journal-material.jpg", "Placeholder image of warm material palette"),
     ],
     placeholder: true,
   },
   {
-    slug: "compact-premium-apartment",
-    title: "Compact Premium Apartment",
-    location: "Phuket, Thailand",
+    slug: "commercial-interior",
+    title: "Commercial Interior",
+    location: "Bangkok, Thailand",
     year: "To be confirmed",
     status: "Content placeholder",
-    type: "Concept",
-    scope: "Feasibility, concept strategy, and architecture",
+    type: "Commercial Interior",
+    scope: "Interior design and spatial experience",
     area: "To be confirmed",
     shortDescription:
-      "A compact apartment development study focused on livability, operational efficiency, and market positioning.",
+      "A commercial interior placeholder for workplace, retail, showroom, or mixed-use interior environments.",
     concept:
-      "A feasibility-led residential concept balancing efficient planning, calm shared spaces, and premium everyday experience.",
+      "A composed interior system where circulation, brand touchpoints, material restraint, and operational clarity work together.",
     designNarrative: [
-      "Use this placeholder page for rental apartment, residential development, or feasibility work once verified project data is approved.",
-      "The content keeps development strategy clear without claiming unverified performance, clients, or commercial outcomes.",
+      "Use this placeholder page for verified commercial interior work once the project owner approves photography, location, scope, and project story.",
+      "The content supports commercial clarity while avoiding unverified performance claims, client names, or awards.",
     ],
     keyDesignMoves: [
-      "Efficient unit planning",
-      "Shared threshold experience",
-      "Compact luxury material cues",
-      "Operational clarity from concept stage",
+      "Clear customer or user journey",
+      "Flexible commercial planning",
+      "Material palette with quiet identity",
+      "Lighting and threshold hierarchy",
     ],
     materials: ["Warm gray render", "Stone tile", "Timber-look finish", "Bronze metal"],
     coverImage: image(
-      "/images/development.svg",
-      "Abstract residential development placeholder with textured planes"
+      "/images/workplace.jpg",
+      "Commercial interior placeholder with layered work-focused atmosphere"
     ),
     galleryImages: [
-      image("/images/development.svg", "Placeholder image of development planning atmosphere"),
-      image("/images/interior-warm.svg", "Placeholder image of calm interior daylight"),
-      image("/images/architecture-hero.svg", "Placeholder image of layered geometric architecture"),
+      image("/images/workplace.jpg", "Placeholder image of workplace interior atmosphere"),
+      image("/images/services-interior.jpg", "Placeholder image of commercial material and light"),
+      image("/images/adaptive.jpg", "Placeholder image of flexible commercial planning"),
     ],
     placeholder: true,
   },
 ];
 
+export const projectCategories: Array<"All" | ProjectCategory> = [
+  "All",
+  ...Array.from(new Set(projects.map((project) => project.type))),
+];
+
 export const featuredProjects = projects.filter((project) => project.featured);
 
+export const projectsBySlug = projects.reduce<Record<string, Project>>((index, project) => {
+  index[project.slug] = project;
+  return index;
+}, {});
+
 export function getProjectBySlug(slug: string) {
-  return projects.find((project) => project.slug === slug);
+  return projectsBySlug[slug];
 }
