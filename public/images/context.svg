@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" role="img" aria-label="Context placeholder with facade rhythm and patterned light">
+  <rect width="1600" height="1100" fill="#ebe4d7"/>
+  <path d="M0 680 1600 560v540H0Z" fill="#5d6756" opacity=".64"/>
+  <path d="M260 0h110v1100H260Zm340 0h110v1100H600Zm340 0h110v1100H940Zm340 0h110v1100h-110Z" fill="#2c2a25" opacity=".52"/>
+  <path d="M80 255 1520 145" stroke="#a36f55" stroke-width="5" opacity=".54"/>
+  <path d="M120 925 1410 780" stroke="#fbfaf6" stroke-width="4" opacity=".6"/>
+</svg>

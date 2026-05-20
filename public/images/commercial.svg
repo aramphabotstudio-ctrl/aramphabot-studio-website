@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1500" role="img" aria-label="Commercial interior placeholder with precise material contrast">
+  <rect width="1500" height="1500" fill="#d9d1c2"/>
+  <path d="M0 880 1500 660v840H0Z" fill="#1e1b18" opacity=".76"/>
+  <path d="M250 0h240v1500H250Z" fill="#a36f55" opacity=".58"/>
+  <path d="M790 80h420v1160H790Z" fill="#fbfaf6" opacity=".66"/>
+  <path d="M90 360 1390 210" stroke="#5f4434" stroke-width="7" opacity=".6"/>
+  <path d="M130 1190 1350 940" stroke="#f5f1e8" stroke-width="5" opacity=".56"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1500" role="img" aria-label="Development concept placeholder with compact architectural massing">
+  <rect width="1500" height="1500" fill="#ebe4d7"/>
+  <path d="M0 880 1500 720v780H0Z" fill="#5d6756" opacity=".62"/>
+  <path d="M260 120h220v1180H260Z" fill="#2c2a25" opacity=".7"/>
+  <path d="M620 280h210v900H620Z" fill="#a36f55" opacity=".58"/>
+  <path d="M960 70h310v1250H960Z" fill="#fbfaf6" opacity=".68"/>
+  <path d="M80 380 1380 230" stroke="#5f4434" stroke-width="7" opacity=".52"/>
+</svg>

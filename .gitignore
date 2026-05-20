@@ -1,0 +1,14 @@
+.next
+.tools
+github-upload
+node_modules
+out
+dist
+.env*.local
+*.log
+*.zip
+*.tsbuildinfo
+verification
+verification-vite
+.vercel
+tree-elements.json

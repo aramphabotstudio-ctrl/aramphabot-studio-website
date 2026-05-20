@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" role="img" aria-label="Material placeholder with warm stone timber and bronze tones">
+  <rect width="1600" height="1100" fill="#fbfaf6"/>
+  <path d="M0 670h1600v430H0Z" fill="#c7b49b"/>
+  <path d="M0 0h520v1100H0Z" fill="#ebe4d7"/>
+  <path d="M740 0h360v1100H740Z" fill="#8b7f70" opacity=".75"/>
+  <path d="M1240 0h360v1100h-360Z" fill="#2c2a25" opacity=".82"/>
+  <path d="M90 310 1460 150" stroke="#a36f55" stroke-width="6" opacity=".55"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1200" role="img" aria-label="Architectural placeholder with warm planes and shadow">
+  <rect width="1800" height="1200" fill="#ebe4d7"/>
+  <path d="M0 760 1800 610v590H0Z" fill="#2c2a25" opacity=".78"/>
+  <path d="M420 0h160v1200H420Z" fill="#5d6756" opacity=".55"/>
+  <path d="M1040 90h300v980h-300Z" fill="#fbfaf6" opacity=".66"/>
+  <path d="M70 325 1680 170" stroke="#5f4434" stroke-width="8" opacity=".5"/>
+  <path d="M110 1000 1600 790" stroke="#f5f1e8" stroke-width="5" opacity=".52"/>
+</svg>

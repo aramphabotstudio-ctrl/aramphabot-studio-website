@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" role="img" aria-label="Warm interior placeholder with material surfaces">
+  <rect width="1600" height="1100" fill="#f5f1e8"/>
+  <path d="M0 680h1600v420H0Z" fill="#8b7f70" opacity=".65"/>
+  <path d="M180 0h360v1100H180Z" fill="#c7b49b" opacity=".62"/>
+  <path d="M760 120h520v820H760Z" fill="#2c2a25" opacity=".72"/>
+  <path d="M210 260 1410 160" stroke="#a36f55" stroke-width="6" opacity=".5"/>
+  <path d="M100 875 1340 720" stroke="#fbfaf6" stroke-width="4" opacity=".62"/>
+</svg>
