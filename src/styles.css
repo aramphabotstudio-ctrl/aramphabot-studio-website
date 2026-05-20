@@ -36,6 +36,28 @@ body {
   letter-spacing: 0;
 }
 
+html[lang="th"] body {
+  font-family: "Noto Sans Thai", Inter, "Avenir Next", "Segoe UI", system-ui, sans-serif;
+}
+
+html[lang="th"] .font-serif {
+  font-family: "Noto Sans Thai", Inter, "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  line-height: 1.14;
+}
+
+html[lang="th"] p,
+html[lang="th"] li,
+html[lang="th"] dd,
+html[lang="th"] input,
+html[lang="th"] textarea {
+  line-height: 1.78;
+}
+
+html[lang="th"] .thai-copy {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
 ::selection {
   background: #9a6a4e;
   color: #fbfaf6;

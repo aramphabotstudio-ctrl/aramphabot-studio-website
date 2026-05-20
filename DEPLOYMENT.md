@@ -79,6 +79,14 @@ Replace `https://aramphabot-studio.local` with the final production domain.
 
 Most content is centralized in `src/data`.
 
+Language copy and labels:
+
+```text
+src/data/i18n.ts
+```
+
+English is the default language. Thai content is served with `?lang=th`, and the language switcher updates the URL, page metadata, and structured data at runtime.
+
 Project updates:
 
 ```text
@@ -101,6 +109,8 @@ src/data/services.ts
 src/data/process.ts
 src/data/journal.ts
 ```
+
+When changing English project, service, process, or journal content, update the matching Thai translation in `src/data/i18n.ts` so both languages stay aligned.
 
 Images:
 
