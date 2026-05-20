@@ -1,0 +1,64 @@
+You are a senior architecture editor, UI designer, and frontend engineer.
+
+Please upgrade the project detail pages so they feel like refined editorial architecture features.
+
+Read:
+- AGENTS.md
+- 06_reference_training/03_project_page_storytelling_rules.md
+- 06_reference_training/04_visual_ui_rules.md
+- 06_reference_training/05_quality_checklist.md
+
+Goal:
+Each project detail page should tell a clear architectural story, not only show images.
+
+Required page structure:
+1. Hero image
+2. Project title and metadata
+3. One-sentence concept
+4. Project overview
+5. Site and context
+6. Design narrative
+7. Spatial sequence
+8. Key design moves
+9. Material and atmosphere
+10. Client value
+11. Gallery
+12. Related projects
+13. Contact CTA
+
+Project metadata should include:
+- Location
+- Year
+- Status
+- Type
+- Scope
+- Area
+
+UI requirements:
+- Large image-led layout
+- Calm editorial spacing
+- Refined typography
+- Clear section hierarchy
+- Mobile-friendly presentation
+- Elegant metadata layout
+- No generic card-heavy layout
+
+Content requirements:
+- Use placeholder content only when real project content is unavailable.
+- Clearly mark placeholder content where necessary.
+- Do not invent fake awards, fake clients, or fake project facts.
+- Keep writing professional, architectural, and restrained.
+
+Technical requirements:
+- Keep project data centralized.
+- Use TypeScript types.
+- Avoid hard-coding repeated project content inside components if avoidable.
+- Run build and fix all errors.
+- Run lint if available and fix all errors.
+
+After finishing, provide:
+- What was upgraded
+- Files changed
+- How project detail content is structured
+- Build result
+- Remaining placeholders

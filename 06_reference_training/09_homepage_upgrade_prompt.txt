@@ -1,0 +1,52 @@
+You are a world-class architecture website designer and senior frontend engineer.
+
+Please upgrade only the Home page of the Aramphabot Studio website.
+
+Read:
+- AGENTS.md
+- 01_brief/
+- 06_reference_training/
+
+Target identity:
+A boutique architecture studio with global hospitality sensibility, quiet luxury, contextual design, and spatial storytelling.
+
+Homepage goals:
+1. Create a strong first impression.
+2. Make the website feel like a premium architecture publication.
+3. Communicate Aramphabot Studio’s design philosophy quickly.
+4. Show selected projects with strong visual presence.
+5. Guide serious clients toward inquiry.
+
+Required homepage sections:
+1. Hero
+2. Studio statement
+3. Featured projects
+4. Design philosophy
+5. Services preview
+6. Process preview
+7. Journal preview
+8. Contact CTA
+
+Visual requirements:
+- Large hero composition
+- Calm editorial spacing
+- Warm minimal palette
+- Refined typography
+- Image-led project presentation
+- Quiet buttons and links
+- Beautiful mobile layout
+
+Content requirements:
+- Avoid exaggerated claims.
+- Avoid fake awards.
+- Avoid generic sales language.
+- Keep the tone poetic but clear.
+
+Run build and fix all errors.
+Run lint if available and fix all errors.
+
+After finishing, provide:
+- Summary of homepage improvements
+- Files changed
+- Checks performed
+- Remaining placeholders

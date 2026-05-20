@@ -1,0 +1,88 @@
+You are a senior frontend developer, UI designer, and digital brand strategist.
+
+Please read and apply all files inside:
+
+- AGENTS.md
+- 01_brief/
+- 06_reference_training/
+
+Goal:
+Upgrade the Aramphabot Studio website so that it fully matches the intended design character:
+
+60% K-Studio-inspired hospitality storytelling and contextual project structure
+20% Norm Architects-inspired calm minimalism, warm materiality, and quiet luxury
+10% PHTAA-inspired Thai contemporary narrative and local sensitivity
+10% Foster + Partners-inspired professional credibility and clear information architecture
+
+Important:
+Do not copy any reference website directly.
+Do not replicate layouts, text, branding, visual identity, or proprietary design.
+Use the references only as strategic principles.
+
+Please improve the website across:
+
+1. Homepage
+- Make the hero stronger and more editorial.
+- Improve the studio statement.
+- Make featured projects feel like architecture magazine features.
+- Add a calm design philosophy section.
+- Improve service preview and contact CTA.
+
+2. Projects page
+- Make the project archive more refined.
+- Improve filters.
+- Improve project card layout.
+- Make image treatment more premium.
+
+3. Project detail pages
+- Apply the project storytelling rules.
+- Structure each project like an editorial architecture feature.
+- Add sections for concept, site/context, spatial sequence, key design moves, material atmosphere, and client value.
+
+4. About page
+- Make the studio story stronger.
+- Express Aramphabot as a boutique architecture studio with global hospitality sensibility.
+- Avoid exaggeration.
+
+5. Services page
+- Make services clear for real clients.
+- Explain what each service means and who it is for.
+- Keep the tone premium and professional.
+
+6. Process page
+- Make the process easy to understand.
+- Use clear steps from discovery to site support.
+- Make it feel reassuring for clients.
+
+7. Journal page
+- Create or refine article previews that build design authority.
+- Use calm architectural topics.
+- Avoid generic blog styling.
+
+8. Contact page
+- Make the contact page suitable for serious project inquiries.
+- Add project-related inquiry fields if appropriate.
+- Make the CTA calm and professional.
+
+9. UI system
+- Improve spacing, typography, grid, project cards, buttons, footer, mobile layout, and visual hierarchy.
+- Use warm minimal quiet luxury direction.
+- Avoid generic template style.
+
+10. SEO and metadata
+- Improve metadata where needed.
+- Keep language natural.
+- Avoid keyword stuffing.
+
+11. Quality control
+- Use the checklist in 06_reference_training/05_quality_checklist.md.
+- Run build.
+- Run lint if available.
+- Fix all errors.
+
+After finishing, provide:
+- Summary of improvements
+- Files changed
+- Checks performed
+- Remaining placeholders
+- Recommended next steps

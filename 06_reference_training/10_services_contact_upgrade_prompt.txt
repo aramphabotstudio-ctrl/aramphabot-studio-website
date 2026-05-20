@@ -1,0 +1,61 @@
+You are a senior UX strategist, architecture brand consultant, and frontend engineer.
+
+Please upgrade the Services and Contact pages of the Aramphabot Studio website.
+
+Read:
+- AGENTS.md
+- 01_brief/
+- 06_reference_training/
+
+Goal:
+Make the Services and Contact pages clear, premium, trustworthy, and useful for real architecture/interior design clients.
+
+Services page requirements:
+1. Explain each service clearly.
+2. Show who each service is for.
+3. Explain what clients receive.
+4. Keep the tone calm, premium, and professional.
+5. Avoid generic service-card template feeling.
+
+Core services:
+- Architecture Design
+- Interior Design
+- Hospitality Design
+- Commercial Design
+- Residential Design
+- Feasibility & Concept Strategy
+- Spatial Brand Experience
+- Visualization Direction
+
+Contact page requirements:
+1. Make the inquiry flow suitable for serious clients.
+2. Include fields for:
+   - Name
+   - Email
+   - Phone
+   - Company / Organization
+   - Project type
+   - Project location
+   - Approximate project size
+   - Timeline
+   - Budget range
+   - Message
+3. Add a calm introductory message.
+4. Add a note about what information clients should prepare.
+5. If no real backend is configured, make a safe placeholder form and document how to connect it later.
+
+UI requirements:
+- Premium editorial spacing
+- Warm minimal visual tone
+- Clear information hierarchy
+- Good mobile layout
+- Accessible form labels
+
+Run build and fix all errors.
+Run lint if available and fix all errors.
+
+After finishing, provide:
+- Summary of improvements
+- Files changed
+- Contact form behavior
+- Remaining manual setup needed

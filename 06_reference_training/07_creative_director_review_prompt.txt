@@ -1,0 +1,45 @@
+Act as a world-class architecture website creative director and senior frontend engineer.
+
+Review the current Aramphabot Studio website against this target identity:
+
+“A boutique architecture studio with global hospitality sensibility, quiet luxury, contextual design, and spatial storytelling.”
+
+Use this reference mix:
+- 60% K-Studio: hospitality storytelling and contextual project structure
+- 20% Norm Architects: calm minimalism, material atmosphere, quiet luxury
+- 10% PHTAA: Thai contemporary local narrative
+- 10% Foster + Partners: professional credibility and clear information architecture
+
+Do not copy any reference website.
+
+Evaluate:
+1. Does the homepage create a strong first impression?
+2. Do projects feel like architectural stories?
+3. Does the typography feel premium?
+4. Is the spacing calm and editorial?
+5. Does the website avoid generic template feeling?
+6. Is the mobile version beautiful?
+7. Is the service page clear for real clients?
+8. Is the contact page strong enough to generate inquiries?
+9. Is the writing refined and not exaggerated?
+10. Does the entire site feel consistent?
+
+Score each item from 1–10.
+
+Then improve the website directly until the average score is at least 9/10.
+
+Constraints:
+- Do not add fake awards.
+- Do not invent client names.
+- Do not copy any reference website directly.
+- Keep Aramphabot Studio’s own identity.
+
+Run build and lint if available. Fix all errors.
+
+After finishing, provide:
+- Score before improvement
+- Score after improvement
+- What was improved
+- Files changed
+- Build/lint result
+- Remaining placeholders
