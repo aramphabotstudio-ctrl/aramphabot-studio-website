@@ -440,24 +440,24 @@ function App() {
   }
 
   return (
-    <div className={`min-h-screen overflow-x-hidden bg-ivory text-ink ${language === "th" ? "thai-copy" : ""}`} lang={htmlLanguage}>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-bone/90 backdrop-blur-xl">
-        <nav className="mx-auto flex h-[72px] max-w-[1540px] items-center justify-between px-5 sm:px-7 lg:h-20 lg:px-10">
+    <div className={`min-h-screen overflow-x-hidden bg-ivory text-ink selection:bg-clay selection:text-bone ${language === "th" ? "thai-copy" : ""}`} lang={htmlLanguage}>
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-bone/85 backdrop-blur-xl">
+        <nav className="mx-auto flex h-[68px] max-w-[1540px] items-center justify-between px-5 sm:px-7 lg:h-[76px] lg:px-10">
           <a
             href={getLocalizedPath("/", language)}
             className="group inline-flex flex-col"
             aria-label={content.header.homeLabel}
             onClick={(event) => handleNavigation(event, "/")}
           >
-            <span className="font-serif text-[1.72rem] leading-none text-ink transition group-hover:text-clay">
+            <span className="font-serif text-[1.62rem] leading-none text-ink transition group-hover:text-clay md:text-[1.78rem]">
               Aramphabot
             </span>
-            <span className="mt-1 text-[10px] uppercase tracking-[0.28em] text-taupe">
+            <span className="mt-1 text-[10px] uppercase tracking-[0.34em] text-taupe">
               Studio Co., Ltd.
             </span>
           </a>
 
-          <div className="hidden items-center gap-7 text-[11px] uppercase tracking-[0.22em] text-charcoal/68 xl:flex">
+          <div className="hidden items-center gap-6 text-[10px] uppercase tracking-[0.24em] text-charcoal/62 xl:flex">
             {navigation.map((item) => {
               const navigationKey = getNavigationKey(item.href);
 
@@ -496,7 +496,7 @@ function App() {
           </div>
 
           <button
-            className="inline-flex size-11 items-center justify-center border border-ink/35 bg-bone text-ink shadow-soft transition hover:border-ink lg:hidden"
+            className="inline-flex size-11 items-center justify-center border border-ink bg-ink text-bone shadow-soft transition hover:bg-clay lg:hidden"
             type="button"
             aria-label={content.header.toggleNavigation}
             aria-expanded={menuOpen}
@@ -543,7 +543,7 @@ function App() {
         <section
           id="home"
           aria-labelledby="home-heading"
-          className="relative min-h-[100svh] overflow-hidden pt-[72px] lg:pt-20"
+          className="relative min-h-[100svh] overflow-hidden pt-[68px] lg:pt-[76px]"
         >
           <img
             src="/images/architecture-hero.jpg"
@@ -553,27 +553,28 @@ function App() {
             decoding="async"
             fetchPriority="high"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,27,22,0.86),rgba(31,27,22,0.38)_52%,rgba(244,239,228,0.05))]" />
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ivory to-transparent" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,27,22,0.82),rgba(31,27,22,0.42)_48%,rgba(244,239,228,0.04))]" />
+          <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-ivory via-ivory/55 to-transparent" />
+          <div className="absolute bottom-0 left-0 top-[68px] hidden w-px bg-bone/25 lg:block xl:left-10 xl:top-[76px]" />
 
-          <div className="relative mx-auto grid min-h-[calc(100svh-72px)] max-w-[1540px] content-end gap-10 px-5 pb-9 sm:px-7 md:pb-14 lg:min-h-[calc(100svh-80px)] lg:px-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(22rem,0.55fr)]">
+          <div className="relative mx-auto grid min-h-[calc(100svh-68px)] max-w-[1540px] content-end gap-10 px-5 pb-8 sm:px-7 md:pb-12 lg:min-h-[calc(100svh-76px)] lg:px-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(22rem,0.55fr)]">
             <div className="min-w-0 max-w-5xl text-bone">
-              <p className="mb-6 max-w-[18rem] text-[11px] uppercase leading-6 tracking-[0.24em] text-bone/78 sm:max-w-none sm:tracking-[0.32em]">
+              <p className="editorial-kicker mb-6 max-w-[18rem] text-bone/76 sm:max-w-none">
                 {content.hero.eyebrow}
               </p>
               <h1
                 id="home-heading"
-                className="max-w-[21.5rem] font-serif text-[3rem] leading-[0.98] sm:max-w-[44rem] sm:text-7xl md:text-8xl xl:max-w-5xl xl:text-[7.6rem]"
+                className="max-w-[21.5rem] font-serif text-[3rem] font-medium leading-[0.98] sm:max-w-[45rem] sm:text-7xl md:text-8xl xl:max-w-5xl xl:text-[7.85rem]"
               >
                 {content.hero.title}
               </h1>
-              <p className="mt-7 max-w-[20.5rem] text-base leading-7 text-bone/82 sm:max-w-xl sm:text-lg sm:leading-8 md:max-w-2xl md:text-xl">
+              <p className="mt-7 max-w-[20.5rem] text-base leading-7 text-bone/82 sm:max-w-xl sm:text-lg sm:leading-8 md:max-w-2xl md:text-[1.35rem] md:leading-9">
                 {content.hero.description}
               </p>
             </div>
 
-            <div className="hidden self-end border-y border-bone/30 py-5 text-bone/80 xl:block">
-              <p className="mb-6 font-serif text-3xl leading-tight text-bone">
+            <div className="hidden self-end border-y border-bone/28 bg-ink/8 px-1 py-5 text-bone/80 xl:block">
+              <p className="mb-6 font-serif text-4xl leading-[1.04] text-bone">
                 {content.hero.statement}
               </p>
               <dl className="grid gap-5">
@@ -588,10 +589,10 @@ function App() {
           </div>
         </section>
 
-        <section className="border-y border-ink/10 bg-bone/80">
-          <div className="mx-auto grid max-w-[1540px] divide-y divide-ink/10 px-5 text-[11px] uppercase tracking-[0.18em] text-taupe sm:px-7 md:grid-cols-3 md:divide-x md:divide-y-0 lg:px-10">
+        <section className="border-y border-ink/10 bg-bone/72">
+          <div className="mx-auto grid max-w-[1540px] divide-y divide-ink/10 px-5 text-[10px] uppercase leading-6 tracking-[0.24em] text-taupe sm:px-7 md:grid-cols-3 md:divide-x md:divide-y-0 lg:px-10">
             {content.registryBar.map((item) => (
-              <p key={item} className="py-4 md:px-6 md:first:pl-0 md:last:pr-0">
+              <p key={item} className="py-4 md:px-8 md:first:pl-0 md:last:pr-0">
                 {item}
               </p>
             ))}
@@ -604,16 +605,16 @@ function App() {
           title={content.manifesto.title}
           className="bg-ivory"
         >
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
-            <div className="max-w-xl space-y-6 text-lg leading-8 text-charcoal/74">
+          <div className="grid gap-14 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)]">
+            <div className="architectural-rule max-w-xl space-y-7 pt-8 text-lg leading-8 text-charcoal/74">
               {content.manifesto.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
             <div className="grid border-t border-ink/15 md:grid-cols-3">
               {content.manifesto.principles.map(([label, value]) => (
-                <article key={label} className="border-b border-ink/15 py-7 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
-                  <p className="font-serif text-3xl leading-tight text-ink">{label}</p>
+                <article key={label} className="group border-b border-ink/15 py-8 transition duration-300 md:border-r md:px-7 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
+                  <p className="font-serif text-[2.55rem] font-medium leading-[0.96] text-ink transition duration-300 group-hover:text-clay">{label}</p>
                   <p className="mt-5 text-sm leading-7 text-charcoal/70">{value}</p>
                 </article>
               ))}
@@ -626,12 +627,12 @@ function App() {
           eyebrow={content.about.eyebrow}
           title={content.about.title}
         >
-          <div className="grid gap-14 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)]">
+          <div className="grid gap-14 lg:grid-cols-[minmax(0,0.76fr)_minmax(0,1.24fr)]">
             <div className="max-w-xl space-y-7 text-[1.05rem] leading-8 text-charcoal/75 md:text-lg">
               {content.about.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
-              <p className="border-l border-clay/70 pl-5 text-base leading-7 text-charcoal">
+              <p className="border-l border-clay/70 bg-bone/45 py-4 pl-5 pr-4 text-base leading-7 text-charcoal">
                 {content.about.verificationNote}
               </p>
             </div>
@@ -659,17 +660,17 @@ function App() {
           title={content.projects.title}
           className="bg-bone/55"
         >
-          <div className="mb-10 flex gap-2 overflow-x-auto border-y border-ink/10 py-3" aria-label={content.projects.categoriesLabel}>
+          <div className="mb-12 flex gap-2 overflow-x-auto border-y border-ink/10 py-3" aria-label={content.projects.categoriesLabel}>
             {projectCategories.map((category) => (
               <button
                 key={category}
                 type="button"
                 onClick={() => handleCategoryChange(category)}
                 aria-pressed={activeCategory === category}
-                className={`shrink-0 px-4 py-2 text-[11px] uppercase tracking-[0.18em] transition duration-300 ${
+                className={`shrink-0 px-4 py-2 text-[10px] uppercase tracking-[0.22em] transition duration-300 ${
                   activeCategory === category
                     ? "bg-ink text-bone"
-                    : "text-charcoal/70 hover:bg-linen hover:text-ink"
+                    : "text-charcoal/64 hover:bg-linen hover:text-ink"
                 }`}
               >
                 {getCategoryLabel(category, language)}
@@ -722,29 +723,36 @@ function App() {
           eyebrow={content.services.eyebrow}
           title={content.services.title}
         >
-          <div className="grid border-t border-ink/15 md:grid-cols-2 xl:grid-cols-3">
-            {services.map((service) => {
+          <div className="grid border-t border-ink/15 xl:grid-cols-2">
+            {services.map((service, index) => {
               const serviceCopy = getServiceCopy(service, language);
 
               return (
                 <article
                   key={service.title}
-                  className="group border-b border-ink/15 py-8 transition duration-300 hover:bg-bone md:px-7 md:odd:border-r xl:border-r xl:[&:nth-child(3n)]:border-r-0"
+                  className="group grid gap-6 border-b border-ink/15 py-9 transition duration-300 hover:bg-bone/60 md:grid-cols-[5rem_1fr] md:px-8 xl:odd:border-r"
                 >
-                  <Building2 className="text-clay transition duration-300 group-hover:translate-x-1" size={22} aria-hidden="true" />
-                  <h3 className="mt-7 font-serif text-[2rem] leading-none md:text-4xl">{serviceCopy.title}</h3>
-                  <p className="mt-5 leading-7 text-charcoal/72">{serviceCopy.summary}</p>
-                  <p className="mt-5 text-[11px] uppercase leading-6 tracking-[0.18em] text-taupe">
-                    {serviceCopy.clientType}
-                  </p>
-                  <ul className="mt-6 grid gap-3 border-t border-ink/10 pt-5 text-sm leading-6 text-charcoal/68">
-                    {serviceCopy.details.map((detail) => (
-                      <li key={detail} className="flex gap-3">
-                        <span className="mt-2 h-px w-5 shrink-0 bg-clay/70" aria-hidden="true" />
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="flex items-center justify-between border-b border-ink/10 pb-4 md:block md:border-b-0 md:pb-0">
+                    <p className="font-serif text-4xl leading-none text-clay/80">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <Building2 className="text-clay/75 transition duration-300 group-hover:translate-x-1 md:mt-8" size={22} aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-[2.25rem] font-medium leading-none md:text-[2.9rem]">{serviceCopy.title}</h3>
+                    <p className="mt-5 max-w-2xl text-lg leading-8 text-charcoal/74">{serviceCopy.summary}</p>
+                    <p className="mt-5 text-[10px] uppercase leading-6 tracking-[0.22em] text-taupe">
+                      {serviceCopy.clientType}
+                    </p>
+                    <ul className="mt-7 grid gap-3 border-t border-ink/10 pt-5 text-sm leading-6 text-charcoal/68 sm:grid-cols-2">
+                      {serviceCopy.details.map((detail) => (
+                        <li key={detail} className="flex gap-3">
+                          <span className="mt-2 h-px w-5 shrink-0 bg-clay/70" aria-hidden="true" />
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </article>
               );
             })}
@@ -931,22 +939,49 @@ function App() {
         </section>
       </main>
 
-      <footer className="bg-charcoal px-5 py-10 text-bone/68 sm:px-7 lg:px-10">
-        <div className="mx-auto grid max-w-[1540px] gap-8 border-t border-bone/20 pt-8 text-sm md:grid-cols-[0.8fr_1.2fr_0.8fr]">
+      <footer className="bg-charcoal px-5 py-14 text-bone/68 sm:px-7 lg:px-10 lg:py-18">
+        <div className="mx-auto grid max-w-[1540px] gap-10 border-t border-bone/20 pt-9 text-sm lg:grid-cols-[0.85fr_1.05fr_0.58fr]">
           <div>
-            <p className="font-serif text-2xl text-bone">Aramphabot</p>
-            <p className="mt-1 text-[10px] uppercase tracking-[0.28em]">Studio Co., Ltd.</p>
+            <p className="font-serif text-4xl leading-none text-bone">Aramphabot</p>
+            <p className="mt-3 text-[10px] uppercase tracking-[0.34em]">Studio Co., Ltd.</p>
+            <p className="mt-8 max-w-sm leading-7 text-bone/58">
+              {companyFacts.registeredOffice}
+            </p>
           </div>
-          <p className="max-w-xl leading-7">
-            {content.footer.note}
-          </p>
-          <a
-            href={getLocalizedPath("/", language)}
-            onClick={(event) => handleNavigation(event, "/")}
-            className="justify-self-start text-[11px] uppercase tracking-[0.2em] transition hover:text-bone md:justify-self-end"
-          >
-            {content.footer.backToTop}
-          </a>
+          <div>
+            <p className="max-w-xl leading-7 text-bone/64">
+              {content.footer.note}
+            </p>
+            <div className="mt-8 grid max-w-lg grid-cols-2 gap-x-8 gap-y-3 text-[10px] uppercase tracking-[0.22em] text-bone/48 sm:grid-cols-3">
+              {navigation.map((item) => {
+                const navigationKey = getNavigationKey(item.href);
+
+                return (
+                  <a
+                    key={item.href}
+                    href={getLocalizedPath(item.href, language)}
+                    onClick={(event) => handleNavigation(event, item.href)}
+                    className="transition hover:text-bone"
+                  >
+                    {content.navigation[navigationKey]}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+          <div className="grid content-start gap-5 lg:justify-items-end lg:text-right">
+            <p className="text-[10px] uppercase tracking-[0.24em] text-bone/42">
+              Bangkok / Thailand
+            </p>
+            <a
+              href={getLocalizedPath("/", language)}
+              onClick={(event) => handleNavigation(event, "/")}
+              className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.22em] transition hover:text-bone"
+            >
+              {content.footer.backToTop}
+              <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </footer>
     </div>
@@ -975,11 +1010,11 @@ function Section({
       className={`px-5 py-24 sm:px-7 lg:px-10 lg:py-32 ${className}`}
     >
       <div className="mx-auto max-w-[1540px]">
-        <div className="mb-12 grid gap-7 border-t border-ink/15 pt-7 lg:mb-16 lg:grid-cols-[0.32fr_0.68fr]">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-taupe">{eyebrow}</p>
+        <div className="mb-12 grid gap-7 border-t border-ink/15 pt-7 lg:mb-16 lg:grid-cols-[0.3fr_0.7fr]">
+          <p className="editorial-kicker text-taupe">{eyebrow}</p>
           <h2
             id={headingId}
-            className="max-w-5xl font-serif text-[2.65rem] leading-[1.02] text-ink sm:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-[2.65rem] font-medium leading-[1.02] text-ink sm:text-6xl lg:text-7xl"
           >
             {title}
           </h2>
@@ -1055,7 +1090,7 @@ function ProjectCard({
           selected ? "border-ink" : "border-ink/15 group-hover:border-clay"
         }`}
       >
-        <div className={`image-frame bg-stone ${featured ? "aspect-[16/10]" : "aspect-[4/5]"}`}>
+        <div className={`image-frame image-frame-subtle bg-stone ${featured ? "aspect-[16/9]" : "aspect-[4/5]"}`}>
           <ProjectImage
             image={project.coverImage}
             className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.045]"
@@ -1063,14 +1098,17 @@ function ProjectCard({
         </div>
         <div className="grid gap-5 pt-5 sm:grid-cols-[1fr_auto]">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-taupe">
-              {typeLabel} / {statusLabel}
+            <p className="text-[10px] uppercase leading-6 tracking-[0.22em] text-taupe">
+              {typeLabel} / {project.location}
             </p>
-            <h3 className="mt-3 font-serif text-[2.15rem] leading-none text-ink md:text-4xl">
+            <h3 className="mt-3 max-w-xl font-serif text-[2.25rem] font-medium leading-[0.96] text-ink transition duration-300 group-hover:text-clay md:text-[2.85rem]">
               {project.title}
             </h3>
+            <p className="mt-4 text-[10px] uppercase leading-6 tracking-[0.22em] text-charcoal/48">
+              {project.year} / {statusLabel}
+            </p>
           </div>
-          <p className="text-sm leading-7 text-charcoal/70 sm:max-w-xs">
+          <p className="max-w-md text-sm leading-7 text-charcoal/70 sm:max-w-xs">
             {project.shortDescription}
           </p>
         </div>
@@ -1109,7 +1147,7 @@ function ProjectDetail({
       className="mt-20 border-t border-ink/15 pt-8 lg:mt-28"
     >
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]">
-        <div className="image-frame aspect-[4/5] bg-stone lg:sticky lg:top-28 lg:aspect-[5/6]">
+        <div className="image-frame image-frame-subtle aspect-[4/5] bg-stone lg:sticky lg:top-28 lg:aspect-[5/6]">
           <ProjectImage
             image={project.coverImage}
             className="h-full w-full object-cover"
@@ -1117,12 +1155,12 @@ function ProjectDetail({
         </div>
 
         <div className="lg:pl-6">
-          <p className="text-[11px] uppercase tracking-[0.22em] text-clay">
+          <p className="editorial-kicker text-clay">
             {selectedTemplateLabel} / {typeLabel}
           </p>
           <h3
             id="project-detail-heading"
-            className="mt-5 font-serif text-[3rem] leading-[0.98] sm:text-6xl lg:text-7xl"
+            className="mt-5 font-serif text-[3rem] font-medium leading-[0.98] sm:text-6xl lg:text-7xl"
           >
             {project.title}
           </h3>
@@ -1155,10 +1193,10 @@ function ProjectDetail({
 
       <div className="mt-16 grid gap-12 lg:mt-24 lg:grid-cols-[0.34fr_0.66fr]">
         <div className="border-t border-ink/15 pt-5">
-          <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">{labels.overview}</p>
+          <p className="editorial-kicker text-taupe">{labels.overview}</p>
         </div>
         <div className="max-w-4xl">
-          <p className="font-serif text-3xl leading-tight text-ink md:text-5xl">
+          <p className="font-serif text-3xl font-medium leading-tight text-ink md:text-5xl">
             {project.overview}
           </p>
         </div>
@@ -1203,13 +1241,13 @@ function ProjectDetail({
       </div>
 
       <div className="mt-16 lg:mt-24">
-        <p className="mb-6 text-[11px] uppercase tracking-[0.22em] text-taupe">{labels.gallery}</p>
-        <div className="grid gap-4 md:grid-cols-3">
+        <p className="editorial-kicker mb-6 text-taupe">{labels.gallery}</p>
+        <div className="grid gap-4 md:grid-cols-[1.12fr_0.88fr_1fr]">
           {galleryImages.map((image, index) => (
-            <div key={image.src + image.alt} className={`image-frame bg-stone ${index === 1 ? "md:mt-10" : ""}`}>
+            <div key={image.src + image.alt} className={`image-frame image-frame-subtle bg-stone ${index === 1 ? "md:mt-12" : ""} ${index === 2 ? "md:mt-4" : ""}`}>
               <ProjectImage
                 image={image}
-                className="aspect-[4/5] w-full object-cover"
+                className={`w-full object-cover ${index === 0 ? "aspect-[4/5] md:aspect-[3/4]" : "aspect-[4/5]"}`}
               />
             </div>
           ))}
@@ -1243,8 +1281,8 @@ function ProjectDetail({
         </div>
       </div>
 
-      <div className="mt-16 bg-ink px-6 py-8 text-bone sm:px-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
-        <p className="max-w-2xl font-serif text-3xl leading-tight">
+      <div className="mt-16 border-y border-bone/10 bg-ink px-6 py-9 text-bone sm:px-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
+        <p className="max-w-3xl font-serif text-3xl font-medium leading-tight">
           {labels.clientValue}: {project.editorialClosing}
         </p>
         <button

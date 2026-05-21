@@ -29,11 +29,29 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    linear-gradient(180deg, rgba(251, 248, 241, 0.68), rgba(244, 239, 228, 0.92)),
+    linear-gradient(180deg, rgba(251, 248, 241, 0.78), rgba(244, 239, 228, 0.96)),
     #f4efe4;
   color: #1f1b16;
   font-family: Inter, "Avenir Next", "Segoe UI", system-ui, sans-serif;
   letter-spacing: 0;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(31, 27, 22, 0.025) 0,
+      rgba(31, 27, 22, 0.025) 1px,
+      transparent 1px,
+      transparent 8.333vw
+    ),
+    radial-gradient(circle at 50% -20%, rgba(178, 138, 104, 0.1), transparent 38rem);
+  opacity: 0.72;
 }
 
 html[lang="th"] body {
@@ -110,9 +128,32 @@ img {
   transform-origin: left;
 }
 
+.editorial-kicker {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.architectural-rule {
+  position: relative;
+}
+
+.architectural-rule::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(12rem, 36vw);
+  height: 1px;
+  content: "";
+  background: #1f1b16;
+}
+
 .image-frame {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .image-frame::after {
@@ -128,8 +169,19 @@ img {
   transition: opacity 300ms ease;
 }
 
+.image-frame img {
+  filter: saturate(0.88) contrast(1.04);
+}
+
 .group:hover .image-frame::after {
   opacity: 0.34;
+}
+
+.image-frame-subtle::after {
+  background:
+    linear-gradient(180deg, rgba(251, 248, 241, 0.03), rgba(31, 27, 22, 0.1)),
+    linear-gradient(90deg, rgba(178, 138, 104, 0.04), transparent 44%);
+  opacity: 0.48;
 }
 
 @media (prefers-reduced-motion: reduce) {
