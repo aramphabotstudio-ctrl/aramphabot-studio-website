@@ -48,6 +48,12 @@ export const projects: Project[] = [
       "A boutique hospitality placeholder shaped by arrival sequence, hillside views, and a quiet luxury atmosphere.",
     concept:
       "Architecture as a calm transition between landscape, guest memory, and the emotional rhythm of arrival.",
+    overview:
+      "This placeholder frames a boutique hotel or resort as an atmosphere-led hospitality project, where arrival, guest orientation, privacy, and memory become the primary design material.",
+    siteContext:
+      "The story should be adapted to the verified site, but the intended structure reads tropical climate, landscape views, shaded thresholds, service access, and the moment guests shift from public arrival into a quieter guest world.",
+    spatialSequence:
+      "The experience moves from a compressed arrival into a shaded lobby, then toward framed views, guest lounges, rooms, and slower outdoor edges that let light and landscape pace the stay.",
     designNarrative: [
       "Use this placeholder page for a boutique hotel or resort project once confirmed photography, site information, project area, and narrative are available.",
       "The page is structured around concept, design narrative, key moves, material palette, and gallery imagery so the studio can replace content without changing the template.",
@@ -58,6 +64,12 @@ export const projects: Project[] = [
       "Shaded guest thresholds",
       "Warm material transitions",
     ],
+    materialAtmosphere:
+      "Limestone, textured plaster, timber, and muted bronze should create hospitality value through calm texture, filtered daylight, and a sense of quiet arrival rather than decorative excess.",
+    clientValue:
+      "For a hotel owner or developer, the design direction supports stronger guest memory, clearer positioning, and a spatial experience that can be translated into operations, photography, and brand communication.",
+    editorialClosing:
+      "The project should express luxury through sequence, restraint, and the emotional memory of arrival.",
     materials: ["Limestone", "Textured plaster", "Timber", "Muted bronze metal"],
     coverImage: image(
       "/images/hospitality.jpg",
@@ -84,6 +96,12 @@ export const projects: Project[] = [
       "A private villa placeholder organized around water, privacy, filtered light, and warm material textures.",
     concept:
       "A domestic retreat shaped by privacy, courtyard air, water, and the slow sequence of daily rituals.",
+    overview:
+      "This placeholder positions a pool villa as a private retreat where domestic life, hospitality comfort, and tropical ease are composed through water, privacy, and warm material tactility.",
+    siteContext:
+      "The future verified story should respond to sun path, prevailing breeze, privacy from neighboring plots, landscape edges, and the way daily rituals unfold between interior rooms and outdoor living areas.",
+    spatialSequence:
+      "Arrival is kept quiet, then the plan opens toward a protected courtyard, pool edge, shaded living space, private rooms, and intimate corners for slower morning and evening routines.",
     designNarrative: [
       "Use this placeholder page for a pool villa or private residence once the verified site, project area, drawings, and photography are ready.",
       "The structure supports both residential and hospitality positioning without inventing client names, awards, or completion claims.",
@@ -94,6 +112,12 @@ export const projects: Project[] = [
       "Indoor-outdoor privacy layers",
       "Warm surfaces at human scale",
     ],
+    materialAtmosphere:
+      "Timber, limestone, textured plaster, and soft neutral fabric should make the villa feel grounded, shaded, tactile, and comfortable across daylight and evening use.",
+    clientValue:
+      "For private owners or villa developers, the design improves privacy, daily comfort, guest-readiness, and the long-term emotional value of the property.",
+    editorialClosing:
+      "The villa should feel less like a showpiece and more like a calm framework for living with air, water, and shade.",
     materials: ["Timber", "Limestone", "Textured plaster", "Soft neutral fabric"],
     coverImage: image(
       "/images/residence.jpg",
@@ -120,6 +144,12 @@ export const projects: Project[] = [
       "A cafe placeholder designed around movement, texture, service clarity, and everyday rituals.",
     concept:
       "An urban interior where material, counter rhythm, seating pockets, and light shape a memorable daily pause.",
+    overview:
+      "This placeholder describes a cafe as a compact urban experience where service clarity, customer rhythm, seating variety, and material identity work together without visual noise.",
+    siteContext:
+      "The future project story should read street visibility, pedestrian approach, frontage, acoustic conditions, morning and evening use, and the operational needs behind the counter.",
+    spatialSequence:
+      "Customers move from the street threshold to the ordering counter, then into seating pockets with different levels of openness before returning to the city with a clear memory of material and light.",
     designNarrative: [
       "Use this placeholder page for a cafe project after verified project status, photography, and operational context are confirmed.",
       "The editorial structure supports a concise commercial story while keeping claims factual and easy to update.",
@@ -130,6 +160,12 @@ export const projects: Project[] = [
       "Material identity without noise",
       "Street-to-interior transition",
     ],
+    materialAtmosphere:
+      "Stone, timber veneer, warm metal, and textured wall finishes should create a distinct cafe identity while staying durable, calm, and commercially practical.",
+    clientValue:
+      "For a food and beverage owner, the design clarifies service flow, strengthens spatial identity, and gives everyday customers a place they can remember and return to.",
+    editorialClosing:
+      "The cafe should turn a short daily visit into a composed sequence of threshold, service, pause, and return.",
     materials: ["Stone", "Timber veneer", "Warm metal", "Textured wall finish"],
     coverImage: image(
       "/images/commercial.jpg",
@@ -156,6 +192,12 @@ export const projects: Project[] = [
       "A restaurant placeholder that frames atmosphere, service flow, social gathering, and evening light.",
     concept:
       "A dining environment composed as a sequence of breeze, horizon, gathering, and warm evening memory.",
+    overview:
+      "This placeholder frames a restaurant as a hospitality setting where guest arrival, service movement, table atmosphere, and evening memory are designed as one integrated experience.",
+    siteContext:
+      "The verified project story should clarify view, noise, outdoor comfort, kitchen and service access, dining capacity, weather protection, and how the restaurant meets its local market.",
+    spatialSequence:
+      "Guests arrive through a defined threshold, pass into a shared dining room, find framed view moments, and move through zones that shift from open gathering to more intimate tables.",
     designNarrative: [
       "Use this placeholder page for restaurant or hospitality work once official visuals and program details are ready.",
       "The template allows the studio to describe guest movement, service clarity, atmosphere, and material logic in one refined project story.",
@@ -166,6 +208,12 @@ export const projects: Project[] = [
       "Layered roof and shade",
       "Evening light material palette",
     ],
+    materialAtmosphere:
+      "Timber, stone aggregate, bronze-toned metal, and lime plaster should hold warm evening light while remaining robust for public hospitality use.",
+    clientValue:
+      "For a restaurant operator, the design supports clearer service, stronger guest atmosphere, better photo memory, and a dining identity that can grow beyond decoration.",
+    editorialClosing:
+      "The restaurant should create value through atmosphere, movement, and the memory of gathering.",
     materials: ["Timber", "Stone aggregate", "Bronze-toned metal", "Lime plaster"],
     coverImage: image(
       "/images/journal-hospitality.jpg",
@@ -191,6 +239,12 @@ export const projects: Project[] = [
       "A commercial interior placeholder for workplace, retail, showroom, or mixed-use interior environments.",
     concept:
       "A composed interior system where circulation, brand touchpoints, material restraint, and operational clarity work together.",
+    overview:
+      "This placeholder positions a commercial interior as a disciplined spatial system for workplace, retail, showroom, or mixed-use environments that need both identity and operational clarity.",
+    siteContext:
+      "The future story should read building constraints, user journey, public/private boundaries, lighting conditions, customer or staff flow, and how the interior supports the business model.",
+    spatialSequence:
+      "The experience should guide people from entry and first impression through orientation points, active working or display zones, quieter support areas, and a clear exit memory.",
     designNarrative: [
       "Use this placeholder page for verified commercial interior work once the project owner approves photography, location, scope, and project story.",
       "The content supports commercial clarity while avoiding unverified performance claims, client names, or awards.",
@@ -201,6 +255,12 @@ export const projects: Project[] = [
       "Material palette with quiet identity",
       "Lighting and threshold hierarchy",
     ],
+    materialAtmosphere:
+      "Warm gray render, stone tile, timber-look finish, and bronze metal should give the interior a restrained identity that feels durable, professional, and easy to maintain.",
+    clientValue:
+      "For commercial owners, the design can clarify navigation, support operations, improve customer confidence, and translate brand character into a physical environment.",
+    editorialClosing:
+      "The interior should make business use feel composed, legible, and quietly memorable.",
     materials: ["Warm gray render", "Stone tile", "Timber-look finish", "Bronze metal"],
     coverImage: image(
       "/images/workplace.jpg",

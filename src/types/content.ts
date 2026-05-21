@@ -30,8 +30,14 @@ export type Project = {
   area: string;
   shortDescription: string;
   concept: string;
+  overview: string;
+  siteContext: string;
+  spatialSequence: string;
   designNarrative: string[];
   keyDesignMoves: string[];
+  materialAtmosphere: string;
+  clientValue: string;
+  editorialClosing: string;
   materials: string[];
   coverImage: ImageAsset;
   galleryImages: ImageAsset[];

@@ -58,6 +58,19 @@ export const siteContent = {
       `${companyFacts.status} company`,
       "Registered in Sai Mai, Bangkok",
     ],
+    manifesto: {
+      eyebrow: "Design position",
+      title: "Hospitality sensibility, residential intimacy, and commercial clarity held in one calm design language.",
+      paragraphs: [
+        "Aramphabot Studio approaches space as a sequence of moments: arrival, threshold, pause, view, texture, service, and memory.",
+        "The studio is built for owners who need more than decoration. Each project should clarify how people move, what they feel, how a business operates, and why a place remains memorable.",
+      ],
+      principles: [
+        ["Context", "Read the climate, street, landscape, and cultural condition before giving form to a project."],
+        ["Sequence", "Shape the journey from public arrival to private or intimate moments with clarity and restraint."],
+        ["Material", "Use texture, light, shadow, and craft to create atmosphere without unnecessary decoration."],
+      ],
+    },
     about: {
       eyebrow: "Studio",
       title: "A measured practice for atmosphere, context, and sensory memory.",
@@ -85,11 +98,25 @@ export const siteContent = {
       labels: {
         location: "Location",
         year: "Year",
+        status: "Status",
+        type: "Type",
         scope: "Scope",
         area: "Area",
+        overview: "Project overview",
+        siteContext: "Site and context",
+        spatialSequence: "Spatial sequence",
+        designNarrative: "Design narrative",
+        keyDesignMoves: "Key design moves",
+        materialAtmosphere: "Material and atmosphere",
+        clientValue: "Client value",
         materials: "Materials",
+        gallery: "Gallery",
+        relatedProjects: "Related projects",
       },
       viewDetails: "View project details for",
+      placeholderNote:
+        "Placeholder project narrative. Replace with verified project facts, photographs, team information, and owner-approved copy before public launch.",
+      discussProject: "Discuss a project with similar ambition",
     },
     services: {
       eyebrow: "Services",
@@ -121,12 +148,20 @@ export const siteContent = {
       formLabel: "Project enquiry form",
       emailPending: "Email to be confirmed",
       phonePending: "Phone to be confirmed",
+      intro:
+        "Share the site, project ambition, approximate scale, timeline, and the atmosphere you want to create. Until a backend is connected, this form prepares a safe email draft or shows the enquiry text for review.",
+      prepareNote:
+        "Helpful information to prepare: site address, project type, approximate area, timeline, budget range, existing drawings or photos, and any operational goals.",
       fields: {
         name: "Name",
         email: "Email",
         phone: "Phone",
+        company: "Company / Organization",
         projectType: "Project type",
         projectLocation: "Project location",
+        projectSize: "Approximate project size",
+        timeline: "Timeline",
+        budgetRange: "Budget range",
         message: "Message",
       },
       messagePlaceholder: "Tell us about the site, timeline, scope, and atmosphere.",
@@ -177,6 +212,19 @@ export const siteContent = {
       "สถานะบริษัท: ยังดำเนินกิจการ",
       "ที่ตั้งจดทะเบียน เขตสายไหม กรุงเทพฯ",
     ],
+    manifesto: {
+      eyebrow: "จุดยืนการออกแบบ",
+      title: "ความละเอียดอ่อนของงานบริการ ความเป็นส่วนตัวของที่อยู่อาศัย และความชัดเจนของพื้นที่พาณิชย์ อยู่ในภาษาการออกแบบที่สงบเดียวกัน",
+      paragraphs: [
+        "Aramphabot Studio มองพื้นที่เป็นลำดับของประสบการณ์ ตั้งแต่การมาถึง ธรณีประตู การหยุดพัก วิว ผิวสัมผัส การบริการ และความทรงจำ",
+        "สตูดิโอทำงานเพื่อเจ้าของโครงการที่ต้องการมากกว่าการตกแต่ง พื้นที่ควรอธิบายได้ว่าผู้คนเคลื่อนที่อย่างไร รู้สึกอย่างไร ธุรกิจทำงานอย่างไร และทำไมสถานที่นั้นจึงน่าจดจำ",
+      ],
+      principles: [
+        ["บริบท", "อ่านภูมิอากาศ ถนน ภูมิทัศน์ และบริบททางวัฒนธรรม ก่อนให้รูปทรงกับโครงการ"],
+        ["ลำดับ", "ออกแบบการเดินทางจากการมาถึงสู่ช่วงเวลาที่เป็นส่วนตัวหรือใกล้ชิด ด้วยความชัดเจนและพอดี"],
+        ["วัสดุ", "ใช้ผิวสัมผัส แสง เงา และงานฝีมือเพื่อสร้างบรรยากาศ โดยไม่พึ่งการตกแต่งเกินจำเป็น"],
+      ],
+    },
     about: {
       eyebrow: "สตูดิโอ",
       title: "แนวปฏิบัติที่ค่อยเป็นค่อยไป เพื่อบรรยากาศ บริบท และความทรงจำของประสาทสัมผัส",
@@ -204,11 +252,25 @@ export const siteContent = {
       labels: {
         location: "ที่ตั้ง",
         year: "ปี",
+        status: "สถานะ",
+        type: "ประเภท",
         scope: "ขอบเขตงาน",
         area: "พื้นที่",
+        overview: "ภาพรวมโครงการ",
+        siteContext: "ไซต์และบริบท",
+        spatialSequence: "ลำดับประสบการณ์",
+        designNarrative: "เรื่องเล่าการออกแบบ",
+        keyDesignMoves: "แนวคิดสำคัญ",
+        materialAtmosphere: "วัสดุและบรรยากาศ",
+        clientValue: "คุณค่าต่อลูกค้า",
         materials: "วัสดุ",
+        gallery: "แกลเลอรี",
+        relatedProjects: "โครงการที่เกี่ยวข้อง",
       },
       viewDetails: "ดูรายละเอียดโครงการ",
+      placeholderNote:
+        "เรื่องเล่าโครงการนี้ยังเป็นข้อมูลตัวอย่าง ควรแทนที่ด้วยข้อเท็จจริง ภาพถ่าย ทีมงาน และข้อความที่เจ้าของอนุมัติก่อนเปิดใช้งานจริง",
+      discussProject: "พูดคุยโครงการที่มีเป้าหมายใกล้เคียงกัน",
     },
     services: {
       eyebrow: "บริการ",
@@ -240,12 +302,20 @@ export const siteContent = {
       formLabel: "แบบฟอร์มสอบถามโครงการ",
       emailPending: "รอยืนยันอีเมล",
       phonePending: "รอยืนยันเบอร์โทร",
+      intro:
+        "เล่าเรื่องไซต์ เป้าหมาย ขนาดโดยประมาณ ระยะเวลา และบรรยากาศที่อยากสร้าง ระหว่างที่ยังไม่มี backend แบบฟอร์มนี้จะเตรียมข้อความอีเมล หรือแสดงข้อความสอบถามเพื่อให้ตรวจทาน",
+      prepareNote:
+        "ข้อมูลที่ช่วยให้เริ่มคุยงานได้ชัดขึ้น: ที่ตั้งไซต์ ประเภทโครงการ พื้นที่โดยประมาณ ระยะเวลา งบประมาณเบื้องต้น แบบหรือภาพถ่ายเดิม และเป้าหมายด้านการใช้งาน",
       fields: {
         name: "ชื่อ",
         email: "อีเมล",
         phone: "โทรศัพท์",
+        company: "บริษัท / องค์กร",
         projectType: "ประเภทโครงการ",
         projectLocation: "ที่ตั้งโครงการ",
+        projectSize: "ขนาดโครงการโดยประมาณ",
+        timeline: "ระยะเวลา",
+        budgetRange: "งบประมาณโดยประมาณ",
         message: "ข้อความ",
       },
       messagePlaceholder: "เล่าเรื่องไซต์ ระยะเวลา ขอบเขตงาน และบรรยากาศที่ต้องการ",

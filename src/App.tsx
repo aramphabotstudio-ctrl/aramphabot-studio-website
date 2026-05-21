@@ -88,6 +88,7 @@ const contactFieldKeys: Array<{
   { key: "name", name: "name", type: "text", autoComplete: "name", required: true },
   { key: "email", name: "email", type: "email", autoComplete: "email", required: true },
   { key: "phone", name: "phone", type: "tel", autoComplete: "tel", required: false },
+  { key: "company", name: "company", type: "text", autoComplete: "organization", required: false },
   { key: "projectType", name: "projectType", type: "text", autoComplete: "off", required: false },
   {
     key: "projectLocation",
@@ -96,6 +97,9 @@ const contactFieldKeys: Array<{
     autoComplete: "address-level2",
     required: false,
   },
+  { key: "projectSize", name: "projectSize", type: "text", autoComplete: "off", required: false },
+  { key: "timeline", name: "timeline", type: "text", autoComplete: "off", required: false },
+  { key: "budgetRange", name: "budgetRange", type: "text", autoComplete: "off", required: false },
 ];
 
 function getRouteStateFromLocation(): RouteState {
@@ -408,8 +412,12 @@ function App() {
       `${labels.name}: ${value("name")}`,
       `${labels.email}: ${value("email")}`,
       `${labels.phone}: ${value("phone") || content.contact.notProvided}`,
+      `${labels.company}: ${value("company") || content.contact.notProvided}`,
       `${labels.projectType}: ${value("projectType") || content.contact.notProvided}`,
       `${labels.projectLocation}: ${value("projectLocation") || content.contact.notProvided}`,
+      `${labels.projectSize}: ${value("projectSize") || content.contact.notProvided}`,
+      `${labels.timeline}: ${value("timeline") || content.contact.notProvided}`,
+      `${labels.budgetRange}: ${value("budgetRange") || content.contact.notProvided}`,
       "",
       `${labels.message}:`,
       value("message"),
@@ -591,6 +599,29 @@ function App() {
         </section>
 
         <Section
+          id="manifesto"
+          eyebrow={content.manifesto.eyebrow}
+          title={content.manifesto.title}
+          className="bg-ivory"
+        >
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
+            <div className="max-w-xl space-y-6 text-lg leading-8 text-charcoal/74">
+              {content.manifesto.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            <div className="grid border-t border-ink/15 md:grid-cols-3">
+              {content.manifesto.principles.map(([label, value]) => (
+                <article key={label} className="border-b border-ink/15 py-7 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
+                  <p className="font-serif text-3xl leading-tight text-ink">{label}</p>
+                  <p className="mt-5 text-sm leading-7 text-charcoal/70">{value}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </Section>
+
+        <Section
           id="about"
           eyebrow={content.about.eyebrow}
           title={content.about.title}
@@ -670,6 +701,19 @@ function App() {
             selectedTemplateLabel={content.projects.selectedTemplate}
             typeLabel={getCategoryLabel(selectedProject.type, language)}
             labels={content.projects.labels}
+            placeholderNote={content.projects.placeholderNote}
+            discussProjectLabel={content.projects.discussProject}
+            relatedProjects={projects
+              .filter((project) => project.slug !== selectedProject.slug)
+              .slice(0, 3)
+              .map((project) => getProjectCopy(project, language))}
+            onRelatedSelect={(projectSlug) => {
+              const nextProject = getProjectBySlug(projectSlug);
+              if (nextProject) {
+                handleProjectSelect(nextProject);
+              }
+            }}
+            onDiscuss={() => navigateTo("/contact")}
           />
         </Section>
 
@@ -693,6 +737,14 @@ function App() {
                   <p className="mt-5 text-[11px] uppercase leading-6 tracking-[0.18em] text-taupe">
                     {serviceCopy.clientType}
                   </p>
+                  <ul className="mt-6 grid gap-3 border-t border-ink/10 pt-5 text-sm leading-6 text-charcoal/68">
+                    {serviceCopy.details.map((detail) => (
+                      <li key={detail} className="flex gap-3">
+                        <span className="mt-2 h-px w-5 shrink-0 bg-clay/70" aria-hidden="true" />
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
                 </article>
               );
             })}
@@ -802,6 +854,12 @@ function App() {
               >
                 {content.contact.title}
               </h2>
+              <p className="mt-7 max-w-xl text-lg leading-8 text-bone/72">
+                {content.contact.intro}
+              </p>
+              <p className="mt-8 border-l border-bone/25 pl-5 text-sm leading-7 text-bone/58">
+                {content.contact.prepareNote}
+              </p>
               <div className="mt-10 space-y-5 text-bone/68">
                 <p className="flex items-start gap-4 leading-7">
                   <MapPin className="mt-1 shrink-0" size={18} aria-hidden="true" />
@@ -1026,19 +1084,31 @@ function ProjectDetail({
   selectedTemplateLabel,
   typeLabel,
   labels,
+  placeholderNote,
+  discussProjectLabel,
+  relatedProjects,
+  onRelatedSelect,
+  onDiscuss,
 }: {
   project: Project;
   selectedTemplateLabel: string;
   typeLabel: string;
   labels: ProjectDetailLabels;
+  placeholderNote: string;
+  discussProjectLabel: string;
+  relatedProjects: Project[];
+  onRelatedSelect: (projectSlug: string) => void;
+  onDiscuss: () => void;
 }) {
+  const galleryImages = project.galleryImages.length > 0 ? project.galleryImages : [projectImageFallback];
+
   return (
     <article
       id="project-detail"
       aria-labelledby="project-detail-heading"
       className="mt-20 border-t border-ink/15 pt-8 lg:mt-28"
     >
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]">
         <div className="image-frame aspect-[4/5] bg-stone lg:sticky lg:top-28 lg:aspect-[5/6]">
           <ProjectImage
             image={project.coverImage}
@@ -1056,12 +1126,21 @@ function ProjectDetail({
           >
             {project.title}
           </h3>
-          <p className="mt-7 max-w-2xl text-xl leading-9 text-charcoal/75">{project.concept}</p>
+          <p className="mt-7 max-w-2xl font-serif text-2xl leading-tight text-charcoal md:text-4xl">
+            {project.concept}
+          </p>
+          {project.placeholder ? (
+            <p className="mt-6 border-l border-clay/60 pl-5 text-sm leading-7 text-charcoal/62">
+              {placeholderNote}
+            </p>
+          ) : null}
 
           <div className="mt-10 grid border-t border-ink/15 sm:grid-cols-2">
             {[
               [labels.location, project.location],
               [labels.year, project.year],
+              [labels.status, project.status],
+              [labels.type, typeLabel],
               [labels.scope, project.scope],
               [labels.area, project.area],
             ].map(([label, value]) => (
@@ -1071,41 +1150,122 @@ function ProjectDetail({
               </div>
             ))}
           </div>
+        </div>
+      </div>
 
-          <div className="mt-10 grid gap-6">
-            {project.designNarrative.map((paragraph) => (
-              <p key={paragraph} className="text-lg leading-8 text-charcoal/75">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {project.keyDesignMoves.map((move) => (
-              <p key={move} className="flex gap-3 border-t border-ink/10 pt-4 leading-7">
-                <CircleDot className="mt-1 shrink-0 text-clay" size={15} aria-hidden="true" />
-                {move}
-              </p>
-            ))}
-          </div>
-
-          <p className="mt-8 text-[11px] uppercase leading-6 tracking-[0.18em] text-taupe">
-            {labels.materials}: {project.materials.join(", ")}
+      <div className="mt-16 grid gap-12 lg:mt-24 lg:grid-cols-[0.34fr_0.66fr]">
+        <div className="border-t border-ink/15 pt-5">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">{labels.overview}</p>
+        </div>
+        <div className="max-w-4xl">
+          <p className="font-serif text-3xl leading-tight text-ink md:text-5xl">
+            {project.overview}
           </p>
         </div>
       </div>
 
-      <div className="mt-10 grid gap-4 md:grid-cols-3 lg:mt-14">
-        {(project.galleryImages.length > 0 ? project.galleryImages : [projectImageFallback]).map((image, index) => (
-          <div key={image.src + image.alt} className={`image-frame bg-stone ${index === 1 ? "md:mt-10" : ""}`}>
-            <ProjectImage
-              image={image}
-              className="aspect-[4/5] w-full object-cover"
-            />
-          </div>
-        ))}
+      <div className="mt-16 grid gap-8 lg:grid-cols-3">
+        <EditorialBlock title={labels.siteContext} body={project.siteContext} />
+        <EditorialBlock title={labels.spatialSequence} body={project.spatialSequence} />
+        <EditorialBlock title={labels.materialAtmosphere} body={project.materialAtmosphere} />
+      </div>
+
+      <div className="mt-16 grid gap-12 border-y border-ink/15 py-10 lg:grid-cols-[0.42fr_0.58fr]">
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">{labels.designNarrative}</p>
+          <p className="mt-5 text-lg leading-8 text-charcoal/70">{project.editorialClosing}</p>
+        </div>
+        <div className="grid gap-6">
+          {project.designNarrative.map((paragraph) => (
+            <p key={paragraph} className="text-lg leading-8 text-charcoal/75">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-14 grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">{labels.keyDesignMoves}</p>
+          <p className="mt-5 text-lg leading-8 text-charcoal/70">{project.clientValue}</p>
+          <p className="mt-8 text-[11px] uppercase leading-6 tracking-[0.18em] text-taupe">
+            {labels.materials}: {project.materials.join(", ")}
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {project.keyDesignMoves.map((move) => (
+            <p key={move} className="flex gap-3 border-t border-ink/10 pt-4 leading-7">
+              <CircleDot className="mt-1 shrink-0 text-clay" size={15} aria-hidden="true" />
+              {move}
+            </p>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-16 lg:mt-24">
+        <p className="mb-6 text-[11px] uppercase tracking-[0.22em] text-taupe">{labels.gallery}</p>
+        <div className="grid gap-4 md:grid-cols-3">
+          {galleryImages.map((image, index) => (
+            <div key={image.src + image.alt} className={`image-frame bg-stone ${index === 1 ? "md:mt-10" : ""}`}>
+              <ProjectImage
+                image={image}
+                className="aspect-[4/5] w-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-16 grid gap-8 border-t border-ink/15 pt-8 lg:grid-cols-[0.32fr_0.68fr]">
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">{labels.relatedProjects}</p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {relatedProjects.map((relatedProject) => (
+            <button
+              key={relatedProject.slug}
+              type="button"
+              onClick={() => onRelatedSelect(relatedProject.slug)}
+              className="group text-left"
+            >
+              <div className="image-frame aspect-[4/5] bg-stone">
+                <ProjectImage
+                  image={relatedProject.coverImage}
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                />
+              </div>
+              <p className="mt-4 font-serif text-2xl leading-tight transition group-hover:text-clay">
+                {relatedProject.title}
+              </p>
+              <p className="mt-2 text-sm leading-6 text-charcoal/62">{relatedProject.location}</p>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-16 bg-ink px-6 py-8 text-bone sm:px-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
+        <p className="max-w-2xl font-serif text-3xl leading-tight">
+          {labels.clientValue}: {project.editorialClosing}
+        </p>
+        <button
+          type="button"
+          onClick={onDiscuss}
+          className="group mt-8 inline-flex items-center gap-3 border border-bone/30 px-5 py-3 text-[11px] uppercase tracking-[0.18em] transition hover:bg-bone hover:text-ink lg:mt-0"
+        >
+          {discussProjectLabel}
+          <ArrowUpRight className="transition group-hover:translate-x-1 group-hover:-translate-y-1" size={16} aria-hidden="true" />
+        </button>
       </div>
     </article>
+  );
+}
+
+function EditorialBlock({ title, body }: { title: string; body: string }) {
+  return (
+    <section className="border-t border-ink/15 pt-5">
+      <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">{title}</p>
+      <p className="mt-5 text-lg leading-8 text-charcoal/74">{body}</p>
+    </section>
   );
 }
 
