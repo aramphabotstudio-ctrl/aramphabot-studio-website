@@ -58,4 +58,17 @@ export const journalPosts: JournalPost[] = [
       "Architecture concept journal placeholder with light, proportion, and spatial sequence"
     ),
   },
+  {
+    slug: "design-as-business-value",
+    title: "Design as Business Value",
+    category: "Strategy",
+    date: "Insight",
+    readTime: "4 min read",
+    excerpt:
+      "Spatial design can support positioning, perceived value, operations, photography, and the memory that brings people back.",
+    image: image(
+      "/images/workplace.jpg",
+      "Architecture and interior strategy journal placeholder about design value, operations, and brand positioning"
+    ),
+  },
 ];

@@ -15,6 +15,14 @@ import type { ImageAsset, Project, ProjectCategory } from "@/types/content";
      /images/projects/project-slug/01.jpg
   6. Keep placeholder: true until all project information and imagery are verified.
 
+  Storytelling fields:
+  - brandPromise: one sentence about what the project should help the owner communicate.
+  - spatialMetaphor: the guiding image or idea that turns the story into space.
+  - experienceSequence: the visitor/user journey in clear steps.
+  - memoryMoments: 1-3 moments people should remember after leaving.
+  - materialLogic: why the material palette fits atmosphere, budget, maintenance, and context.
+  - businessLogic: how design supports positioning, operations, perceived value, or repeat memory.
+
   How to remove a project:
   - Delete the full object from the opening { to the closing }, including the comma.
 
@@ -54,6 +62,26 @@ export const projects: Project[] = [
       "The story should be adapted to the verified site, but the intended structure reads tropical climate, landscape views, shaded thresholds, service access, and the moment guests shift from public arrival into a quieter guest world.",
     spatialSequence:
       "The experience moves from a compressed arrival into a shaded lobby, then toward framed views, guest lounges, rooms, and slower outdoor edges that let light and landscape pace the stay.",
+    brandPromise:
+      "A hospitality retreat that should be remembered for calm arrival, privacy, and a sense of place rather than decorative spectacle.",
+    spatialMetaphor:
+      "A quiet threshold between journey and rest, where landscape slowly enters the guest experience.",
+    experienceSequence: [
+      "Approach through compressed arrival",
+      "Threshold into shaded reception",
+      "Release toward framed view and guest lounge",
+      "Pause at room, garden, and outdoor edges",
+      "Afterglow through a clear memory of light, stone, and quiet hospitality",
+    ],
+    memoryMoments: [
+      "The first shaded arrival after travel",
+      "A framed landscape view held from the lobby",
+      "Evening light across stone, timber, and water",
+    ],
+    materialLogic:
+      "Stone, plaster, timber, and muted metal are selected for tropical durability, soft shadow, tactile calm, and a restrained hospitality identity that can age well.",
+    businessLogic:
+      "The spatial story supports project positioning, room-rate perception, photography, guest orientation, and a stronger memory of arrival for repeat communication.",
     designNarrative: [
       "Use this placeholder page for a boutique hotel or resort project once confirmed photography, site information, project area, and narrative are available.",
       "The page is structured around concept, design narrative, key moves, material palette, and gallery imagery so the studio can replace content without changing the template.",
@@ -102,6 +130,26 @@ export const projects: Project[] = [
       "The future verified story should respond to sun path, prevailing breeze, privacy from neighboring plots, landscape edges, and the way daily rituals unfold between interior rooms and outdoor living areas.",
     spatialSequence:
       "Arrival is kept quiet, then the plan opens toward a protected courtyard, pool edge, shaded living space, private rooms, and intimate corners for slower morning and evening routines.",
+    brandPromise:
+      "A private retreat that turns everyday rituals into a calm sequence of water, shade, privacy, and family memory.",
+    spatialMetaphor:
+      "A sheltered courtyard house where water becomes the center of domestic rhythm.",
+    experienceSequence: [
+      "Quiet arrival and privacy screen",
+      "Release into courtyard air and pool reflection",
+      "Open living at the shaded edge",
+      "Private rooms held behind softer thresholds",
+      "Afterglow through morning light, water, and slow domestic rituals",
+    ],
+    memoryMoments: [
+      "The first view of water after entry",
+      "A shaded family gathering edge",
+      "Soft evening light across warm plaster and timber",
+    ],
+    materialLogic:
+      "Timber, limestone, plaster, and neutral fabric create warmth at human scale while supporting shade, maintenance, and long-term comfort in a tropical setting.",
+    businessLogic:
+      "The design supports residential comfort, villa guest-readiness, privacy, perceived property value, and memorable photography without relying on excess decoration.",
     designNarrative: [
       "Use this placeholder page for a pool villa or private residence once the verified site, project area, drawings, and photography are ready.",
       "The structure supports both residential and hospitality positioning without inventing client names, awards, or completion claims.",
@@ -150,6 +198,26 @@ export const projects: Project[] = [
       "The future project story should read street visibility, pedestrian approach, frontage, acoustic conditions, morning and evening use, and the operational needs behind the counter.",
     spatialSequence:
       "Customers move from the street threshold to the ordering counter, then into seating pockets with different levels of openness before returning to the city with a clear memory of material and light.",
+    brandPromise:
+      "A cafe that feels calm, precise, and memorable enough for a short visit to become part of an everyday ritual.",
+    spatialMetaphor:
+      "A composed pause inside the city, shaped by counter rhythm, material touch, and filtered light.",
+    experienceSequence: [
+      "Street frontage and first glance",
+      "Clear threshold into ordering rhythm",
+      "Choice of open and intimate seating pockets",
+      "Pause through light, scent, material, and conversation",
+      "Exit with a simple memory of texture and calm service",
+    ],
+    memoryMoments: [
+      "A distinct counter moment",
+      "Material texture at hand level",
+      "Filtered light on the seating edge",
+    ],
+    materialLogic:
+      "Stone, timber veneer, warm metal, and textured walls create identity within compact space while remaining durable for high-frequency public use.",
+    businessLogic:
+      "The design clarifies ordering flow, improves customer dwell quality, strengthens brand recall, and gives the cafe a visual language for social content.",
     designNarrative: [
       "Use this placeholder page for a cafe project after verified project status, photography, and operational context are confirmed.",
       "The editorial structure supports a concise commercial story while keeping claims factual and easy to update.",
@@ -198,6 +266,26 @@ export const projects: Project[] = [
       "The verified project story should clarify view, noise, outdoor comfort, kitchen and service access, dining capacity, weather protection, and how the restaurant meets its local market.",
     spatialSequence:
       "Guests arrive through a defined threshold, pass into a shared dining room, find framed view moments, and move through zones that shift from open gathering to more intimate tables.",
+    brandPromise:
+      "A dining place remembered for atmosphere, gathering, service clarity, and the warm transition from day to evening.",
+    spatialMetaphor:
+      "A layered table landscape where breeze, horizon, and evening light organize the meal.",
+    experienceSequence: [
+      "Defined arrival and host threshold",
+      "Release into shared dining atmosphere",
+      "View and breeze orientation",
+      "Shift from open gathering to intimate tables",
+      "Afterglow through warm light, service rhythm, and social memory",
+    ],
+    memoryMoments: [
+      "A framed view from the dining room",
+      "Warm evening light across the table",
+      "The transition from open gathering to quieter conversation",
+    ],
+    materialLogic:
+      "Timber, aggregate stone, bronze-toned metal, and lime plaster hold evening warmth while staying robust for restaurant operations and public use.",
+    businessLogic:
+      "The design supports table atmosphere, service flow, guest photography, clearer positioning, and a dining identity that can be remembered beyond a single meal.",
     designNarrative: [
       "Use this placeholder page for restaurant or hospitality work once official visuals and program details are ready.",
       "The template allows the studio to describe guest movement, service clarity, atmosphere, and material logic in one refined project story.",
@@ -245,6 +333,26 @@ export const projects: Project[] = [
       "The future story should read building constraints, user journey, public/private boundaries, lighting conditions, customer or staff flow, and how the interior supports the business model.",
     spatialSequence:
       "The experience should guide people from entry and first impression through orientation points, active working or display zones, quieter support areas, and a clear exit memory.",
+    brandPromise:
+      "A commercial interior that makes a brand, workplace, or retail experience feel composed, legible, and quietly valuable.",
+    spatialMetaphor:
+      "An ordered interior framework where movement, display, work, and support spaces are held in one calm system.",
+    experienceSequence: [
+      "Entry and first orientation",
+      "Clear route toward active commercial zones",
+      "Focused display, work, or consultation moments",
+      "Support areas kept calm and operationally clear",
+      "Exit with a strong impression of order and material restraint",
+    ],
+    memoryMoments: [
+      "A clear first impression at entry",
+      "A material or lighting moment tied to the brand",
+      "A legible path that makes the space easy to use",
+    ],
+    materialLogic:
+      "Warm render, stone tile, timber-look finish, and bronze metal create a durable, maintainable, and professional atmosphere without visual clutter.",
+    businessLogic:
+      "The design improves orientation, operations, customer confidence, staff flow, perceived value, and the physical expression of brand identity.",
     designNarrative: [
       "Use this placeholder page for verified commercial interior work once the project owner approves photography, location, scope, and project story.",
       "The content supports commercial clarity while avoiding unverified performance claims, client names, or awards.",

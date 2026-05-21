@@ -16,6 +16,7 @@ import {
   getProcessCopy,
   getProjectCopy,
   getServiceCopy,
+  getStatusLabel,
   isLanguage,
   languageNames,
   languages,
@@ -640,6 +641,69 @@ function App() {
           </div>
         </section>
 
+        <section
+          aria-labelledby="method-heading"
+          className="border-y border-ink/10 bg-[#f3f0e9] px-5 py-24 sm:px-7 lg:px-10 lg:py-32"
+        >
+          <div className="mx-auto max-w-[1480px]">
+            <div className="grid gap-12 border-t border-ink/12 pt-8 lg:grid-cols-[0.36fr_0.64fr]">
+              <div>
+                <p className="editorial-kicker text-charcoal/45">{content.method.eyebrow}</p>
+                <h2
+                  id="method-heading"
+                  className="mt-7 max-w-3xl font-serif text-[2.45rem] font-medium leading-[1.05] text-ink sm:text-5xl lg:text-[4.8rem]"
+                >
+                  {content.method.title}
+                </h2>
+                <p className="mt-8 max-w-xl text-lg leading-8 text-charcoal/70">
+                  {content.method.intro}
+                </p>
+              </div>
+
+              <div className="grid gap-10">
+                <div className="border-y border-ink/12 py-6">
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">
+                    {content.method.sequenceLabel}
+                  </p>
+                  <ol className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-7">
+                    {content.method.sequence.map((step, index) => (
+                      <li key={step} className="border-t border-ink/12 pt-4">
+                        <span className="font-serif text-2xl text-charcoal/32">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <p className="mt-3 text-sm leading-6 text-charcoal/72">{step}</p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+
+                <div className="grid border-t border-ink/12 md:grid-cols-2">
+                  {content.method.pillars.map(([label, body]) => (
+                    <article key={label} className="border-b border-ink/12 py-6 md:odd:border-r md:odd:pr-8 md:even:pl-8">
+                      <h3 className="font-serif text-[2rem] font-medium leading-tight text-ink">{label}</h3>
+                      <p className="mt-4 text-sm leading-7 text-charcoal/66">{body}</p>
+                    </article>
+                  ))}
+                </div>
+
+                <div className="grid gap-8 border-y border-ink/12 py-8 lg:grid-cols-[0.36fr_0.64fr]">
+                  <h3 className="font-serif text-3xl font-medium leading-tight text-ink">
+                    {content.method.qualityTitle}
+                  </h3>
+                  <ul className="grid gap-4 text-sm leading-7 text-charcoal/68">
+                    {content.method.qualityChecks.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <span className="mt-3 h-px w-5 shrink-0 bg-ink/28" aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <Section
           id="about"
           eyebrow={content.about.eyebrow}
@@ -715,6 +779,7 @@ function App() {
             project={selectedProjectCopy}
             selectedTemplateLabel={content.projects.selectedTemplate}
             typeLabel={getCategoryLabel(selectedProject.type, language)}
+            statusLabel={getStatusLabel(selectedProject.status, language)}
             labels={content.projects.labels}
             placeholderNote={content.projects.placeholderNote}
             discussProjectLabel={content.projects.discussProject}
@@ -800,7 +865,7 @@ function App() {
           eyebrow={content.journal.eyebrow}
           title={content.journal.title}
         >
-          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
             {journalPosts.map((post) => {
               const postCopy = getJournalCopy(post, language);
 
@@ -862,6 +927,21 @@ function App() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-8 border-y border-ink/10 py-7">
+                <h3 className="font-serif text-3xl font-medium leading-tight text-ink">
+                  {content.contact.briefTitle}
+                </h3>
+                <ol className="mt-6 grid gap-4 text-sm leading-7 text-charcoal/68">
+                  {content.contact.briefQuestions.map((question, index) => (
+                    <li key={question} className="grid grid-cols-[2.25rem_1fr] gap-4">
+                      <span className="font-serif text-xl leading-7 text-charcoal/30">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span>{question}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
               <div className="mt-10 space-y-5 text-charcoal/64">
                 <p className="flex items-start gap-4 leading-7">
                   <MapPin className="mt-1 shrink-0" size={18} aria-hidden="true" />
@@ -1130,6 +1210,7 @@ function ProjectDetail({
   project,
   selectedTemplateLabel,
   typeLabel,
+  statusLabel,
   labels,
   placeholderNote,
   discussProjectLabel,
@@ -1140,6 +1221,7 @@ function ProjectDetail({
   project: Project;
   selectedTemplateLabel: string;
   typeLabel: string;
+  statusLabel: string;
   labels: ProjectDetailLabels;
   placeholderNote: string;
   discussProjectLabel: string;
@@ -1148,6 +1230,12 @@ function ProjectDetail({
   onDiscuss: () => void;
 }) {
   const galleryImages = project.galleryImages.length > 0 ? project.galleryImages : [projectImageFallback];
+  const dnaChapters = [
+    [labels.brandPromise, project.brandPromise],
+    [labels.spatialMetaphor, project.spatialMetaphor],
+    [labels.materialLogic, project.materialLogic],
+    [labels.businessLogic, project.businessLogic],
+  ];
   const storyChapters = [
     [labels.siteContext, project.siteContext],
     [labels.spatialSequence, project.spatialSequence],
@@ -1192,6 +1280,7 @@ function ProjectDetail({
             {[
               [labels.location, project.location],
               [labels.year, project.year],
+              [labels.status, statusLabel],
               [labels.type, typeLabel],
               [labels.scope, project.scope],
               [labels.area, project.area],
@@ -1213,6 +1302,55 @@ function ProjectDetail({
           <p className="font-serif text-3xl font-medium leading-snug text-ink md:text-[3rem]">
             {project.overview}
           </p>
+        </div>
+      </div>
+
+      <div className="mt-16 grid gap-12 border-y border-ink/12 py-12 lg:mt-24 lg:grid-cols-[0.34fr_0.66fr]">
+        <div>
+          <p className="editorial-kicker text-charcoal/45">{labels.brandPromise}</p>
+          <p className="mt-6 max-w-sm text-sm leading-7 text-charcoal/58">
+            {labels.experienceSequence} / {labels.memoryMoments}
+          </p>
+        </div>
+        <div className="grid gap-10">
+          <div className="grid gap-6 md:grid-cols-2">
+            {dnaChapters.map(([title, body]) => (
+              <section key={title} className="border-t border-ink/12 pt-5">
+                <h4 className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">{title}</h4>
+                <p className="mt-4 text-base leading-8 text-charcoal/70">{body}</p>
+              </section>
+            ))}
+          </div>
+          <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <h4 className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">
+                {labels.experienceSequence}
+              </h4>
+              <ol className="mt-5 grid gap-3">
+                {project.experienceSequence.map((step, index) => (
+                  <li key={step} className="grid grid-cols-[2.75rem_1fr] gap-4 border-t border-ink/10 pt-3">
+                    <span className="font-serif text-xl leading-none text-charcoal/30">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-sm leading-7 text-charcoal/70">{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div>
+              <h4 className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">
+                {labels.memoryMoments}
+              </h4>
+              <ul className="mt-5 grid gap-3">
+                {project.memoryMoments.map((moment) => (
+                  <li key={moment} className="flex gap-3 border-t border-ink/10 pt-3 text-sm leading-7 text-charcoal/70">
+                    <CircleDot className="mt-1.5 shrink-0 text-ink/35" size={13} aria-hidden="true" />
+                    {moment}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 

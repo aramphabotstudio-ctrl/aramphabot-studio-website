@@ -70,6 +70,28 @@ export const siteContent = {
         ["Value", "Create emotional value and commercial value through clarity, durability, maintenance logic, and strong positioning."],
       ],
     },
+    method: {
+      eyebrow: "Studio method",
+      title: "Narrative becomes atmosphere, sequence, memory, and value.",
+      intro:
+        "The studio uses the Aramphabot DNA as a practical decision system. Each project is tested through story, context, movement, material, human memory, and the value it can create for the owner.",
+      sequenceLabel: "Experience sequence",
+      sequence: ["Approach", "Threshold", "Compression", "Release", "Pause", "Memory Point", "Afterglow"],
+      pillars: [
+        ["Narrative", "A clear project story is established before style, form, or decoration."],
+        ["Atmosphere", "Light, shadow, texture, sound, movement, and comfort are composed as one sensory field."],
+        ["Context", "Climate, culture, site condition, operation, and market position become design material."],
+        ["Memory", "Each project should hold one to three moments people can remember after leaving."],
+        ["Business Value", "Design should support positioning, usability, operation, perceived value, and long-term asset value."],
+      ],
+      qualityTitle: "How the work is judged",
+      qualityChecks: [
+        "Can the concept be understood in one sentence?",
+        "Does the plan support real users, staff, operations, and maintenance?",
+        "Does the material palette create atmosphere without unnecessary decoration?",
+        "Does the space create emotional memory and practical value at the same time?",
+      ],
+    },
     about: {
       eyebrow: "Studio",
       title: "An Architecture & Experience Design Studio shaped by narrative, atmosphere, and long-term value.",
@@ -104,6 +126,12 @@ export const siteContent = {
         overview: "Project overview",
         siteContext: "Site and context",
         spatialSequence: "Spatial sequence",
+        brandPromise: "Brand promise",
+        spatialMetaphor: "Spatial metaphor",
+        experienceSequence: "Experience sequence",
+        memoryMoments: "Memory moments",
+        materialLogic: "Material logic",
+        businessLogic: "Business logic",
         designNarrative: "Design narrative",
         keyDesignMoves: "Key design moves",
         materialAtmosphere: "Material and atmosphere",
@@ -150,6 +178,15 @@ export const siteContent = {
         "Share the site, project ambition, approximate scale, timeline, and the atmosphere you want to create. Until a backend is connected, this form prepares a safe email draft or shows the enquiry text for review.",
       prepareNote:
         "Helpful information to prepare: site address, project type, approximate area, timeline, budget range, existing drawings or photos, and any operational goals.",
+      briefTitle: "Brief questions we use to begin",
+      briefQuestions: [
+        "What should people feel when they arrive?",
+        "Who are the main users, and what problems should the space solve for them?",
+        "How should the owner, brand, or place be remembered?",
+        "Which spaces create revenue, and which spaces create memory?",
+        "What constraints should guide the work: budget, time, law, maintenance, or operations?",
+        "How will the owner measure success after the project opens or is used?",
+      ],
       fields: {
         name: "Name",
         email: "Email",
@@ -223,6 +260,28 @@ export const siteContent = {
         ["Value", "สร้างทั้งคุณค่าทางอารมณ์และคุณค่าทางธุรกิจผ่านความชัดเจน ความทนทาน การดูแลรักษา และการวางตำแหน่งโครงการ"],
       ],
     },
+    method: {
+      eyebrow: "วิธีคิดของสตูดิโอ",
+      title: "เรื่องเล่ากลายเป็นบรรยากาศ ลำดับประสบการณ์ ความทรงจำ และคุณค่า",
+      intro:
+        "สตูดิโอใช้ Aramphabot DNA เป็นระบบตัดสินใจในการออกแบบ ทุกโครงการจึงถูกอ่านผ่านเรื่องเล่า บริบท การเคลื่อนที่ วัสดุ ความทรงจำของผู้คน และคุณค่าที่พื้นที่ควรสร้างให้เจ้าของโครงการ",
+      sequenceLabel: "ลำดับประสบการณ์",
+      sequence: ["Approach", "Threshold", "Compression", "Release", "Pause", "Memory Point", "Afterglow"],
+      pillars: [
+        ["Narrative", "วางเรื่องเล่าของโครงการให้ชัด ก่อนเริ่มพูดเรื่องสไตล์ รูปทรง หรือการตกแต่ง"],
+        ["Atmosphere", "จัดแสง เงา ผิวสัมผัส เสียง จังหวะการเดิน และความสบายให้เป็นบรรยากาศเดียวกัน"],
+        ["Context", "ภูมิอากาศ วัฒนธรรม เงื่อนไขไซต์ การใช้งาน และตำแหน่งทางธุรกิจคือวัตถุดิบของการออกแบบ"],
+        ["Memory", "แต่ละโครงการควรมีหนึ่งถึงสามช่วงเวลาที่ผู้คนจำได้หลังจากออกจากพื้นที่"],
+        ["Business Value", "งานออกแบบควรช่วยเรื่องภาพจำ การใช้งาน การดูแลรักษา มูลค่าที่รับรู้ และมูลค่าระยะยาวของทรัพย์สิน"],
+      ],
+      qualityTitle: "เกณฑ์ที่ใช้มองคุณภาพงาน",
+      qualityChecks: [
+        "แนวคิดอธิบายได้ชัดในหนึ่งประโยคหรือไม่",
+        "ผังรองรับผู้ใช้จริง ทีมงาน การดำเนินงาน และการดูแลรักษาหรือไม่",
+        "วัสดุสร้างบรรยากาศได้โดยไม่ต้องพึ่งการตกแต่งเกินจำเป็นหรือไม่",
+        "พื้นที่สร้างทั้งความทรงจำทางอารมณ์และคุณค่าที่ใช้งานได้จริงพร้อมกันหรือไม่",
+      ],
+    },
     about: {
       eyebrow: "สตูดิโอ",
       title: "Architecture & Experience Design Studio ที่ขับเคลื่อนด้วยเรื่องเล่า บรรยากาศ และคุณค่าระยะยาว",
@@ -257,6 +316,12 @@ export const siteContent = {
         overview: "ภาพรวมโครงการ",
         siteContext: "ไซต์และบริบท",
         spatialSequence: "ลำดับประสบการณ์",
+        brandPromise: "คำมั่นของแบรนด์",
+        spatialMetaphor: "อุปมาเชิงพื้นที่",
+        experienceSequence: "ลำดับประสบการณ์",
+        memoryMoments: "ช่วงเวลาที่ควรจดจำ",
+        materialLogic: "เหตุผลของวัสดุ",
+        businessLogic: "ตรรกะทางธุรกิจ",
         designNarrative: "เรื่องเล่าการออกแบบ",
         keyDesignMoves: "แนวคิดสำคัญ",
         materialAtmosphere: "วัสดุและบรรยากาศ",
@@ -303,6 +368,15 @@ export const siteContent = {
         "เล่าเรื่องไซต์ เป้าหมาย ขนาดโดยประมาณ ระยะเวลา และบรรยากาศที่อยากสร้าง ระหว่างที่ยังไม่มี backend แบบฟอร์มนี้จะเตรียมข้อความอีเมล หรือแสดงข้อความสอบถามเพื่อให้ตรวจทาน",
       prepareNote:
         "ข้อมูลที่ช่วยให้เริ่มคุยงานได้ชัดขึ้น: ที่ตั้งไซต์ ประเภทโครงการ พื้นที่โดยประมาณ ระยะเวลา งบประมาณเบื้องต้น แบบหรือภาพถ่ายเดิม และเป้าหมายด้านการใช้งาน",
+      briefTitle: "คำถามที่ใช้เริ่มต้นบรีฟ",
+      briefQuestions: [
+        "ผู้คนควรรู้สึกอย่างไรเมื่อมาถึงพื้นที่นี้",
+        "ใครคือผู้ใช้หลัก และพื้นที่ควรแก้ปัญหาอะไรให้พวกเขา",
+        "เจ้าของ แบรนด์ หรือสถานที่นี้ควรถูกจดจำอย่างไร",
+        "พื้นที่ส่วนไหนสร้างรายได้ และพื้นที่ส่วนไหนสร้างความทรงจำ",
+        "ข้อจำกัดใดควรนำทางงานออกแบบ: งบประมาณ เวลา กฎหมาย การดูแลรักษา หรือการปฏิบัติงาน",
+        "หลังโครงการเปิดใช้งาน เจ้าของจะวัดความสำเร็จจากอะไร",
+      ],
       fields: {
         name: "ชื่อ",
         email: "อีเมล",
@@ -384,6 +458,26 @@ const projectTranslations: Record<string, Partial<Record<Language, Partial<Proje
         "ข้อมูลตัวอย่างสำหรับงานโรงแรมบูทีคที่วางบรรยากาศผ่านลำดับการมาถึง วิวภูมิทัศน์ และความหรูหราเงียบงาม",
       concept:
         "สถาปัตยกรรมในฐานะช่วงเปลี่ยนผ่านที่สงบ ระหว่างภูมิทัศน์ ความทรงจำของแขก และจังหวะทางอารมณ์ของการมาถึง",
+      brandPromise:
+        "ที่พักที่ควรถูกจดจำจากการมาถึงที่สงบ ความเป็นส่วนตัว และความรู้สึกของสถานที่ มากกว่าความหวือหวาของการตกแต่ง",
+      spatialMetaphor:
+        "ธรณีประตูอันเงียบสงบระหว่างการเดินทางและการพักผ่อน ที่ค่อย ๆ ให้ภูมิทัศน์เข้ามาอยู่ในประสบการณ์ของแขก",
+      experienceSequence: [
+        "Approach ผ่านการมาถึงที่ถูกบีบให้สงบ",
+        "Threshold เข้าสู่พื้นที่ต้อนรับที่ร่มและเย็น",
+        "Release ไปสู่มุมมองและเลานจ์ของแขก",
+        "Pause ที่ห้องพัก สวน และขอบพื้นที่ภายนอก",
+        "Afterglow ผ่านความทรงจำของแสง หิน และงานบริการที่สงบ",
+      ],
+      memoryMoments: [
+        "ช่วงแรกของการมาถึงหลังการเดินทาง",
+        "วิวภูมิทัศน์ที่ถูกกรอบไว้จากล็อบบี้",
+        "แสงยามเย็นบนหิน ไม้ และน้ำ",
+      ],
+      materialLogic:
+        "หิน ปูนฉาบ ไม้ และโลหะโทนหม่นถูกเลือกเพื่อความทนทานในภูมิอากาศเขตร้อน เงาที่นุ่ม ความรู้สึกสัมผัส และภาพจำของงานบริการที่สงบ",
+      businessLogic:
+        "เรื่องเล่าเชิงพื้นที่ช่วยวางตำแหน่งโครงการ เพิ่มมูลค่าที่รับรู้ของห้องพัก รองรับภาพถ่าย ช่วยให้แขกเข้าใจพื้นที่ และสร้างความทรงจำของการมาถึง",
       designNarrative: [
         "ใช้หน้าตัวอย่างนี้สำหรับโครงการโรงแรมบูทีคหรือรีสอร์ต เมื่อมีภาพถ่าย ข้อมูลไซต์ พื้นที่โครงการ และเรื่องเล่าที่ได้รับการยืนยันแล้ว",
         "โครงสร้างหน้านี้รองรับแนวคิด เรื่องเล่าการออกแบบ จุดสำคัญของงาน วัสดุ และแกลเลอรี เพื่อให้สตูดิโอแทนที่เนื้อหาได้โดยไม่ต้องแก้แม่แบบ",
@@ -408,6 +502,26 @@ const projectTranslations: Record<string, Partial<Record<Language, Partial<Proje
         "ข้อมูลตัวอย่างสำหรับวิลล่าส่วนตัวที่จัดวางรอบน้ำ ความเป็นส่วนตัว แสงที่กรองผ่าน และผิววัสดุอบอุ่น",
       concept:
         "บ้านพักผ่อนที่ถูกกำหนดด้วยความเป็นส่วนตัว อากาศของคอร์ทยาร์ด น้ำ และลำดับช้าของกิจวัตรประจำวัน",
+      brandPromise:
+        "บ้านพักส่วนตัวที่เปลี่ยนกิจวัตรธรรมดาให้กลายเป็นลำดับของน้ำ ร่มเงา ความเป็นส่วนตัว และความทรงจำของครอบครัว",
+      spatialMetaphor:
+        "บ้านคอร์ทยาร์ดที่มีน้ำเป็นศูนย์กลางของจังหวะชีวิตประจำวัน",
+      experienceSequence: [
+        "การมาถึงที่เงียบและมีชั้นความเป็นส่วนตัว",
+        "Release เข้าสู่อากาศของคอร์ทยาร์ดและเงาสะท้อนของสระน้ำ",
+        "พื้นที่นั่งเล่นเปิดที่อยู่ใต้ร่มเงา",
+        "ห้องส่วนตัวที่ถูกวางหลัง threshold ที่นุ่มลง",
+        "Afterglow ผ่านแสงเช้า น้ำ และกิจวัตรที่ค่อยเป็นค่อยไป",
+      ],
+      memoryMoments: [
+        "มุมมองแรกของน้ำหลังทางเข้า",
+        "ขอบพื้นที่รวมตัวของครอบครัวใต้ร่มเงา",
+        "แสงเย็นบนปูนฉาบและไม้โทนอุ่น",
+      ],
+      materialLogic:
+        "ไม้ หินปูน ปูนฉาบ และผ้าโทนกลางสร้างความอบอุ่นในสเกลมนุษย์ พร้อมรองรับร่มเงา การดูแลรักษา และความสบายระยะยาวในบริบทเขตร้อน",
+      businessLogic:
+        "การออกแบบช่วยยกระดับความสบายของบ้าน ความพร้อมสำหรับการพักผ่อน ความเป็นส่วนตัว มูลค่าที่รับรู้ของทรัพย์สิน และภาพจำที่ถ่ายถ่ายทอดได้โดยไม่ต้องตกแต่งเกินจำเป็น",
       designNarrative: [
         "ใช้หน้าตัวอย่างนี้สำหรับโครงการพูลวิลล่าหรือบ้านพักอาศัยส่วนตัว เมื่อไซต์ พื้นที่โครงการ แบบ และภาพถ่ายได้รับการยืนยันแล้ว",
         "โครงสร้างนี้รองรับทั้งการเล่าเรื่องงานที่อยู่อาศัยและงานพักผ่อน โดยไม่สร้างรายชื่อลูกค้า รางวัล หรือข้ออ้างเรื่องปีที่เสร็จขึ้นมาเอง",
@@ -432,6 +546,26 @@ const projectTranslations: Record<string, Partial<Record<Language, Partial<Proje
         "ข้อมูลตัวอย่างสำหรับคาเฟ่ที่ออกแบบจากการเคลื่อนไหว ผิวสัมผัส ความชัดเจนของบริการ และกิจวัตรประจำวัน",
       concept:
         "พื้นที่ภายในเมืองที่วัสดุ จังหวะเคาน์เตอร์ มุมที่นั่ง และแสง สร้างช่วงพักสั้น ๆ ที่น่าจดจำ",
+      brandPromise:
+        "คาเฟ่ที่สงบ ชัดเจน และน่าจดจำพอให้การแวะสั้น ๆ กลายเป็นส่วนหนึ่งของกิจวัตรประจำวัน",
+      spatialMetaphor:
+        "ช่วงพักที่ถูกจัดวางอย่างพอดีในเมือง ผ่านจังหวะเคาน์เตอร์ ผิววัสดุ และแสงที่กรองผ่าน",
+      experienceSequence: [
+        "หน้าร้านและภาพจำแรกจากถนน",
+        "Threshold เข้าสู่จังหวะการสั่งที่ชัดเจน",
+        "การเลือกมุมนั่งที่เปิดและใกล้ชิดต่างกัน",
+        "Pause ผ่านแสง กลิ่น วัสดุ และบทสนทนา",
+        "กลับสู่เมืองพร้อมความทรงจำเรียบง่ายของผิวสัมผัสและบริการ",
+      ],
+      memoryMoments: [
+        "ช่วงเวลาที่เคาน์เตอร์",
+        "ผิววัสดุในระดับมือสัมผัส",
+        "แสงที่กรองลงบนขอบพื้นที่นั่ง",
+      ],
+      materialLogic:
+        "หิน วีเนียร์ไม้ โลหะโทนอุ่น และผนังผิวสัมผัสสร้างอัตลักษณ์ในพื้นที่จำกัด พร้อมทนต่อการใช้งานสาธารณะที่เกิดขึ้นบ่อย",
+      businessLogic:
+        "งานออกแบบทำให้ flow การสั่งชัดขึ้น เพิ่มคุณภาพเวลาที่ลูกค้าอยู่ในร้าน สร้างภาพจำของแบรนด์ และให้ภาษาภาพสำหรับสื่อสังคมออนไลน์",
       designNarrative: [
         "ใช้หน้าตัวอย่างนี้สำหรับโครงการคาเฟ่ หลังจากยืนยันสถานะโครงการ ภาพถ่าย และบริบทการใช้งานแล้ว",
         "โครงสร้างเชิงบรรณาธิการช่วยเล่าเรื่องพื้นที่พาณิชย์อย่างกระชับ โดยยังรักษาความถูกต้องและแก้ไขง่าย",
@@ -456,6 +590,26 @@ const projectTranslations: Record<string, Partial<Record<Language, Partial<Proje
         "ข้อมูลตัวอย่างสำหรับร้านอาหารที่วางกรอบบรรยากาศ การบริการ การรวมตัว และแสงยามค่ำ",
       concept:
         "พื้นที่รับประทานอาหารที่เรียงลำดับจากลม เส้นขอบฟ้า การพบปะ และความทรงจำอุ่นในช่วงค่ำ",
+      brandPromise:
+        "พื้นที่รับประทานอาหารที่ถูกจดจำจากบรรยากาศ การรวมตัว ความชัดเจนของบริการ และการเปลี่ยนผ่านจากกลางวันสู่กลางคืน",
+      spatialMetaphor:
+        "ภูมิทัศน์ของโต๊ะอาหารที่มีลม เส้นขอบฟ้า และแสงยามเย็นเป็นตัวจัดลำดับประสบการณ์",
+      experienceSequence: [
+        "การมาถึงและจุดต้อนรับที่ชัดเจน",
+        "Release เข้าสู่บรรยากาศของห้องอาหารร่วม",
+        "การวางที่นั่งตามวิวและทิศทางลม",
+        "การเปลี่ยนจากพื้นที่รวมตัวไปสู่โต๊ะที่ใกล้ชิดขึ้น",
+        "Afterglow ผ่านแสงอุ่น จังหวะบริการ และความทรงจำของการพบปะ",
+      ],
+      memoryMoments: [
+        "วิวที่ถูกกรอบจากห้องอาหาร",
+        "แสงยามเย็นบนโต๊ะอาหาร",
+        "การเปลี่ยนจากการรวมตัวสู่บทสนทนาที่เงียบลง",
+      ],
+      materialLogic:
+        "ไม้ หิน aggregate โลหะโทนบรอนซ์ และปูน lime plaster เก็บความอุ่นของแสงช่วงค่ำ พร้อมความทนทานสำหรับการใช้งานสาธารณะ",
+      businessLogic:
+        "การออกแบบช่วยเรื่องบรรยากาศของโต๊ะอาหาร flow บริการ ภาพถ่ายของแขก การวางตำแหน่งร้าน และตัวตนของร้านที่จดจำได้มากกว่ามื้อเดียว",
       designNarrative: [
         "ใช้หน้าตัวอย่างนี้สำหรับงานร้านอาหารหรืองานโรงแรม เมื่อภาพทางการและรายละเอียดโปรแกรมพร้อมแล้ว",
         "แม่แบบนี้ช่วยให้สตูดิโอเล่าเรื่องการเคลื่อนที่ของแขก ความชัดเจนของบริการ บรรยากาศ และตรรกะของวัสดุในเรื่องเดียวที่สงบและประณีต",
@@ -480,6 +634,26 @@ const projectTranslations: Record<string, Partial<Record<Language, Partial<Proje
         "ข้อมูลตัวอย่างสำหรับสำนักงาน รีเทล โชว์รูม หรือพื้นที่ภายในเชิงพาณิชย์แบบผสม",
       concept:
         "ระบบพื้นที่ภายในที่การสัญจร จุดสัมผัสของแบรนด์ ความพอดีของวัสดุ และความชัดเจนด้านการใช้งานทำงานร่วมกัน",
+      brandPromise:
+        "พื้นที่ภายในเชิงพาณิชย์ที่ทำให้แบรนด์ สถานที่ทำงาน หรือประสบการณ์รีเทลดูนิ่ง ชัดเจน และมีคุณค่าอย่างเงียบงาม",
+      spatialMetaphor:
+        "กรอบพื้นที่ภายในที่เป็นระเบียบ ซึ่งรวมการเคลื่อนที่ การแสดงสินค้า การทำงาน และพื้นที่สนับสนุนไว้ในระบบเดียว",
+      experienceSequence: [
+        "ทางเข้าและการรับรู้แรก",
+        "เส้นทางที่ชัดไปสู่โซนพาณิชย์หลัก",
+        "จุดแสดงสินค้า ทำงาน หรือปรึกษาที่ตั้งใจ",
+        "พื้นที่สนับสนุนที่สงบและใช้งานชัดเจน",
+        "การออกจากพื้นที่พร้อมภาพจำของระเบียบและความพอดีของวัสดุ",
+      ],
+      memoryMoments: [
+        "ภาพจำแรกที่ทางเข้า",
+        "จังหวะวัสดุหรือแสงที่ผูกกับแบรนด์",
+        "เส้นทางที่ทำให้พื้นที่ใช้งานง่าย",
+      ],
+      materialLogic:
+        "ปูนฉาบโทนอุ่น กระเบื้องหิน วัสดุลายไม้ และโลหะบรอนซ์สร้างบรรยากาศที่ทนทาน ดูแลรักษาง่าย และเป็นมืออาชีพโดยไม่รกสายตา",
+      businessLogic:
+        "การออกแบบช่วยให้การนำทาง การทำงาน ความมั่นใจของลูกค้า flow ของทีม มูลค่าที่รับรู้ และตัวตนทางกายภาพของแบรนด์ชัดขึ้น",
       designNarrative: [
         "ใช้หน้าตัวอย่างนี้สำหรับงานภายในเชิงพาณิชย์ที่ได้รับการยืนยัน เมื่อเจ้าของโครงการอนุมัติภาพ ที่ตั้ง ขอบเขตงาน และเรื่องราวโครงการแล้ว",
         "เนื้อหารองรับความชัดเจนทางธุรกิจ โดยหลีกเลี่ยงการอ้างผลลัพธ์ รายชื่อลูกค้า หรือรางวัลที่ยังไม่ได้ยืนยัน",
@@ -643,6 +817,14 @@ const journalTranslations: Record<string, Partial<Record<Language, Partial<Journ
       category: "กระบวนการ",
       readTime: "อ่าน 4 นาที",
       excerpt: "แนวคิดที่แข็งแรงจะมีคุณค่าเมื่อมันนำทางลำดับ รายละเอียด ความเป็นไปได้ในการก่อสร้าง และความทรงจำของผู้คน",
+    },
+  },
+  "design-as-business-value": {
+    th: {
+      title: "งานออกแบบในฐานะคุณค่าทางธุรกิจ",
+      category: "กลยุทธ์",
+      readTime: "อ่าน 4 นาที",
+      excerpt: "พื้นที่ที่ดีช่วยเรื่องตำแหน่งทางการตลาด มูลค่าที่รับรู้ การปฏิบัติงาน ภาพถ่าย และความทรงจำที่ทำให้ผู้คนกลับมา",
     },
   },
 };

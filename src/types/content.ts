@@ -33,6 +33,12 @@ export type Project = {
   overview: string;
   siteContext: string;
   spatialSequence: string;
+  brandPromise: string;
+  spatialMetaphor: string;
+  experienceSequence: string[];
+  memoryMoments: string[];
+  materialLogic: string;
+  businessLogic: string;
   designNarrative: string[];
   keyDesignMoves: string[];
   materialAtmosphere: string;
