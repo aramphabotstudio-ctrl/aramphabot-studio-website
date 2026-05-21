@@ -23,14 +23,14 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
-          "Inter",
+          "IBM Plex Sans",
           "Avenir Next",
           "Segoe UI",
           "system-ui",
           "sans-serif",
         ],
         serif: [
-          "Cormorant Garamond",
+          "Instrument Serif",
           "Georgia",
           "Times New Roman",
           "serif",

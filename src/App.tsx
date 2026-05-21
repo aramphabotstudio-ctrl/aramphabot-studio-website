@@ -437,7 +437,7 @@ function App() {
   }
 
   return (
-    <div className={`min-h-screen overflow-x-hidden bg-[#f8f6f0] text-ink selection:bg-ink selection:text-bone ${language === "th" ? "thai-copy" : ""}`} lang={htmlLanguage}>
+    <div className={`typographic-system min-h-screen overflow-x-hidden bg-[#f8f6f0] text-ink selection:bg-ink selection:text-bone ${language === "th" ? "thai-copy" : ""}`} lang={htmlLanguage}>
       <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-[#fbfaf6]/92 backdrop-blur-md">
         <nav className="mx-auto flex h-16 max-w-[1480px] items-center justify-between px-5 sm:px-7 lg:px-10">
           <a
@@ -446,15 +446,15 @@ function App() {
             aria-label={content.header.homeLabel}
             onClick={(event) => handleNavigation(event, "/")}
           >
-            <span className="font-serif text-[1.5rem] leading-none text-ink transition group-hover:text-charcoal md:text-[1.64rem]">
+            <span className="font-serif text-[1.45rem] leading-none text-ink transition group-hover:text-charcoal md:text-[1.6rem]">
               Aramphabot
             </span>
-            <span className="mt-1 text-[9px] uppercase tracking-[0.32em] text-charcoal/50">
+            <span className="mt-1 text-[9px] uppercase tracking-[0.26em] text-charcoal/50">
               Studio Co., Ltd.
             </span>
           </a>
 
-          <div className="hidden items-center gap-7 text-[9px] uppercase tracking-[0.26em] text-charcoal/58 xl:flex">
+          <div className="hidden items-center gap-7 text-[9px] font-medium uppercase tracking-[0.2em] text-charcoal/58 xl:flex">
             {navigation.map((item) => {
               const navigationKey = getNavigationKey(item.href);
 
@@ -489,7 +489,7 @@ function App() {
             <a
               href={getLocalizedPath("/contact", language)}
               onClick={(event) => handleNavigation(event, "/contact")}
-              className="inline-flex items-center gap-3 border border-ink/18 px-5 py-3 text-[10px] uppercase tracking-[0.24em] transition duration-300 hover:border-ink hover:bg-ink hover:text-bone"
+              className="inline-flex items-center gap-3 border border-ink/18 px-5 py-3 text-[10px] font-medium uppercase tracking-[0.18em] transition duration-300 hover:border-ink hover:bg-ink hover:text-bone"
             >
               {content.header.discuss}
               <ArrowUpRight size={15} aria-hidden="true" />
@@ -511,7 +511,7 @@ function App() {
         {menuOpen ? (
           <div id="mobile-navigation" className="border-t border-ink/10 bg-bone px-5 py-6 lg:hidden">
             <div className="mb-5 flex items-center justify-between border-b border-ink/10 pb-5">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-taupe">
+              <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-taupe">
                 {content.header.languageLabel}
               </p>
               <LanguageSwitcher
@@ -520,7 +520,7 @@ function App() {
                 onChange={switchLanguage}
               />
             </div>
-            <div className="grid gap-1 text-sm uppercase tracking-[0.18em]">
+            <div className="grid gap-1 text-sm font-medium uppercase tracking-[0.14em]">
               {navigation.map((item) => {
                 const navigationKey = getNavigationKey(item.href);
 
@@ -564,7 +564,7 @@ function App() {
               </p>
               <h1
                 id="home-heading"
-                className="max-w-[22rem] font-serif text-[2.85rem] font-medium leading-[1.03] sm:max-w-[43rem] sm:text-6xl md:text-7xl xl:max-w-4xl xl:text-[6.2rem]"
+                className="max-w-[22rem] font-serif text-[3rem] leading-[0.98] sm:max-w-[43rem] sm:text-6xl md:text-7xl xl:max-w-4xl xl:text-[6.45rem]"
               >
                 {content.hero.title}
               </h1>
@@ -574,13 +574,13 @@ function App() {
             </div>
 
             <div className="hidden self-end border-t border-bone/35 py-6 text-bone/78 xl:block">
-              <p className="mb-8 max-w-sm font-serif text-3xl leading-[1.12] text-bone">
+              <p className="mb-8 max-w-sm font-serif text-[2.15rem] leading-[1.04] text-bone">
                 {content.hero.statement}
               </p>
               <dl className="grid gap-5">
                 {content.hero.facts.map(([label, value]) => (
                   <div key={label} className="grid grid-cols-[6rem_1fr] gap-5 border-t border-bone/18 pt-4">
-                    <dt className="text-[10px] uppercase tracking-[0.22em] text-bone/45">{label}</dt>
+                    <dt className="text-[10px] font-medium uppercase tracking-[0.18em] text-bone/45">{label}</dt>
                     <dd className="text-sm leading-6">{value}</dd>
                   </div>
                 ))}
@@ -590,7 +590,7 @@ function App() {
         </section>
 
         <section className="border-y border-ink/10 bg-[#fbfaf6]">
-          <div className="mx-auto grid max-w-[1480px] divide-y divide-ink/10 px-5 text-[9px] uppercase leading-6 tracking-[0.28em] text-charcoal/50 sm:px-7 md:grid-cols-3 md:divide-x md:divide-y-0 lg:px-10">
+          <div className="mx-auto grid max-w-[1480px] divide-y divide-ink/10 px-5 text-[9px] font-medium uppercase leading-6 tracking-[0.22em] text-charcoal/50 sm:px-7 md:grid-cols-3 md:divide-x md:divide-y-0 lg:px-10">
             {content.registryBar.map((item) => (
               <p key={item} className="py-4 md:px-8 md:first:pl-0 md:last:pr-0">
                 {item}
@@ -606,7 +606,7 @@ function App() {
                 <p className="editorial-kicker text-charcoal/48">Aramphabot Studio</p>
                 <h2
                   id="identity-heading"
-                  className="mt-7 max-w-3xl font-serif text-[2.75rem] font-medium leading-[1.04] text-ink sm:text-6xl lg:text-[5.35rem]"
+                  className="mt-7 max-w-3xl font-serif text-[2.8rem] leading-[1.02] text-ink sm:text-6xl lg:text-[5.5rem]"
                 >
                   {content.hero.statement}
                 </h2>
@@ -630,7 +630,7 @@ function App() {
                   <dl className="grid border-t border-ink/12">
                     {content.manifesto.principles.map(([label, value]) => (
                       <div key={label} className="grid gap-3 border-b border-ink/12 py-5 sm:grid-cols-[8rem_1fr]">
-                        <dt className="font-serif text-[1.65rem] leading-tight text-ink">{label}</dt>
+                        <dt className="font-serif text-[1.72rem] leading-[1.02] text-ink">{label}</dt>
                         <dd className="text-sm leading-7 text-charcoal/66">{value}</dd>
                       </div>
                     ))}
@@ -651,7 +651,7 @@ function App() {
                 <p className="editorial-kicker text-charcoal/45">{content.method.eyebrow}</p>
                 <h2
                   id="method-heading"
-                  className="mt-7 max-w-3xl font-serif text-[2.45rem] font-medium leading-[1.05] text-ink sm:text-5xl lg:text-[4.8rem]"
+                  className="mt-7 max-w-3xl font-serif text-[2.55rem] leading-[1.03] text-ink sm:text-5xl lg:text-[4.95rem]"
                 >
                   {content.method.title}
                 </h2>
@@ -680,14 +680,14 @@ function App() {
                 <div className="grid border-t border-ink/12 md:grid-cols-2">
                   {content.method.pillars.map(([label, body]) => (
                     <article key={label} className="border-b border-ink/12 py-6 md:odd:border-r md:odd:pr-8 md:even:pl-8">
-                      <h3 className="font-serif text-[2rem] font-medium leading-tight text-ink">{label}</h3>
+                      <h3 className="font-serif text-[2.12rem] leading-[1.02] text-ink">{label}</h3>
                       <p className="mt-4 text-sm leading-7 text-charcoal/66">{body}</p>
                     </article>
                   ))}
                 </div>
 
                 <div className="grid gap-8 border-y border-ink/12 py-8 lg:grid-cols-[0.36fr_0.64fr]">
-                  <h3 className="font-serif text-3xl font-medium leading-tight text-ink">
+                  <h3 className="font-serif text-[2.08rem] leading-[1.02] text-ink">
                     {content.method.qualityTitle}
                   </h3>
                   <ul className="grid gap-4 text-sm leading-7 text-charcoal/68">
@@ -710,7 +710,7 @@ function App() {
           title={content.about.title}
         >
           <div className="grid gap-14 lg:grid-cols-[minmax(0,0.76fr)_minmax(0,1.24fr)]">
-            <div className="max-w-xl space-y-7 text-[1.05rem] leading-8 text-charcoal/75 md:text-lg">
+            <div className="max-w-xl space-y-7 text-[1.02rem] leading-8 text-charcoal/75 md:text-[1.08rem]">
               {content.about.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -719,12 +719,12 @@ function App() {
             <div className="grid border-t border-ink/15 md:grid-cols-2">
               {content.about.facts.map(([label, value]) => (
                 <div key={label} className="border-b border-ink/15 py-6 md:odd:border-r md:odd:pr-8 md:even:pl-8">
-                  <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">{label}</p>
+                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-taupe">{label}</p>
                   <p className="mt-3 text-lg leading-8 text-ink">{value}</p>
                 </div>
               ))}
               <div className="border-b border-ink/15 py-6 md:col-span-2">
-                <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">
+                <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-taupe">
                   {content.about.officeLabel}
                 </p>
                 <p className="mt-3 max-w-3xl text-lg leading-8">{siteConfig.location}</p>
@@ -746,7 +746,7 @@ function App() {
                 type="button"
                 onClick={() => handleCategoryChange(category)}
                 aria-pressed={activeCategory === category}
-                className={`shrink-0 px-3 py-2 text-[9px] uppercase tracking-[0.24em] transition duration-300 ${
+                className={`shrink-0 px-3 py-2 text-[9px] font-medium uppercase tracking-[0.18em] transition duration-300 ${
                   activeCategory === category
                     ? "text-ink underline underline-offset-[10px]"
                     : "text-charcoal/48 hover:text-ink"
@@ -812,14 +812,14 @@ function App() {
                   className="group grid gap-6 border-b border-ink/12 py-10 transition duration-300 md:grid-cols-[4.5rem_1fr] md:px-8 xl:odd:border-r xl:odd:border-ink/12"
                 >
                   <div className="flex items-center justify-between border-b border-ink/10 pb-4 md:block md:border-b-0 md:pb-0">
-                    <p className="font-serif text-3xl leading-none text-charcoal/30">
+                    <p className="font-serif text-[2.05rem] leading-none text-charcoal/30">
                       {String(index + 1).padStart(2, "0")}
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-serif text-[2rem] font-medium leading-tight md:text-[2.55rem]">{serviceCopy.title}</h3>
+                    <h3 className="font-serif text-[2.12rem] leading-[1.03] md:text-[2.7rem]">{serviceCopy.title}</h3>
                     <p className="mt-5 max-w-2xl text-base leading-8 text-charcoal/70 md:text-lg">{serviceCopy.summary}</p>
-                    <p className="mt-6 text-[9px] uppercase leading-6 tracking-[0.24em] text-charcoal/45">
+                    <p className="mt-6 text-[9px] font-medium uppercase leading-6 tracking-[0.18em] text-charcoal/45">
                       {serviceCopy.clientType}
                     </p>
                     <ul className="mt-7 grid gap-3 border-t border-ink/10 pt-5 text-sm leading-6 text-charcoal/62 sm:grid-cols-2">
@@ -849,9 +849,9 @@ function App() {
 
               return (
                 <article key={step.eyebrow} className="grid grid-cols-[3.5rem_1fr] gap-5 border-t border-ink/12 py-8">
-                  <p className="font-serif text-2xl text-charcoal/35">{stepCopy.eyebrow}</p>
+                  <p className="font-serif text-[1.7rem] text-charcoal/35">{stepCopy.eyebrow}</p>
                   <div>
-                    <h3 className="font-serif text-[1.85rem] leading-tight">{stepCopy.title}</h3>
+                    <h3 className="font-serif text-[2rem] leading-[1.03]">{stepCopy.title}</h3>
                     <p className="mt-3 leading-7 text-charcoal/72">{stepCopy.description}</p>
                   </div>
                 </article>
@@ -881,10 +881,10 @@ function App() {
                     />
                   </div>
                   <div className="pt-5">
-                    <p className="text-[11px] uppercase tracking-[0.18em] text-taupe">
+                    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-taupe">
                       {postCopy.category} / {postCopy.readTime}
                     </p>
-                    <h3 className="mt-3 font-serif text-3xl leading-[1.05]">{postCopy.title}</h3>
+                    <h3 className="mt-3 font-serif text-[2.1rem] leading-[1.02]">{postCopy.title}</h3>
                     <p className="mt-4 text-sm leading-7 text-charcoal/70">{postCopy.excerpt}</p>
                   </div>
                 </article>
@@ -900,10 +900,10 @@ function App() {
         >
           <div className="mx-auto grid max-w-[1480px] gap-14 lg:grid-cols-[0.85fr_1.15fr]">
             <div className="max-w-2xl">
-              <p className="text-[10px] uppercase tracking-[0.28em] text-charcoal/45">{content.contact.eyebrow}</p>
+              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-charcoal/45">{content.contact.eyebrow}</p>
               <h2
                 id="contact-heading"
-                className="mt-6 font-serif text-[2.45rem] leading-[1.05] sm:text-5xl lg:text-6xl"
+                className="mt-6 font-serif text-[2.55rem] leading-[1.03] sm:text-5xl lg:text-6xl"
               >
                 {content.contact.title}
               </h2>
@@ -928,13 +928,13 @@ function App() {
                 ))}
               </ul>
               <div className="mt-8 border-y border-ink/10 py-7">
-                <h3 className="font-serif text-3xl font-medium leading-tight text-ink">
+                <h3 className="font-serif text-[2.08rem] leading-[1.03] text-ink">
                   {content.contact.briefTitle}
                 </h3>
                 <ol className="mt-6 grid gap-4 text-sm leading-7 text-charcoal/68">
                   {content.contact.briefQuestions.map((question, index) => (
                     <li key={question} className="grid grid-cols-[2.25rem_1fr] gap-4">
-                      <span className="font-serif text-xl leading-7 text-charcoal/30">
+                      <span className="font-serif text-[1.35rem] leading-7 text-charcoal/30">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <span>{question}</span>
@@ -966,7 +966,7 @@ function App() {
 
                   return (
                     <label key={field.name} className="grid gap-3 border-b border-ink/10 pb-3 md:last:col-span-2">
-                      <span className="text-[10px] uppercase tracking-[0.2em] text-charcoal/45">{label}</span>
+                      <span className="text-[10px] font-medium uppercase tracking-[0.16em] text-charcoal/45">{label}</span>
                       <input
                         className="bg-transparent text-base text-ink outline-none placeholder:text-charcoal/28"
                         placeholder={label}
@@ -980,7 +980,7 @@ function App() {
                 })}
               </div>
               <label className="grid gap-3 border-b border-ink/10 pb-3">
-                <span className="text-[10px] uppercase tracking-[0.2em] text-charcoal/45">{content.contact.fields.message}</span>
+                <span className="text-[10px] font-medium uppercase tracking-[0.16em] text-charcoal/45">{content.contact.fields.message}</span>
                 <textarea
                   className="min-h-32 bg-transparent text-base leading-7 text-ink outline-none placeholder:text-charcoal/28"
                   placeholder={content.contact.messagePlaceholder}
@@ -1003,7 +1003,7 @@ function App() {
                 </div>
               ) : null}
               <button
-                className="group mt-2 inline-flex w-full items-center justify-between border border-ink/20 px-6 py-4 text-[10px] uppercase tracking-[0.22em] transition duration-300 hover:border-ink hover:bg-ink hover:text-bone sm:w-auto sm:min-w-72"
+                className="group mt-2 inline-flex w-full items-center justify-between border border-ink/20 px-6 py-4 text-[10px] font-medium uppercase tracking-[0.16em] transition duration-300 hover:border-ink hover:bg-ink hover:text-bone sm:w-auto sm:min-w-72"
                 type="submit"
               >
                 {content.contact.submit}
@@ -1017,8 +1017,8 @@ function App() {
       <footer className="border-t border-ink/10 bg-[#f8f6f0] px-5 py-14 text-charcoal/62 sm:px-7 lg:px-10 lg:py-20">
         <div className="mx-auto grid max-w-[1480px] gap-10 pt-2 text-sm lg:grid-cols-[0.85fr_1.05fr_0.58fr]">
           <div>
-            <p className="font-serif text-3xl leading-none text-ink">Aramphabot</p>
-            <p className="mt-3 text-[9px] uppercase tracking-[0.34em] text-charcoal/42">Studio Co., Ltd.</p>
+            <p className="font-serif text-[2.05rem] leading-none text-ink">Aramphabot</p>
+            <p className="mt-3 text-[9px] font-medium uppercase tracking-[0.26em] text-charcoal/42">Studio Co., Ltd.</p>
             <p className="mt-8 max-w-sm leading-7 text-charcoal/52">
               {siteConfig.location}
             </p>
@@ -1027,7 +1027,7 @@ function App() {
             <p className="max-w-xl leading-7 text-charcoal/60">
               {content.footer.note}
             </p>
-            <div className="mt-8 grid max-w-lg grid-cols-2 gap-x-8 gap-y-3 text-[9px] uppercase tracking-[0.24em] text-charcoal/42 sm:grid-cols-3">
+            <div className="mt-8 grid max-w-lg grid-cols-2 gap-x-8 gap-y-3 text-[9px] font-medium uppercase tracking-[0.18em] text-charcoal/42 sm:grid-cols-3">
               {navigation.map((item) => {
                 const navigationKey = getNavigationKey(item.href);
 
@@ -1045,13 +1045,13 @@ function App() {
             </div>
           </div>
           <div className="grid content-start gap-5 lg:justify-items-end lg:text-right">
-            <p className="text-[9px] uppercase tracking-[0.26em] text-charcoal/38">
+            <p className="text-[9px] font-medium uppercase tracking-[0.2em] text-charcoal/38">
               Bangkok / Thailand
             </p>
             <a
               href={getLocalizedPath("/", language)}
               onClick={(event) => handleNavigation(event, "/")}
-              className="inline-flex items-center gap-3 text-[9px] uppercase tracking-[0.24em] transition hover:text-ink"
+              className="inline-flex items-center gap-3 text-[9px] font-medium uppercase tracking-[0.18em] transition hover:text-ink"
             >
               {content.footer.backToTop}
               <ArrowUpRight size={14} aria-hidden="true" />
@@ -1061,7 +1061,7 @@ function App() {
                 href={siteConfig.social.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-3 text-[9px] uppercase tracking-[0.24em] transition hover:text-ink"
+                className="inline-flex items-center gap-3 text-[9px] font-medium uppercase tracking-[0.18em] transition hover:text-ink"
               >
                 Facebook
                 <ArrowUpRight size={14} aria-hidden="true" />
@@ -1100,7 +1100,7 @@ function Section({
           <p className="editorial-kicker text-charcoal/45">{eyebrow}</p>
           <h2
             id={headingId}
-            className="max-w-5xl font-serif text-[2.25rem] font-medium leading-[1.08] text-ink sm:text-5xl lg:text-[4.5rem]"
+            className="max-w-5xl font-serif text-[2.35rem] leading-[1.04] text-ink sm:text-5xl lg:text-[4.65rem]"
           >
             {title}
           </h2>
@@ -1122,7 +1122,7 @@ function LanguageSwitcher({
 }) {
   return (
     <div
-      className="inline-flex items-center border border-ink/15 bg-transparent p-1 text-[9px] uppercase tracking-[0.2em]"
+      className="inline-flex items-center border border-ink/15 bg-transparent p-1 text-[9px] font-medium uppercase tracking-[0.16em]"
       aria-label={label}
       role="group"
     >
@@ -1182,17 +1182,17 @@ function ProjectCard({
         </div>
         <div className="grid gap-5 pt-1 sm:grid-cols-[1fr_auto]">
           <div>
-            <p className="text-[9px] uppercase leading-6 tracking-[0.24em] text-charcoal/45">
+            <p className="text-[9px] font-medium uppercase leading-6 tracking-[0.18em] text-charcoal/45">
               {typeLabel} / {project.location}
             </p>
-            <h3 className="mt-3 max-w-xl font-serif text-[2rem] font-medium leading-[1.02] text-ink transition duration-300 group-hover:text-charcoal/70 md:text-[2.5rem]">
+            <h3 className="mt-3 max-w-xl font-serif text-[2.1rem] leading-[1] text-ink transition duration-300 group-hover:text-charcoal/70 md:text-[2.65rem]">
               {project.title}
             </h3>
-            <p className="mt-4 text-[9px] uppercase leading-6 tracking-[0.22em] text-charcoal/42">
+            <p className="mt-4 text-[9px] font-medium uppercase leading-6 tracking-[0.16em] text-charcoal/42">
               {project.year} / {project.scope}
             </p>
             {featured ? (
-              <p className="mt-7 max-w-2xl font-serif text-[1.45rem] font-medium leading-snug text-charcoal/72 md:text-[2rem]">
+              <p className="mt-7 max-w-2xl font-serif text-[1.55rem] leading-[1.08] text-charcoal/72 md:text-[2.12rem]">
                 {project.concept}
               </p>
             ) : null}
@@ -1263,11 +1263,11 @@ function ProjectDetail({
           </p>
           <h3
             id="project-detail-heading"
-            className="mt-6 font-serif text-[2.75rem] font-medium leading-[1.04] sm:text-5xl lg:text-6xl"
+            className="mt-6 font-serif text-[2.85rem] leading-[1.02] sm:text-5xl lg:text-6xl"
           >
             {project.title}
           </h3>
-          <p className="mt-7 max-w-2xl font-serif text-2xl leading-snug text-charcoal/78 md:text-[2.45rem]">
+          <p className="mt-7 max-w-2xl font-serif text-[1.65rem] leading-[1.08] text-charcoal/78 md:text-[2.55rem]">
             {project.concept}
           </p>
           {project.placeholder ? (
@@ -1286,7 +1286,7 @@ function ProjectDetail({
               [labels.area, project.area],
             ].map(([label, value]) => (
               <div key={label} className="border-b border-ink/12 py-5 sm:odd:border-r sm:odd:border-ink/12 sm:odd:pr-6 sm:even:pl-6">
-                <p className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">{label}</p>
+                <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-charcoal/42">{label}</p>
                 <p className="mt-2 leading-7">{value}</p>
               </div>
             ))}
@@ -1299,7 +1299,7 @@ function ProjectDetail({
           <p className="editorial-kicker text-charcoal/45">{labels.overview}</p>
         </div>
         <div className="max-w-4xl">
-          <p className="font-serif text-3xl font-medium leading-snug text-ink md:text-[3rem]">
+          <p className="font-serif text-[2.05rem] leading-[1.08] text-ink md:text-[3.1rem]">
             {project.overview}
           </p>
         </div>
@@ -1316,20 +1316,20 @@ function ProjectDetail({
           <div className="grid gap-6 md:grid-cols-2">
             {dnaChapters.map(([title, body]) => (
               <section key={title} className="border-t border-ink/12 pt-5">
-                <h4 className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">{title}</h4>
+                <h4 className="text-[10px] font-medium uppercase tracking-[0.16em] text-charcoal/42">{title}</h4>
                 <p className="mt-4 text-base leading-8 text-charcoal/70">{body}</p>
               </section>
             ))}
           </div>
           <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
             <div>
-              <h4 className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">
+              <h4 className="text-[10px] font-medium uppercase tracking-[0.16em] text-charcoal/42">
                 {labels.experienceSequence}
               </h4>
               <ol className="mt-5 grid gap-3">
                 {project.experienceSequence.map((step, index) => (
                   <li key={step} className="grid grid-cols-[2.75rem_1fr] gap-4 border-t border-ink/10 pt-3">
-                    <span className="font-serif text-xl leading-none text-charcoal/30">
+                    <span className="font-serif text-[1.35rem] leading-none text-charcoal/30">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="text-sm leading-7 text-charcoal/70">{step}</span>
@@ -1338,7 +1338,7 @@ function ProjectDetail({
               </ol>
             </div>
             <div>
-              <h4 className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">
+              <h4 className="text-[10px] font-medium uppercase tracking-[0.16em] text-charcoal/42">
                 {labels.memoryMoments}
               </h4>
               <ul className="mt-5 grid gap-3">
@@ -1357,7 +1357,7 @@ function ProjectDetail({
       <div className="project-story-map mt-16 grid border-y border-ink/12 lg:grid-cols-4">
         {storyChapters.map(([title, body]) => (
           <section key={title} className="border-b border-ink/12 py-7 lg:border-b-0 lg:border-r lg:border-ink/12 lg:px-6 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
-            <h4 className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">{title}</h4>
+                <h4 className="text-[10px] font-medium uppercase tracking-[0.16em] text-charcoal/42">{title}</h4>
             <p className="mt-5 text-base leading-8 text-charcoal/68">{body}</p>
           </section>
         ))}
@@ -1365,7 +1365,7 @@ function ProjectDetail({
 
       <div className="mt-16 grid gap-12 border-y border-ink/12 py-12 lg:grid-cols-[0.42fr_0.58fr]">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">{labels.designNarrative}</p>
+          <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-charcoal/42">{labels.designNarrative}</p>
           <p className="mt-5 text-lg leading-8 text-charcoal/66">{project.editorialClosing}</p>
         </div>
         <div className="grid gap-6">
@@ -1379,9 +1379,9 @@ function ProjectDetail({
 
       <div className="mt-14 grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">{labels.keyDesignMoves}</p>
+          <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-charcoal/42">{labels.keyDesignMoves}</p>
           <p className="mt-5 text-lg leading-8 text-charcoal/66">{project.clientValue}</p>
-          <p className="mt-8 text-[10px] uppercase leading-6 tracking-[0.2em] text-charcoal/42">
+          <p className="mt-8 text-[10px] font-medium uppercase leading-6 tracking-[0.16em] text-charcoal/42">
             {labels.materials}: {project.materials.join(", ")}
           </p>
         </div>
@@ -1411,7 +1411,7 @@ function ProjectDetail({
 
       <div className="mt-16 grid gap-8 border-t border-ink/12 pt-8 lg:grid-cols-[0.32fr_0.68fr]">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">{labels.relatedProjects}</p>
+          <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-charcoal/42">{labels.relatedProjects}</p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {relatedProjects.map((relatedProject) => (
@@ -1427,7 +1427,7 @@ function ProjectDetail({
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
                 />
               </div>
-              <p className="mt-4 font-serif text-2xl leading-tight transition group-hover:text-charcoal/70">
+              <p className="mt-4 font-serif text-[1.6rem] leading-[1.04] transition group-hover:text-charcoal/70">
                 {relatedProject.title}
               </p>
               <p className="mt-2 text-sm leading-6 text-charcoal/62">{relatedProject.location}</p>
@@ -1437,13 +1437,13 @@ function ProjectDetail({
       </div>
 
       <div className="mt-16 border-y border-ink/12 py-10 lg:flex lg:items-center lg:justify-between lg:gap-10">
-        <p className="max-w-3xl font-serif text-3xl font-medium leading-tight text-ink">
+        <p className="max-w-3xl font-serif text-[2.05rem] leading-[1.04] text-ink">
           {labels.clientValue}: {project.editorialClosing}
         </p>
         <button
           type="button"
           onClick={onDiscuss}
-          className="group mt-8 inline-flex items-center gap-3 border border-ink/20 px-5 py-3 text-[10px] uppercase tracking-[0.2em] transition hover:border-ink hover:bg-ink hover:text-bone lg:mt-0"
+          className="group mt-8 inline-flex items-center gap-3 border border-ink/20 px-5 py-3 text-[10px] font-medium uppercase tracking-[0.16em] transition hover:border-ink hover:bg-ink hover:text-bone lg:mt-0"
         >
           {discussProjectLabel}
           <ArrowUpRight className="transition group-hover:translate-x-1 group-hover:-translate-y-1" size={16} aria-hidden="true" />

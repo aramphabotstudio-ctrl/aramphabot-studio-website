@@ -6,6 +6,10 @@
   color-scheme: light;
   background: #f8f6f0;
   color: #22201d;
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-body: "IBM Plex Sans", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-thai-display: "Noto Serif Thai", "IBM Plex Sans Thai", serif;
+  --font-thai-body: "IBM Plex Sans Thai", "Noto Sans Thai", "Segoe UI", system-ui, sans-serif;
   font-synthesis: none;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
@@ -30,8 +34,11 @@ body {
   min-width: 320px;
   background: #f8f6f0;
   color: #22201d;
-  font-family: Inter, "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  font-family: var(--font-body);
   letter-spacing: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
 }
 
 body::before {
@@ -42,6 +49,7 @@ h1,
 h2,
 h3 {
   text-wrap: balance;
+  letter-spacing: 0;
 }
 
 p,
@@ -51,12 +59,12 @@ dd {
 }
 
 html[lang="th"] body {
-  font-family: "Noto Sans Thai", Inter, "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  font-family: var(--font-thai-body);
 }
 
 html[lang="th"] .font-serif {
-  font-family: "Noto Sans Thai", Inter, "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  line-height: 1.14;
+  font-family: var(--font-thai-display);
+  line-height: 1.2;
 }
 
 html[lang="th"] p,
@@ -128,7 +136,7 @@ img {
   font-size: 0.625rem;
   font-weight: 500;
   line-height: 1.8;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -161,11 +169,30 @@ img {
 .project-story-map > section::before {
   display: block;
   margin-bottom: 1.25rem;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: 2rem;
   line-height: 1;
   color: rgba(34, 32, 29, 0.24);
   content: counter(story-map, decimal-leading-zero);
+}
+
+.font-serif {
+  font-weight: 400;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+.typographic-system {
+  --display-tight: 0.97;
+  --display-calm: 1.06;
+}
+
+.typographic-system h1 {
+  line-height: var(--display-tight);
+}
+
+.typographic-system h2,
+.typographic-system h3 {
+  line-height: var(--display-calm);
 }
 
 .image-frame {
