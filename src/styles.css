@@ -4,8 +4,8 @@
 
 :root {
   color-scheme: light;
-  background: #f4efe4;
-  color: #1f1b16;
+  background: #f8f6f0;
+  color: #22201d;
   font-synthesis: none;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
@@ -28,36 +28,14 @@ article[id] {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    linear-gradient(180deg, rgba(251, 248, 241, 0.78), rgba(244, 239, 228, 0.96)),
-    #f4efe4;
-  color: #1f1b16;
+  background: #f8f6f0;
+  color: #22201d;
   font-family: Inter, "Avenir Next", "Segoe UI", system-ui, sans-serif;
   letter-spacing: 0;
 }
 
 body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  content: "";
-  background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(31, 27, 22, 0.025) 0,
-      rgba(31, 27, 22, 0.025) 1px,
-      transparent 1px,
-      transparent 8.333vw
-    ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(31, 27, 22, 0.018) 0,
-      rgba(31, 27, 22, 0.018) 1px,
-      transparent 1px,
-      transparent 11rem
-    );
-  opacity: 0.72;
+  content: none;
 }
 
 h1,
@@ -147,10 +125,10 @@ img {
 }
 
 .editorial-kicker {
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 500;
-  line-height: 1.7;
-  letter-spacing: 0.26em;
+  line-height: 1.8;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
@@ -169,9 +147,7 @@ img {
 }
 
 .quiet-surface {
-  background:
-    linear-gradient(180deg, rgba(251, 248, 241, 0.62), rgba(233, 223, 207, 0.2)),
-    rgba(251, 248, 241, 0.5);
+  background: #fbfaf6;
 }
 
 .project-story-map {
@@ -186,9 +162,9 @@ img {
   display: block;
   margin-bottom: 1.25rem;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 2.65rem;
-  line-height: 0.9;
-  color: rgba(154, 106, 78, 0.78);
+  font-size: 2rem;
+  line-height: 1;
+  color: rgba(34, 32, 29, 0.24);
   content: counter(story-map, decimal-leading-zero);
 }
 
@@ -203,16 +179,14 @@ img {
   inset: 0;
   pointer-events: none;
   content: "";
-  background:
-    linear-gradient(180deg, rgba(251, 248, 241, 0.06), rgba(31, 27, 22, 0.16)),
-    linear-gradient(90deg, rgba(178, 138, 104, 0.08), transparent 40%);
+  background: linear-gradient(180deg, rgba(248, 246, 240, 0.02), rgba(34, 32, 29, 0.08));
   mix-blend-mode: multiply;
-  opacity: 0.72;
+  opacity: 0.34;
   transition: opacity 300ms ease;
 }
 
 .image-frame img {
-  filter: saturate(0.88) contrast(1.04);
+  filter: saturate(0.72) contrast(1.02);
 }
 
 .group:hover .image-frame::after {
@@ -220,10 +194,8 @@ img {
 }
 
 .image-frame-subtle::after {
-  background:
-    linear-gradient(180deg, rgba(251, 248, 241, 0.03), rgba(31, 27, 22, 0.1)),
-    linear-gradient(90deg, rgba(178, 138, 104, 0.04), transparent 44%);
-  opacity: 0.48;
+  background: linear-gradient(180deg, rgba(248, 246, 240, 0.01), rgba(34, 32, 29, 0.055));
+  opacity: 0.22;
 }
 
 @media (prefers-reduced-motion: reduce) {

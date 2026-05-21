@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import type { FormEvent, MouseEvent, ReactNode } from "react";
 import {
   ArrowUpRight,
-  Building2,
   CircleDot,
   Mail,
   MapPin,
@@ -437,24 +436,24 @@ function App() {
   }
 
   return (
-    <div className={`min-h-screen overflow-x-hidden bg-ivory text-ink selection:bg-clay selection:text-bone ${language === "th" ? "thai-copy" : ""}`} lang={htmlLanguage}>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-bone/85 backdrop-blur-xl">
-        <nav className="mx-auto flex h-[68px] max-w-[1540px] items-center justify-between px-5 sm:px-7 lg:h-[76px] lg:px-10">
+    <div className={`min-h-screen overflow-x-hidden bg-[#f8f6f0] text-ink selection:bg-ink selection:text-bone ${language === "th" ? "thai-copy" : ""}`} lang={htmlLanguage}>
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-[#fbfaf6]/92 backdrop-blur-md">
+        <nav className="mx-auto flex h-16 max-w-[1480px] items-center justify-between px-5 sm:px-7 lg:px-10">
           <a
             href={getLocalizedPath("/", language)}
             className="group inline-flex flex-col"
             aria-label={content.header.homeLabel}
             onClick={(event) => handleNavigation(event, "/")}
           >
-            <span className="font-serif text-[1.62rem] leading-none text-ink transition group-hover:text-clay md:text-[1.78rem]">
+            <span className="font-serif text-[1.5rem] leading-none text-ink transition group-hover:text-charcoal md:text-[1.64rem]">
               Aramphabot
             </span>
-            <span className="mt-1 text-[10px] uppercase tracking-[0.34em] text-taupe">
+            <span className="mt-1 text-[9px] uppercase tracking-[0.32em] text-charcoal/50">
               Studio Co., Ltd.
             </span>
           </a>
 
-          <div className="hidden items-center gap-6 text-[10px] uppercase tracking-[0.24em] text-charcoal/62 xl:flex">
+          <div className="hidden items-center gap-7 text-[9px] uppercase tracking-[0.26em] text-charcoal/58 xl:flex">
             {navigation.map((item) => {
               const navigationKey = getNavigationKey(item.href);
 
@@ -489,7 +488,7 @@ function App() {
             <a
               href={getLocalizedPath("/contact", language)}
               onClick={(event) => handleNavigation(event, "/contact")}
-              className="inline-flex items-center gap-3 border border-ink/25 px-5 py-3 text-[11px] uppercase tracking-[0.22em] transition duration-300 hover:border-ink hover:bg-ink hover:text-bone"
+              className="inline-flex items-center gap-3 border border-ink/18 px-5 py-3 text-[10px] uppercase tracking-[0.24em] transition duration-300 hover:border-ink hover:bg-ink hover:text-bone"
             >
               {content.header.discuss}
               <ArrowUpRight size={15} aria-hidden="true" />
@@ -497,7 +496,7 @@ function App() {
           </div>
 
           <button
-            className="inline-flex size-11 items-center justify-center border border-ink bg-ink text-bone shadow-soft transition hover:bg-clay lg:hidden"
+            className="inline-flex size-11 items-center justify-center border border-ink/20 bg-transparent text-ink transition hover:border-ink lg:hidden"
             type="button"
             aria-label={content.header.toggleNavigation}
             aria-expanded={menuOpen}
@@ -544,7 +543,7 @@ function App() {
         <section
           id="home"
           aria-labelledby="home-heading"
-          className="relative min-h-[100svh] overflow-hidden pt-[68px] lg:pt-[76px]"
+          className="relative min-h-[96svh] overflow-hidden pt-16"
         >
           <img
             src="/images/architecture-hero.jpg"
@@ -554,34 +553,33 @@ function App() {
             decoding="async"
             fetchPriority="high"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,27,22,0.82),rgba(31,27,22,0.42)_48%,rgba(244,239,228,0.04))]" />
-          <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-ivory via-ivory/55 to-transparent" />
-          <div className="absolute bottom-0 left-0 top-[68px] hidden w-px bg-bone/25 lg:block xl:left-10 xl:top-[76px]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(34,32,29,0.05),rgba(34,32,29,0.58))]" />
+          <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#f8f6f0] via-[#f8f6f0]/52 to-transparent" />
 
-          <div className="relative mx-auto grid min-h-[calc(100svh-68px)] max-w-[1540px] content-end gap-10 px-5 pb-8 sm:px-7 md:pb-12 lg:min-h-[calc(100svh-76px)] lg:px-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(22rem,0.55fr)]">
-            <div className="min-w-0 max-w-5xl text-bone">
-              <p className="editorial-kicker mb-6 max-w-[18rem] text-bone/76 sm:max-w-none">
+          <div className="relative mx-auto grid min-h-[calc(96svh-64px)] max-w-[1480px] content-end gap-10 px-5 pb-10 sm:px-7 md:pb-14 lg:px-10 xl:grid-cols-[minmax(0,0.92fr)_minmax(22rem,0.48fr)]">
+            <div className="min-w-0 max-w-4xl text-bone">
+              <p className="editorial-kicker mb-7 max-w-[18rem] text-bone/76 sm:max-w-none">
                 {content.hero.eyebrow}
               </p>
               <h1
                 id="home-heading"
-                className="max-w-[21.5rem] font-serif text-[3rem] font-medium leading-[0.98] sm:max-w-[45rem] sm:text-7xl md:text-8xl xl:max-w-5xl xl:text-[7.85rem]"
+                className="max-w-[22rem] font-serif text-[2.85rem] font-medium leading-[1.03] sm:max-w-[43rem] sm:text-6xl md:text-7xl xl:max-w-4xl xl:text-[6.2rem]"
               >
                 {content.hero.title}
               </h1>
-              <p className="mt-7 max-w-[20.5rem] text-base leading-7 text-bone/82 sm:max-w-xl sm:text-lg sm:leading-8 md:max-w-2xl md:text-[1.35rem] md:leading-9">
+              <p className="mt-7 max-w-[20.5rem] text-base leading-7 text-bone/82 sm:max-w-xl sm:text-lg sm:leading-8 md:max-w-2xl">
                 {content.hero.description}
               </p>
             </div>
 
-            <div className="hidden self-end border-y border-bone/28 bg-ink/8 px-1 py-5 text-bone/80 xl:block">
-              <p className="mb-6 font-serif text-4xl leading-[1.04] text-bone">
+            <div className="hidden self-end border-t border-bone/35 py-6 text-bone/78 xl:block">
+              <p className="mb-8 max-w-sm font-serif text-3xl leading-[1.12] text-bone">
                 {content.hero.statement}
               </p>
               <dl className="grid gap-5">
                 {content.hero.facts.map(([label, value]) => (
-                  <div key={label} className="grid grid-cols-[7rem_1fr] gap-5 border-t border-bone/20 pt-4">
-                    <dt className="text-[11px] uppercase tracking-[0.22em] text-bone/50">{label}</dt>
+                  <div key={label} className="grid grid-cols-[6rem_1fr] gap-5 border-t border-bone/18 pt-4">
+                    <dt className="text-[10px] uppercase tracking-[0.22em] text-bone/45">{label}</dt>
                     <dd className="text-sm leading-6">{value}</dd>
                   </div>
                 ))}
@@ -590,8 +588,8 @@ function App() {
           </div>
         </section>
 
-        <section className="border-y border-ink/10 bg-bone/72">
-          <div className="mx-auto grid max-w-[1540px] divide-y divide-ink/10 px-5 text-[10px] uppercase leading-6 tracking-[0.24em] text-taupe sm:px-7 md:grid-cols-3 md:divide-x md:divide-y-0 lg:px-10">
+        <section className="border-y border-ink/10 bg-[#fbfaf6]">
+          <div className="mx-auto grid max-w-[1480px] divide-y divide-ink/10 px-5 text-[9px] uppercase leading-6 tracking-[0.28em] text-charcoal/50 sm:px-7 md:grid-cols-3 md:divide-x md:divide-y-0 lg:px-10">
             {content.registryBar.map((item) => (
               <p key={item} className="py-4 md:px-8 md:first:pl-0 md:last:pr-0">
                 {item}
@@ -600,20 +598,20 @@ function App() {
           </div>
         </section>
 
-        <section aria-labelledby="identity-heading" className="quiet-surface px-5 py-20 sm:px-7 lg:px-10 lg:py-28">
-          <div className="mx-auto max-w-[1540px] border-t border-ink/15 pt-7">
-            <div className="grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+        <section aria-labelledby="identity-heading" className="quiet-surface px-5 py-24 sm:px-7 lg:px-10 lg:py-36">
+          <div className="mx-auto max-w-[1480px] border-t border-ink/12 pt-9">
+            <div className="grid gap-16 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)]">
               <div>
-                <p className="editorial-kicker text-taupe">Aramphabot Studio</p>
+                <p className="editorial-kicker text-charcoal/48">Aramphabot Studio</p>
                 <h2
                   id="identity-heading"
-                  className="mt-5 max-w-4xl font-serif text-[3.25rem] font-medium leading-[0.96] text-ink sm:text-7xl lg:text-[6.8rem]"
+                  className="mt-7 max-w-3xl font-serif text-[2.75rem] font-medium leading-[1.04] text-ink sm:text-6xl lg:text-[5.35rem]"
                 >
                   {content.hero.statement}
                 </h2>
               </div>
-              <div className="grid gap-8 md:grid-cols-[0.86fr_1.14fr]">
-                <div className="image-frame image-frame-subtle flex aspect-[4/5] items-center justify-center bg-ink p-8 md:mt-10">
+              <div className="grid gap-10 md:grid-cols-[0.78fr_1.22fr]">
+                <div className="flex aspect-[4/5] items-center justify-center bg-ink p-8 md:mt-10">
                   <img
                     src="/images/aramphabot-logo.jpg"
                     alt="Aramphabot Studio ARA logo mark in white on black"
@@ -623,15 +621,15 @@ function App() {
                   />
                 </div>
                 <div className="grid content-between gap-8">
-                  <div className="space-y-6 text-lg leading-8 text-charcoal/74">
+                  <div className="space-y-6 text-base leading-8 text-charcoal/70 md:text-lg">
                     {content.manifesto.paragraphs.map((paragraph) => (
                       <p key={paragraph}>{paragraph}</p>
                     ))}
                   </div>
-                  <dl className="grid border-t border-ink/15">
+                  <dl className="grid border-t border-ink/12">
                     {content.manifesto.principles.map(([label, value]) => (
-                      <div key={label} className="grid gap-3 border-b border-ink/15 py-5 sm:grid-cols-[8rem_1fr]">
-                        <dt className="font-serif text-2xl leading-tight text-ink">{label}</dt>
+                      <div key={label} className="grid gap-3 border-b border-ink/12 py-5 sm:grid-cols-[8rem_1fr]">
+                        <dt className="font-serif text-[1.65rem] leading-tight text-ink">{label}</dt>
                         <dd className="text-sm leading-7 text-charcoal/66">{value}</dd>
                       </div>
                     ))}
@@ -675,19 +673,19 @@ function App() {
           id="projects"
           eyebrow={content.projects.eyebrow}
           title={content.projects.title}
-          className="bg-bone/55"
+          className="bg-[#fbfaf6]"
         >
-          <div className="mb-12 flex gap-2 overflow-x-auto border-y border-ink/10 py-3" aria-label={content.projects.categoriesLabel}>
+          <div className="mb-14 flex gap-1 overflow-x-auto border-y border-ink/10 py-4" aria-label={content.projects.categoriesLabel}>
             {projectCategories.map((category) => (
               <button
                 key={category}
                 type="button"
                 onClick={() => handleCategoryChange(category)}
                 aria-pressed={activeCategory === category}
-                className={`shrink-0 px-4 py-2 text-[10px] uppercase tracking-[0.22em] transition duration-300 ${
+                className={`shrink-0 px-3 py-2 text-[9px] uppercase tracking-[0.24em] transition duration-300 ${
                   activeCategory === category
-                    ? "bg-ink text-bone"
-                    : "text-charcoal/64 hover:bg-linen hover:text-ink"
+                    ? "text-ink underline underline-offset-[10px]"
+                    : "text-charcoal/48 hover:text-ink"
                 }`}
               >
                 {getCategoryLabel(category, language)}
@@ -695,7 +693,7 @@ function App() {
             ))}
           </div>
 
-          <div className="grid gap-x-7 gap-y-11 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-x-10 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
             {filteredProjects.map((project, index) => {
               const projectCopy = getProjectCopy(project, language);
 
@@ -739,31 +737,30 @@ function App() {
           eyebrow={content.services.eyebrow}
           title={content.services.title}
         >
-          <div className="grid border-t border-ink/15 xl:grid-cols-2">
+          <div className="grid border-t border-ink/12 xl:grid-cols-2">
             {services.map((service, index) => {
               const serviceCopy = getServiceCopy(service, language);
 
               return (
                 <article
                   key={service.title}
-                  className="group grid gap-6 border-b border-ink/15 py-9 transition duration-300 hover:bg-bone/60 md:grid-cols-[5rem_1fr] md:px-8 xl:odd:border-r"
+                  className="group grid gap-6 border-b border-ink/12 py-10 transition duration-300 md:grid-cols-[4.5rem_1fr] md:px-8 xl:odd:border-r xl:odd:border-ink/12"
                 >
                   <div className="flex items-center justify-between border-b border-ink/10 pb-4 md:block md:border-b-0 md:pb-0">
-                    <p className="font-serif text-4xl leading-none text-clay/80">
+                    <p className="font-serif text-3xl leading-none text-charcoal/30">
                       {String(index + 1).padStart(2, "0")}
                     </p>
-                    <Building2 className="text-clay/75 transition duration-300 group-hover:translate-x-1 md:mt-8" size={22} aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-[2.25rem] font-medium leading-none md:text-[2.9rem]">{serviceCopy.title}</h3>
-                    <p className="mt-5 max-w-2xl text-lg leading-8 text-charcoal/74">{serviceCopy.summary}</p>
-                    <p className="mt-5 text-[10px] uppercase leading-6 tracking-[0.22em] text-taupe">
+                    <h3 className="font-serif text-[2rem] font-medium leading-tight md:text-[2.55rem]">{serviceCopy.title}</h3>
+                    <p className="mt-5 max-w-2xl text-base leading-8 text-charcoal/70 md:text-lg">{serviceCopy.summary}</p>
+                    <p className="mt-6 text-[9px] uppercase leading-6 tracking-[0.24em] text-charcoal/45">
                       {serviceCopy.clientType}
                     </p>
-                    <ul className="mt-7 grid gap-3 border-t border-ink/10 pt-5 text-sm leading-6 text-charcoal/68 sm:grid-cols-2">
+                    <ul className="mt-7 grid gap-3 border-t border-ink/10 pt-5 text-sm leading-6 text-charcoal/62 sm:grid-cols-2">
                       {serviceCopy.details.map((detail) => (
                         <li key={detail} className="flex gap-3">
-                          <span className="mt-2 h-px w-5 shrink-0 bg-clay/70" aria-hidden="true" />
+                          <span className="mt-2 h-px w-4 shrink-0 bg-ink/28" aria-hidden="true" />
                           {detail}
                         </li>
                       ))}
@@ -779,17 +776,17 @@ function App() {
           id="process"
           eyebrow={content.process.eyebrow}
           title={content.process.title}
-          className="bg-linen/55"
+          className="bg-[#f3f0e9]"
         >
           <div className="grid gap-x-12 gap-y-2 md:grid-cols-2">
             {processSteps.map((step) => {
               const stepCopy = getProcessCopy(step, language);
 
               return (
-                <article key={step.eyebrow} className="grid grid-cols-[3.5rem_1fr] gap-5 border-t border-ink/15 py-7">
-                  <p className="font-serif text-3xl text-clay/85">{stepCopy.eyebrow}</p>
+                <article key={step.eyebrow} className="grid grid-cols-[3.5rem_1fr] gap-5 border-t border-ink/12 py-8">
+                  <p className="font-serif text-2xl text-charcoal/35">{stepCopy.eyebrow}</p>
                   <div>
-                    <h3 className="font-serif text-3xl leading-tight">{stepCopy.title}</h3>
+                    <h3 className="font-serif text-[1.85rem] leading-tight">{stepCopy.title}</h3>
                     <p className="mt-3 leading-7 text-charcoal/72">{stepCopy.description}</p>
                   </div>
                 </article>
@@ -834,24 +831,24 @@ function App() {
         <section
           id="contact"
           aria-labelledby="contact-heading"
-          className="bg-ink px-5 py-24 text-bone sm:px-7 lg:px-10 lg:py-32"
+          className="border-t border-ink/10 bg-[#fbfaf6] px-5 py-24 text-ink sm:px-7 lg:px-10 lg:py-32"
         >
-          <div className="mx-auto grid max-w-[1540px] gap-14 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="mx-auto grid max-w-[1480px] gap-14 lg:grid-cols-[0.85fr_1.15fr]">
             <div className="max-w-2xl">
-              <p className="text-[11px] uppercase tracking-[0.3em] text-bone/50">{content.contact.eyebrow}</p>
+              <p className="text-[10px] uppercase tracking-[0.28em] text-charcoal/45">{content.contact.eyebrow}</p>
               <h2
                 id="contact-heading"
-                className="mt-6 font-serif text-[2.7rem] leading-[1.02] sm:text-6xl lg:text-7xl"
+                className="mt-6 font-serif text-[2.45rem] leading-[1.05] sm:text-5xl lg:text-6xl"
               >
                 {content.contact.title}
               </h2>
-              <p className="mt-7 max-w-xl text-lg leading-8 text-bone/72">
+              <p className="mt-7 max-w-xl text-lg leading-8 text-charcoal/70">
                 {content.contact.intro}
               </p>
-              <p className="mt-8 border-l border-bone/25 pl-5 text-sm leading-7 text-bone/58">
+              <p className="mt-8 border-l border-ink/16 pl-5 text-sm leading-7 text-charcoal/58">
                 {content.contact.prepareNote}
               </p>
-              <ul className="mt-8 grid gap-3 border-y border-bone/15 py-6 text-sm leading-7 text-bone/68 sm:grid-cols-2">
+              <ul className="mt-8 grid gap-3 border-y border-ink/10 py-6 text-sm leading-7 text-charcoal/62 sm:grid-cols-2">
                 {[
                   content.contact.fields.projectType,
                   content.contact.fields.projectLocation,
@@ -860,12 +857,12 @@ function App() {
                   content.contact.fields.budgetRange,
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <span className="mt-3 h-px w-5 shrink-0 bg-bone/36" aria-hidden="true" />
+                    <span className="mt-3 h-px w-5 shrink-0 bg-ink/24" aria-hidden="true" />
                     {item}
                   </li>
                 ))}
               </ul>
-              <div className="mt-10 space-y-5 text-bone/68">
+              <div className="mt-10 space-y-5 text-charcoal/64">
                 <p className="flex items-start gap-4 leading-7">
                   <MapPin className="mt-1 shrink-0" size={18} aria-hidden="true" />
                   {siteConfig.location}
@@ -881,17 +878,17 @@ function App() {
               </div>
             </div>
 
-            <form className="grid gap-6 border-y border-bone/15 py-8" aria-label={content.contact.formLabel} onSubmit={handleContactSubmit}>
-              <p className="editorial-kicker text-bone/48">{content.contact.formLabel}</p>
+            <form className="grid gap-6 border-y border-ink/10 py-8" aria-label={content.contact.formLabel} onSubmit={handleContactSubmit}>
+              <p className="editorial-kicker text-charcoal/45">{content.contact.formLabel}</p>
               <div className="grid gap-6 md:grid-cols-2">
                 {contactFieldKeys.map((field) => {
                   const label = content.contact.fields[field.key];
 
                   return (
-                    <label key={field.name} className="grid gap-3 border-b border-bone/20 pb-3 md:last:col-span-2">
-                      <span className="text-[11px] uppercase tracking-[0.18em] text-bone/48">{label}</span>
+                    <label key={field.name} className="grid gap-3 border-b border-ink/10 pb-3 md:last:col-span-2">
+                      <span className="text-[10px] uppercase tracking-[0.2em] text-charcoal/45">{label}</span>
                       <input
-                        className="bg-transparent text-base text-bone outline-none placeholder:text-bone/30"
+                        className="bg-transparent text-base text-ink outline-none placeholder:text-charcoal/28"
                         placeholder={label}
                         name={field.name}
                         type={field.type}
@@ -902,10 +899,10 @@ function App() {
                   );
                 })}
               </div>
-              <label className="grid gap-3 border-b border-bone/20 pb-3">
-                <span className="text-[11px] uppercase tracking-[0.18em] text-bone/48">{content.contact.fields.message}</span>
+              <label className="grid gap-3 border-b border-ink/10 pb-3">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-charcoal/45">{content.contact.fields.message}</span>
                 <textarea
-                  className="min-h-32 bg-transparent text-base leading-7 text-bone outline-none placeholder:text-bone/30"
+                  className="min-h-32 bg-transparent text-base leading-7 text-ink outline-none placeholder:text-charcoal/28"
                   placeholder={content.contact.messagePlaceholder}
                   name="message"
                   required
@@ -913,20 +910,20 @@ function App() {
               </label>
               {contactStatus ? (
                 <div
-                  className="border border-bone/20 bg-bone/5 p-4 text-sm leading-7 text-bone/72"
+                  className="border border-ink/10 bg-white/35 p-4 text-sm leading-7 text-charcoal/72"
                   role="status"
                   aria-live="polite"
                 >
                   <p>{contactStatus.message}</p>
                   {contactStatus.draft ? (
-                    <pre className="mt-4 max-h-56 overflow-auto whitespace-pre-wrap border-t border-bone/15 pt-4 font-sans text-xs leading-6 text-bone/62">
+                    <pre className="mt-4 max-h-56 overflow-auto whitespace-pre-wrap border-t border-ink/10 pt-4 font-sans text-xs leading-6 text-charcoal/62">
                       {contactStatus.draft}
                     </pre>
                   ) : null}
                 </div>
               ) : null}
               <button
-                className="group mt-2 inline-flex w-full items-center justify-between border border-bone/30 px-6 py-4 text-[11px] uppercase tracking-[0.2em] transition duration-300 hover:bg-bone hover:text-ink sm:w-auto sm:min-w-72"
+                className="group mt-2 inline-flex w-full items-center justify-between border border-ink/20 px-6 py-4 text-[10px] uppercase tracking-[0.22em] transition duration-300 hover:border-ink hover:bg-ink hover:text-bone sm:w-auto sm:min-w-72"
                 type="submit"
               >
                 {content.contact.submit}
@@ -937,20 +934,20 @@ function App() {
         </section>
       </main>
 
-      <footer className="bg-charcoal px-5 py-14 text-bone/68 sm:px-7 lg:px-10 lg:py-20">
-        <div className="mx-auto grid max-w-[1540px] gap-10 border-t border-bone/20 pt-9 text-sm lg:grid-cols-[0.85fr_1.05fr_0.58fr]">
+      <footer className="border-t border-ink/10 bg-[#f8f6f0] px-5 py-14 text-charcoal/62 sm:px-7 lg:px-10 lg:py-20">
+        <div className="mx-auto grid max-w-[1480px] gap-10 pt-2 text-sm lg:grid-cols-[0.85fr_1.05fr_0.58fr]">
           <div>
-            <p className="font-serif text-4xl leading-none text-bone">Aramphabot</p>
-            <p className="mt-3 text-[10px] uppercase tracking-[0.34em]">Studio Co., Ltd.</p>
-            <p className="mt-8 max-w-sm leading-7 text-bone/58">
+            <p className="font-serif text-3xl leading-none text-ink">Aramphabot</p>
+            <p className="mt-3 text-[9px] uppercase tracking-[0.34em] text-charcoal/42">Studio Co., Ltd.</p>
+            <p className="mt-8 max-w-sm leading-7 text-charcoal/52">
               {siteConfig.location}
             </p>
           </div>
           <div>
-            <p className="max-w-xl leading-7 text-bone/64">
+            <p className="max-w-xl leading-7 text-charcoal/60">
               {content.footer.note}
             </p>
-            <div className="mt-8 grid max-w-lg grid-cols-2 gap-x-8 gap-y-3 text-[10px] uppercase tracking-[0.22em] text-bone/48 sm:grid-cols-3">
+            <div className="mt-8 grid max-w-lg grid-cols-2 gap-x-8 gap-y-3 text-[9px] uppercase tracking-[0.24em] text-charcoal/42 sm:grid-cols-3">
               {navigation.map((item) => {
                 const navigationKey = getNavigationKey(item.href);
 
@@ -959,7 +956,7 @@ function App() {
                     key={item.href}
                     href={getLocalizedPath(item.href, language)}
                     onClick={(event) => handleNavigation(event, item.href)}
-                    className="transition hover:text-bone"
+                    className="transition hover:text-ink"
                   >
                     {content.navigation[navigationKey]}
                   </a>
@@ -968,13 +965,13 @@ function App() {
             </div>
           </div>
           <div className="grid content-start gap-5 lg:justify-items-end lg:text-right">
-            <p className="text-[10px] uppercase tracking-[0.24em] text-bone/42">
+            <p className="text-[9px] uppercase tracking-[0.26em] text-charcoal/38">
               Bangkok / Thailand
             </p>
             <a
               href={getLocalizedPath("/", language)}
               onClick={(event) => handleNavigation(event, "/")}
-              className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.22em] transition hover:text-bone"
+              className="inline-flex items-center gap-3 text-[9px] uppercase tracking-[0.24em] transition hover:text-ink"
             >
               {content.footer.backToTop}
               <ArrowUpRight size={14} aria-hidden="true" />
@@ -984,7 +981,7 @@ function App() {
                 href={siteConfig.social.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.22em] transition hover:text-bone"
+                className="inline-flex items-center gap-3 text-[9px] uppercase tracking-[0.24em] transition hover:text-ink"
               >
                 Facebook
                 <ArrowUpRight size={14} aria-hidden="true" />
@@ -1016,14 +1013,14 @@ function Section({
     <section
       id={id}
       aria-labelledby={headingId}
-      className={`px-5 py-24 sm:px-7 lg:px-10 lg:py-32 ${className}`}
+      className={`px-5 py-24 sm:px-7 lg:px-10 lg:py-36 ${className}`}
     >
-      <div className="mx-auto max-w-[1540px]">
-        <div className="mb-12 grid gap-7 border-t border-ink/15 pt-7 lg:mb-16 lg:grid-cols-[0.3fr_0.7fr]">
-          <p className="editorial-kicker text-taupe">{eyebrow}</p>
+      <div className="mx-auto max-w-[1480px]">
+        <div className="mb-14 grid gap-7 border-t border-ink/12 pt-8 lg:mb-20 lg:grid-cols-[0.28fr_0.72fr]">
+          <p className="editorial-kicker text-charcoal/45">{eyebrow}</p>
           <h2
             id={headingId}
-            className="max-w-5xl font-serif text-[2.65rem] font-medium leading-[1.02] text-ink sm:text-6xl lg:text-7xl"
+            className="max-w-5xl font-serif text-[2.25rem] font-medium leading-[1.08] text-ink sm:text-5xl lg:text-[4.5rem]"
           >
             {title}
           </h2>
@@ -1045,7 +1042,7 @@ function LanguageSwitcher({
 }) {
   return (
     <div
-      className="inline-flex items-center border border-ink/20 bg-ivory/45 p-1 text-[10px] uppercase tracking-[0.18em]"
+      className="inline-flex items-center border border-ink/15 bg-transparent p-1 text-[9px] uppercase tracking-[0.2em]"
       aria-label={label}
       role="group"
     >
@@ -1059,7 +1056,7 @@ function LanguageSwitcher({
           className={`px-3 py-2 transition duration-300 ${
             language === option.code
               ? "bg-ink text-bone"
-              : "text-charcoal/64 hover:bg-bone hover:text-ink"
+              : "text-charcoal/52 hover:bg-white/40 hover:text-ink"
           }`}
         >
           {option.label}
@@ -1093,34 +1090,34 @@ function ProjectCard({
       className={`group block text-left focus:outline-none ${featured ? "xl:col-span-2" : ""}`}
     >
       <article
-        className={`border-t pt-4 transition duration-300 ${
-          selected ? "border-ink" : "border-ink/15 group-hover:border-clay"
+        className={`grid gap-5 border-t pt-5 transition duration-300 ${
+          selected ? "border-ink" : "border-ink/12 group-hover:border-ink/45"
         }`}
       >
-        <div className={`image-frame image-frame-subtle bg-stone ${featured ? "aspect-[16/9]" : "aspect-[4/5]"}`}>
+        <div className={`image-frame image-frame-subtle bg-stone ${featured ? "aspect-[16/9]" : "aspect-[5/6]"}`}>
           <ProjectImage
             image={project.coverImage}
-            className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.045]"
+            className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.025]"
           />
         </div>
-        <div className="grid gap-5 pt-5 sm:grid-cols-[1fr_auto]">
+        <div className="grid gap-5 pt-1 sm:grid-cols-[1fr_auto]">
           <div>
-            <p className="text-[10px] uppercase leading-6 tracking-[0.22em] text-taupe">
+            <p className="text-[9px] uppercase leading-6 tracking-[0.24em] text-charcoal/45">
               {typeLabel} / {project.location}
             </p>
-            <h3 className="mt-3 max-w-xl font-serif text-[2.25rem] font-medium leading-[0.96] text-ink transition duration-300 group-hover:text-clay md:text-[2.85rem]">
+            <h3 className="mt-3 max-w-xl font-serif text-[2rem] font-medium leading-[1.02] text-ink transition duration-300 group-hover:text-charcoal/70 md:text-[2.5rem]">
               {project.title}
             </h3>
-            <p className="mt-4 text-[10px] uppercase leading-6 tracking-[0.22em] text-charcoal/48">
+            <p className="mt-4 text-[9px] uppercase leading-6 tracking-[0.22em] text-charcoal/42">
               {project.year} / {project.scope}
             </p>
             {featured ? (
-              <p className="mt-6 max-w-2xl font-serif text-[1.65rem] font-medium leading-tight text-charcoal/78 md:text-3xl">
+              <p className="mt-7 max-w-2xl font-serif text-[1.45rem] font-medium leading-snug text-charcoal/72 md:text-[2rem]">
                 {project.concept}
               </p>
             ) : null}
           </div>
-          <p className="max-w-md text-sm leading-7 text-charcoal/70 sm:max-w-xs">
+          <p className="max-w-md text-sm leading-7 text-charcoal/62 sm:max-w-xs">
             {project.shortDescription}
           </p>
         </div>
@@ -1162,9 +1159,9 @@ function ProjectDetail({
     <article
       id="project-detail"
       aria-labelledby="project-detail-heading"
-      className="mt-20 border-t border-ink/15 pt-8 lg:mt-28"
+      className="mt-24 border-t border-ink/12 pt-10 lg:mt-32"
     >
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]">
+      <div className="grid gap-12 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)]">
         <div className="image-frame image-frame-subtle aspect-[4/5] bg-stone lg:sticky lg:top-28 lg:aspect-[5/6]">
           <ProjectImage
             image={project.coverImage}
@@ -1173,25 +1170,25 @@ function ProjectDetail({
         </div>
 
         <div className="lg:pl-6">
-          <p className="editorial-kicker text-clay">
+          <p className="editorial-kicker text-charcoal/45">
             {selectedTemplateLabel} / {typeLabel}
           </p>
           <h3
             id="project-detail-heading"
-            className="mt-5 font-serif text-[3rem] font-medium leading-[0.98] sm:text-6xl lg:text-7xl"
+            className="mt-6 font-serif text-[2.75rem] font-medium leading-[1.04] sm:text-5xl lg:text-6xl"
           >
             {project.title}
           </h3>
-          <p className="mt-7 max-w-2xl font-serif text-2xl leading-tight text-charcoal md:text-4xl">
+          <p className="mt-7 max-w-2xl font-serif text-2xl leading-snug text-charcoal/78 md:text-[2.45rem]">
             {project.concept}
           </p>
           {project.placeholder ? (
-            <p className="mt-6 border-l border-clay/60 pl-5 text-sm leading-7 text-charcoal/62">
+            <p className="mt-7 border-l border-ink/18 pl-5 text-sm leading-7 text-charcoal/54">
               {placeholderNote}
             </p>
           ) : null}
 
-          <div className="mt-10 grid border-t border-ink/15 sm:grid-cols-2">
+          <div className="mt-12 grid border-t border-ink/12 sm:grid-cols-2">
             {[
               [labels.location, project.location],
               [labels.year, project.year],
@@ -1199,8 +1196,8 @@ function ProjectDetail({
               [labels.scope, project.scope],
               [labels.area, project.area],
             ].map(([label, value]) => (
-              <div key={label} className="border-b border-ink/15 py-5 sm:odd:border-r sm:odd:pr-6 sm:even:pl-6">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-taupe">{label}</p>
+              <div key={label} className="border-b border-ink/12 py-5 sm:odd:border-r sm:odd:border-ink/12 sm:odd:pr-6 sm:even:pl-6">
+                <p className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">{label}</p>
                 <p className="mt-2 leading-7">{value}</p>
               </div>
             ))}
@@ -1209,33 +1206,33 @@ function ProjectDetail({
       </div>
 
       <div className="mt-16 grid gap-12 lg:mt-24 lg:grid-cols-[0.34fr_0.66fr]">
-        <div className="border-t border-ink/15 pt-5">
-          <p className="editorial-kicker text-taupe">{labels.overview}</p>
+        <div className="border-t border-ink/12 pt-5">
+          <p className="editorial-kicker text-charcoal/45">{labels.overview}</p>
         </div>
         <div className="max-w-4xl">
-          <p className="font-serif text-3xl font-medium leading-tight text-ink md:text-5xl">
+          <p className="font-serif text-3xl font-medium leading-snug text-ink md:text-[3rem]">
             {project.overview}
           </p>
         </div>
       </div>
 
-      <div className="project-story-map mt-16 grid border-y border-ink/15 lg:grid-cols-4">
+      <div className="project-story-map mt-16 grid border-y border-ink/12 lg:grid-cols-4">
         {storyChapters.map(([title, body]) => (
-          <section key={title} className="border-b border-ink/15 py-7 lg:border-b-0 lg:border-r lg:px-6 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
-            <h4 className="text-[11px] uppercase tracking-[0.22em] text-taupe">{title}</h4>
-            <p className="mt-5 text-base leading-8 text-charcoal/74">{body}</p>
+          <section key={title} className="border-b border-ink/12 py-7 lg:border-b-0 lg:border-r lg:border-ink/12 lg:px-6 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
+            <h4 className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">{title}</h4>
+            <p className="mt-5 text-base leading-8 text-charcoal/68">{body}</p>
           </section>
         ))}
       </div>
 
-      <div className="mt-16 grid gap-12 border-y border-ink/15 py-10 lg:grid-cols-[0.42fr_0.58fr]">
+      <div className="mt-16 grid gap-12 border-y border-ink/12 py-12 lg:grid-cols-[0.42fr_0.58fr]">
         <div>
-          <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">{labels.designNarrative}</p>
-          <p className="mt-5 text-lg leading-8 text-charcoal/70">{project.editorialClosing}</p>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">{labels.designNarrative}</p>
+          <p className="mt-5 text-lg leading-8 text-charcoal/66">{project.editorialClosing}</p>
         </div>
         <div className="grid gap-6">
           {project.designNarrative.map((paragraph) => (
-            <p key={paragraph} className="text-lg leading-8 text-charcoal/75">
+            <p key={paragraph} className="text-lg leading-8 text-charcoal/70">
               {paragraph}
             </p>
           ))}
@@ -1244,16 +1241,16 @@ function ProjectDetail({
 
       <div className="mt-14 grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
         <div>
-          <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">{labels.keyDesignMoves}</p>
-          <p className="mt-5 text-lg leading-8 text-charcoal/70">{project.clientValue}</p>
-          <p className="mt-8 text-[11px] uppercase leading-6 tracking-[0.18em] text-taupe">
+          <p className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">{labels.keyDesignMoves}</p>
+          <p className="mt-5 text-lg leading-8 text-charcoal/66">{project.clientValue}</p>
+          <p className="mt-8 text-[10px] uppercase leading-6 tracking-[0.2em] text-charcoal/42">
             {labels.materials}: {project.materials.join(", ")}
           </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           {project.keyDesignMoves.map((move) => (
-            <p key={move} className="flex gap-3 border-t border-ink/10 pt-4 leading-7">
-              <CircleDot className="mt-1 shrink-0 text-clay" size={15} aria-hidden="true" />
+            <p key={move} className="flex gap-3 border-t border-ink/10 pt-4 leading-7 text-charcoal/70">
+              <CircleDot className="mt-1 shrink-0 text-ink/35" size={14} aria-hidden="true" />
               {move}
             </p>
           ))}
@@ -1261,7 +1258,7 @@ function ProjectDetail({
       </div>
 
       <div className="mt-16 lg:mt-24">
-        <p className="editorial-kicker mb-6 text-taupe">{labels.gallery}</p>
+        <p className="editorial-kicker mb-7 text-charcoal/45">{labels.gallery}</p>
         <div className="grid gap-4 md:grid-cols-[1.12fr_0.88fr_1fr]">
           {galleryImages.map((image, index) => (
             <div key={image.src + image.alt} className={`image-frame image-frame-subtle bg-stone ${index === 1 ? "md:mt-12" : ""} ${index === 2 ? "md:mt-4" : ""}`}>
@@ -1274,9 +1271,9 @@ function ProjectDetail({
         </div>
       </div>
 
-      <div className="mt-16 grid gap-8 border-t border-ink/15 pt-8 lg:grid-cols-[0.32fr_0.68fr]">
+      <div className="mt-16 grid gap-8 border-t border-ink/12 pt-8 lg:grid-cols-[0.32fr_0.68fr]">
         <div>
-          <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">{labels.relatedProjects}</p>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-charcoal/42">{labels.relatedProjects}</p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {relatedProjects.map((relatedProject) => (
@@ -1292,7 +1289,7 @@ function ProjectDetail({
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
                 />
               </div>
-              <p className="mt-4 font-serif text-2xl leading-tight transition group-hover:text-clay">
+              <p className="mt-4 font-serif text-2xl leading-tight transition group-hover:text-charcoal/70">
                 {relatedProject.title}
               </p>
               <p className="mt-2 text-sm leading-6 text-charcoal/62">{relatedProject.location}</p>
@@ -1301,14 +1298,14 @@ function ProjectDetail({
         </div>
       </div>
 
-      <div className="mt-16 border-y border-bone/10 bg-ink px-6 py-9 text-bone sm:px-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
-        <p className="max-w-3xl font-serif text-3xl font-medium leading-tight">
+      <div className="mt-16 border-y border-ink/12 py-10 lg:flex lg:items-center lg:justify-between lg:gap-10">
+        <p className="max-w-3xl font-serif text-3xl font-medium leading-tight text-ink">
           {labels.clientValue}: {project.editorialClosing}
         </p>
         <button
           type="button"
           onClick={onDiscuss}
-          className="group mt-8 inline-flex items-center gap-3 border border-bone/30 px-5 py-3 text-[11px] uppercase tracking-[0.18em] transition hover:bg-bone hover:text-ink lg:mt-0"
+          className="group mt-8 inline-flex items-center gap-3 border border-ink/20 px-5 py-3 text-[10px] uppercase tracking-[0.2em] transition hover:border-ink hover:bg-ink hover:text-bone lg:mt-0"
         >
           {discussProjectLabel}
           <ArrowUpRight className="transition group-hover:translate-x-1 group-hover:-translate-y-1" size={16} aria-hidden="true" />
