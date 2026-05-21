@@ -471,7 +471,11 @@ function App() {
                       : undefined
                   }
                   onClick={(event) => handleNavigation(event, item.href)}
-                  className="nav-link py-3 transition hover:text-ink"
+                  className={`nav-link py-3 transition hover:text-ink ${
+                    routeState.pageId === getRouteStateFromPath(item.href).pageId
+                      ? "text-ink"
+                      : ""
+                  }`}
                 >
                   {content.navigation[navigationKey]}
                 </a>
@@ -599,28 +603,47 @@ function App() {
           </div>
         </section>
 
-        <Section
-          id="manifesto"
-          eyebrow={content.manifesto.eyebrow}
-          title={content.manifesto.title}
-          className="bg-ivory"
-        >
-          <div className="grid gap-14 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)]">
-            <div className="architectural-rule max-w-xl space-y-7 pt-8 text-lg leading-8 text-charcoal/74">
-              {content.manifesto.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-            <div className="grid border-t border-ink/15 md:grid-cols-3">
-              {content.manifesto.principles.map(([label, value]) => (
-                <article key={label} className="group border-b border-ink/15 py-8 transition duration-300 md:border-r md:px-7 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
-                  <p className="font-serif text-[2.55rem] font-medium leading-[0.96] text-ink transition duration-300 group-hover:text-clay">{label}</p>
-                  <p className="mt-5 text-sm leading-7 text-charcoal/70">{value}</p>
-                </article>
-              ))}
+        <section aria-labelledby="identity-heading" className="quiet-surface px-5 py-20 sm:px-7 lg:px-10 lg:py-28">
+          <div className="mx-auto max-w-[1540px] border-t border-ink/15 pt-7">
+            <div className="grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+              <div>
+                <p className="editorial-kicker text-taupe">Aramphabot Studio</p>
+                <h2
+                  id="identity-heading"
+                  className="mt-5 max-w-4xl font-serif text-[3.25rem] font-medium leading-[0.96] text-ink sm:text-7xl lg:text-[6.8rem]"
+                >
+                  {content.hero.statement}
+                </h2>
+              </div>
+              <div className="grid gap-8 md:grid-cols-[0.86fr_1.14fr]">
+                <div className="image-frame image-frame-subtle aspect-[4/5] bg-stone md:mt-10">
+                  <img
+                    src="/images/about-interior.jpg"
+                    alt="Quiet interior atmosphere with warm material tones for Aramphabot Studio design direction"
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="grid content-between gap-8">
+                  <div className="space-y-6 text-lg leading-8 text-charcoal/74">
+                    {content.manifesto.paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                  <dl className="grid border-t border-ink/15">
+                    {content.manifesto.principles.map(([label, value]) => (
+                      <div key={label} className="grid gap-3 border-b border-ink/15 py-5 sm:grid-cols-[8rem_1fr]">
+                        <dt className="font-serif text-2xl leading-tight text-ink">{label}</dt>
+                        <dd className="text-sm leading-7 text-charcoal/66">{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </div>
             </div>
           </div>
-        </Section>
+        </section>
 
         <Section
           id="about"
@@ -868,6 +891,20 @@ function App() {
               <p className="mt-8 border-l border-bone/25 pl-5 text-sm leading-7 text-bone/58">
                 {content.contact.prepareNote}
               </p>
+              <ul className="mt-8 grid gap-3 border-y border-bone/15 py-6 text-sm leading-7 text-bone/68 sm:grid-cols-2">
+                {[
+                  content.contact.fields.projectType,
+                  content.contact.fields.projectLocation,
+                  content.contact.fields.projectSize,
+                  content.contact.fields.timeline,
+                  content.contact.fields.budgetRange,
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-3 h-px w-5 shrink-0 bg-bone/36" aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
               <div className="mt-10 space-y-5 text-bone/68">
                 <p className="flex items-start gap-4 leading-7">
                   <MapPin className="mt-1 shrink-0" size={18} aria-hidden="true" />
@@ -884,7 +921,8 @@ function App() {
               </div>
             </div>
 
-            <form className="grid gap-6" aria-label={content.contact.formLabel} onSubmit={handleContactSubmit}>
+            <form className="grid gap-6 border-y border-bone/15 py-8" aria-label={content.contact.formLabel} onSubmit={handleContactSubmit}>
+              <p className="editorial-kicker text-bone/48">{content.contact.formLabel}</p>
               <div className="grid gap-6 md:grid-cols-2">
                 {contactFieldKeys.map((field) => {
                   const label = content.contact.fields[field.key];
@@ -939,7 +977,7 @@ function App() {
         </section>
       </main>
 
-      <footer className="bg-charcoal px-5 py-14 text-bone/68 sm:px-7 lg:px-10 lg:py-18">
+      <footer className="bg-charcoal px-5 py-14 text-bone/68 sm:px-7 lg:px-10 lg:py-20">
         <div className="mx-auto grid max-w-[1540px] gap-10 border-t border-bone/20 pt-9 text-sm lg:grid-cols-[0.85fr_1.05fr_0.58fr]">
           <div>
             <p className="font-serif text-4xl leading-none text-bone">Aramphabot</p>
@@ -1107,6 +1145,11 @@ function ProjectCard({
             <p className="mt-4 text-[10px] uppercase leading-6 tracking-[0.22em] text-charcoal/48">
               {project.year} / {statusLabel}
             </p>
+            {featured ? (
+              <p className="mt-6 max-w-2xl font-serif text-[1.65rem] font-medium leading-tight text-charcoal/78 md:text-3xl">
+                {project.concept}
+              </p>
+            ) : null}
           </div>
           <p className="max-w-md text-sm leading-7 text-charcoal/70 sm:max-w-xs">
             {project.shortDescription}
@@ -1139,6 +1182,12 @@ function ProjectDetail({
   onDiscuss: () => void;
 }) {
   const galleryImages = project.galleryImages.length > 0 ? project.galleryImages : [projectImageFallback];
+  const storyChapters = [
+    [labels.siteContext, project.siteContext],
+    [labels.spatialSequence, project.spatialSequence],
+    [labels.materialAtmosphere, project.materialAtmosphere],
+    [labels.clientValue, project.clientValue],
+  ];
 
   return (
     <article
@@ -1202,10 +1251,13 @@ function ProjectDetail({
         </div>
       </div>
 
-      <div className="mt-16 grid gap-8 lg:grid-cols-3">
-        <EditorialBlock title={labels.siteContext} body={project.siteContext} />
-        <EditorialBlock title={labels.spatialSequence} body={project.spatialSequence} />
-        <EditorialBlock title={labels.materialAtmosphere} body={project.materialAtmosphere} />
+      <div className="project-story-map mt-16 grid border-y border-ink/15 lg:grid-cols-4">
+        {storyChapters.map(([title, body]) => (
+          <section key={title} className="border-b border-ink/15 py-7 lg:border-b-0 lg:border-r lg:px-6 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
+            <h4 className="text-[11px] uppercase tracking-[0.22em] text-taupe">{title}</h4>
+            <p className="mt-5 text-base leading-8 text-charcoal/74">{body}</p>
+          </section>
+        ))}
       </div>
 
       <div className="mt-16 grid gap-12 border-y border-ink/15 py-10 lg:grid-cols-[0.42fr_0.58fr]">
@@ -1295,15 +1347,6 @@ function ProjectDetail({
         </button>
       </div>
     </article>
-  );
-}
-
-function EditorialBlock({ title, body }: { title: string; body: string }) {
-  return (
-    <section className="border-t border-ink/15 pt-5">
-      <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">{title}</p>
-      <p className="mt-5 text-lg leading-8 text-charcoal/74">{body}</p>
-    </section>
   );
 }
 

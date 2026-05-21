@@ -50,8 +50,26 @@ body::before {
       transparent 1px,
       transparent 8.333vw
     ),
-    radial-gradient(circle at 50% -20%, rgba(178, 138, 104, 0.1), transparent 38rem);
+    repeating-linear-gradient(
+      0deg,
+      rgba(31, 27, 22, 0.018) 0,
+      rgba(31, 27, 22, 0.018) 1px,
+      transparent 1px,
+      transparent 11rem
+    );
   opacity: 0.72;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p,
+li,
+dd {
+  text-wrap: pretty;
 }
 
 html[lang="th"] body {
@@ -148,6 +166,30 @@ img {
   height: 1px;
   content: "";
   background: #1f1b16;
+}
+
+.quiet-surface {
+  background:
+    linear-gradient(180deg, rgba(251, 248, 241, 0.62), rgba(233, 223, 207, 0.2)),
+    rgba(251, 248, 241, 0.5);
+}
+
+.project-story-map {
+  counter-reset: story-map;
+}
+
+.project-story-map > section {
+  counter-increment: story-map;
+}
+
+.project-story-map > section::before {
+  display: block;
+  margin-bottom: 1.25rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2.65rem;
+  line-height: 0.9;
+  color: rgba(154, 106, 78, 0.78);
+  content: counter(story-map, decimal-leading-zero);
 }
 
 .image-frame {
