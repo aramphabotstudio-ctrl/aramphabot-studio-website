@@ -3,7 +3,6 @@ import type { FormEvent, MouseEvent, ReactNode } from "react";
 import {
   ArrowUpRight,
   Building2,
-  CheckCircle2,
   CircleDot,
   Mail,
   MapPin,
@@ -11,7 +10,6 @@ import {
   Phone,
   X,
 } from "lucide-react";
-import { companyFacts } from "@/data/company";
 import {
   defaultLanguage,
   getCategoryLabel,
@@ -19,7 +17,6 @@ import {
   getProcessCopy,
   getProjectCopy,
   getServiceCopy,
-  getStatusLabel,
   isLanguage,
   languageNames,
   languages,
@@ -616,11 +613,11 @@ function App() {
                 </h2>
               </div>
               <div className="grid gap-8 md:grid-cols-[0.86fr_1.14fr]">
-                <div className="image-frame image-frame-subtle aspect-[4/5] bg-stone md:mt-10">
+                <div className="image-frame image-frame-subtle flex aspect-[4/5] items-center justify-center bg-ink p-8 md:mt-10">
                   <img
-                    src="/images/about-interior.jpg"
-                    alt="Quiet interior atmosphere with warm material tones for Aramphabot Studio design direction"
-                    className="h-full w-full object-cover"
+                    src="/images/aramphabot-logo.jpg"
+                    alt="Aramphabot Studio ARA logo mark in white on black"
+                    className="h-full w-full object-contain"
                     loading="lazy"
                     decoding="async"
                   />
@@ -655,9 +652,6 @@ function App() {
               {content.about.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
-              <p className="border-l border-clay/70 bg-bone/45 py-4 pl-5 pr-4 text-base leading-7 text-charcoal">
-                {content.about.verificationNote}
-              </p>
             </div>
 
             <div className="grid border-t border-ink/15 md:grid-cols-2">
@@ -671,7 +665,7 @@ function App() {
                 <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">
                   {content.about.officeLabel}
                 </p>
-                <p className="mt-3 max-w-3xl text-lg leading-8">{companyFacts.registeredOffice}</p>
+                <p className="mt-3 max-w-3xl text-lg leading-8">{siteConfig.location}</p>
               </div>
             </div>
           </div>
@@ -710,7 +704,6 @@ function App() {
                   key={project.slug}
                   project={projectCopy}
                   typeLabel={getCategoryLabel(project.type, language)}
-                  statusLabel={getStatusLabel(project.status, language)}
                   ariaLabel={`${content.projects.viewDetails} ${projectCopy.title}`}
                   featured={index === 0 && activeCategory === "All"}
                   selected={selectedProject.slug === project.slug}
@@ -838,39 +831,6 @@ function App() {
           </div>
         </Section>
 
-        <Section
-          id="research"
-          eyebrow={content.research.eyebrow}
-          title={content.research.title}
-          className="bg-bone/60"
-        >
-          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
-            <div className="space-y-5">
-              {content.research.notes.map((note) => (
-                <p key={note} className="flex gap-4 border-t border-ink/10 pt-5 leading-7 text-charcoal/74">
-                  <CheckCircle2 className="mt-1 shrink-0 text-moss" size={18} aria-hidden="true" />
-                  {note}
-                </p>
-              ))}
-            </div>
-            <div className="border-y border-ink/15 py-8">
-              <p className="text-[11px] uppercase tracking-[0.22em] text-taupe">
-                {content.research.businessObjectiveLabel}
-              </p>
-              <p className="mt-5 text-xl leading-9 md:text-2xl">{companyFacts.businessObjective}</p>
-              <a
-                href={companyFacts.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="group mt-8 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-clay"
-              >
-                {content.research.sourcePrefix} {companyFacts.sourceLabel}
-                <ArrowUpRight className="transition group-hover:translate-x-1 group-hover:-translate-y-1" size={16} aria-hidden="true" />
-              </a>
-            </div>
-          </div>
-        </Section>
-
         <section
           id="contact"
           aria-labelledby="contact-heading"
@@ -908,7 +868,7 @@ function App() {
               <div className="mt-10 space-y-5 text-bone/68">
                 <p className="flex items-start gap-4 leading-7">
                   <MapPin className="mt-1 shrink-0" size={18} aria-hidden="true" />
-                  {companyFacts.registeredOffice}
+                  {siteConfig.location}
                 </p>
                 <p className="flex items-start gap-4">
                   <Mail className="mt-1 shrink-0" size={18} aria-hidden="true" />
@@ -983,7 +943,7 @@ function App() {
             <p className="font-serif text-4xl leading-none text-bone">Aramphabot</p>
             <p className="mt-3 text-[10px] uppercase tracking-[0.34em]">Studio Co., Ltd.</p>
             <p className="mt-8 max-w-sm leading-7 text-bone/58">
-              {companyFacts.registeredOffice}
+              {siteConfig.location}
             </p>
           </div>
           <div>
@@ -1019,6 +979,17 @@ function App() {
               {content.footer.backToTop}
               <ArrowUpRight size={14} aria-hidden="true" />
             </a>
+            {siteConfig.social.facebook ? (
+              <a
+                href={siteConfig.social.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.22em] transition hover:text-bone"
+              >
+                Facebook
+                <ArrowUpRight size={14} aria-hidden="true" />
+              </a>
+            ) : null}
           </div>
         </div>
       </footer>
@@ -1103,7 +1074,6 @@ function ProjectCard({
   selected,
   featured,
   typeLabel,
-  statusLabel,
   ariaLabel,
   onSelect,
 }: {
@@ -1111,7 +1081,6 @@ function ProjectCard({
   selected: boolean;
   featured: boolean;
   typeLabel: string;
-  statusLabel: string;
   ariaLabel: string;
   onSelect: () => void;
 }) {
@@ -1143,7 +1112,7 @@ function ProjectCard({
               {project.title}
             </h3>
             <p className="mt-4 text-[10px] uppercase leading-6 tracking-[0.22em] text-charcoal/48">
-              {project.year} / {statusLabel}
+              {project.year} / {project.scope}
             </p>
             {featured ? (
               <p className="mt-6 max-w-2xl font-serif text-[1.65rem] font-medium leading-tight text-charcoal/78 md:text-3xl">
@@ -1226,7 +1195,6 @@ function ProjectDetail({
             {[
               [labels.location, project.location],
               [labels.year, project.year],
-              [labels.status, project.status],
               [labels.type, typeLabel],
               [labels.scope, project.scope],
               [labels.area, project.area],

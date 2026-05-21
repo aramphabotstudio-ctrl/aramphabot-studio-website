@@ -1,4 +1,3 @@
-import { companyFacts } from "@/data/company";
 import {
   defaultLanguage,
   getProjectCopy,
@@ -18,7 +17,6 @@ export type SeoPageId =
   | "services"
   | "process"
   | "journal"
-  | "research"
   | "contact";
 
 export type SeoEntry = {
@@ -95,21 +93,13 @@ export const seoPagesByLanguage: Record<Language, SeoEntry[]> = {
       image: "/images/journal-material.jpg",
     },
     {
-      id: "research",
-      path: "/research",
-      title: "Verification | Aramphabot Studio Company Facts",
-      description:
-        "Verified public company information for Aramphabot Studio Co., Ltd., with unverified awards, client names, and project claims deliberately excluded.",
-      image: heroImage,
-    },
-    {
       id: "contact",
       path: "/contact",
       title: "Contact | Aramphabot Studio Bangkok",
       description:
         "Contact Aramphabot Studio in Bangkok to discuss architecture, interior design, hospitality, restaurant, cafe, residential, or commercial spatial design enquiries.",
       image: heroImage,
-    },
+    }
   ],
   th: [
     {
@@ -161,21 +151,13 @@ export const seoPagesByLanguage: Record<Language, SeoEntry[]> = {
       image: "/images/journal-material.jpg",
     },
     {
-      id: "research",
-      path: "/research",
-      title: "ข้อมูลตรวจสอบ | Aramphabot Studio",
-      description:
-        "ข้อมูลบริษัท Aramphabot Studio Co., Ltd. จากแหล่งข้อมูลสาธารณะ โดยไม่กล่าวอ้างรางวัล ลูกค้า หรือผลงานที่ยังไม่ได้รับการยืนยัน",
-      image: heroImage,
-    },
-    {
       id: "contact",
       path: "/contact",
       title: "ติดต่อ | Aramphabot Studio Bangkok",
       description:
         "ติดต่อ Aramphabot Studio ในกรุงเทพฯ เพื่อพูดคุยเกี่ยวกับงานสถาปัตยกรรม ออกแบบภายใน โรงแรม ร้านอาหาร คาเฟ่ ที่อยู่อาศัย หรือพื้นที่พาณิชย์",
       image: heroImage,
-    },
+    }
   ],
 };
 
@@ -266,7 +248,6 @@ export function getStructuredData(
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: siteConfig.shortName,
-    legalName: language === "th" ? companyFacts.legalNameTh : companyFacts.legalNameEn,
     description: localizedHome.description,
     url: getAbsoluteUrl(getLocalizedPath("/", language)),
     image: getAbsoluteAssetUrl(heroImage),

@@ -14,7 +14,7 @@ export const siteConfig = {
   },
   social: {
     instagram: "",
-    facebook: "",
+    facebook: "https://www.facebook.com/aramphabot.studio/",
     line: "",
   },
 };

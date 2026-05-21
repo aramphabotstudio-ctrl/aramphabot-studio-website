@@ -1,5 +1,4 @@
 import type { JournalPost, ProcessStep, Project, ProjectCategory, ProjectStatus, Service } from "@/types/content";
-import { companyFacts } from "@/data/company";
 
 export const languages = [
   { code: "en", label: "EN", name: "English", htmlLang: "en" },
@@ -54,41 +53,41 @@ export const siteContent = {
       ],
     },
     registryBar: [
-      `Verified registry no. ${companyFacts.registrationNumber}`,
-      `${companyFacts.status} company`,
-      "Registered in Sai Mai, Bangkok",
+      "Architecture as the Beginning of Experience",
+      "Narrative before form",
+      "Memorable x Sustainable",
     ],
     manifesto: {
-      eyebrow: "Design position",
-      title: "Hospitality sensibility, residential intimacy, and commercial clarity held in one calm design language.",
+      eyebrow: "Design DNA",
+      title: "Every project begins with a story before it becomes form.",
       paragraphs: [
-        "Aramphabot Studio approaches space as a sequence of moments: arrival, threshold, pause, view, texture, service, and memory.",
-        "The studio is built for owners who need more than decoration. Each project should clarify how people move, what they feel, how a business operates, and why a place remains memorable.",
+        "Aramphabot Studio works as an Architecture & Experience Design Studio: a practice that treats buildings and interiors as the beginning of experience, memory, and long-term value.",
+        "The studio reads climate, culture, site, movement, material, and business ambition before shaping form. The result should feel calm, grounded, operationally clear, and emotionally memorable without relying on decoration or spectacle.",
       ],
       principles: [
-        ["Context", "Read the climate, street, landscape, and cultural condition before giving form to a project."],
-        ["Sequence", "Shape the journey from public arrival to private or intimate moments with clarity and restraint."],
-        ["Material", "Use texture, light, shadow, and craft to create atmosphere without unnecessary decoration."],
+        ["Narrative", "Define the story and desired feeling before drawing the form."],
+        ["Atmosphere", "Shape light, shadow, material, sound, touch, and movement into a remembered sequence."],
+        ["Value", "Create emotional value and commercial value through clarity, durability, maintenance logic, and strong positioning."],
       ],
     },
     about: {
       eyebrow: "Studio",
-      title: "A measured practice for atmosphere, context, and sensory memory.",
+      title: "An Architecture & Experience Design Studio shaped by narrative, atmosphere, and long-term value.",
       paragraphs: [
-        "Aramphabot Studio is positioned as a Bangkok-based architecture and interior design practice for hospitality, residential, commercial, restaurant, cafe, and concept-led development work.",
-        "Its studio language is warm, minimal, material-sensitive, and narrative-driven: spaces are shaped through proportion, sequence, climate, context, and the quiet memory people carry after they leave.",
+        "Aramphabot Studio sees architecture and interior design as a sequence of experiences rather than a single object. A project moves through approach, threshold, compression, release, pause, memory point, and afterglow.",
+        "The studio language is quiet, warm, tactile, and context-led: proportion, light, material, climate, culture, operation, and human memory work together to create places that can be remembered and sustained over time.",
       ],
       verificationNote:
-        "Public research confirms company registration facts. Awards, client names, completed project records, phone, email, and social channels are intentionally left unclaimed until owner verification.",
+        "Studio positioning and design language are drawn from the Aramphabot Studio DNA Handbook and article supplied by the owner.",
       facts: [
-        ["Legal name", companyFacts.legalNameEn],
-        ["Thai legal name", "บริษัท อารัมภบท สตูดิโอ จำกัด"],
-        ["Registration no.", companyFacts.registrationNumber],
-        ["Registered date", companyFacts.registeredDate],
-        ["Status", companyFacts.status],
-        ["Registered capital", companyFacts.registeredCapital],
+        ["Studio position", "Architecture & Experience Design Studio"],
+        ["Core belief", "Architecture as the Beginning of Experience"],
+        ["Project lens", "Hospitality, lifestyle, private developments, and commercial spaces"],
+        ["Experience sequence", "Approach, threshold, release, pause, memory point, afterglow"],
+        ["Material language", "Stone, warm wood, soft plaster, bronze, linen, water, and landscape"],
+        ["Value lens", "Emotional value and long-term business value working together"],
       ],
-      officeLabel: "Registered office",
+      officeLabel: "Studio base",
     },
     projects: {
       eyebrow: "Projects",
@@ -131,15 +130,14 @@ export const siteContent = {
       title: "Notes on atmosphere, material restraint, and context.",
     },
     research: {
-      eyebrow: "Verification",
-      title: "A factual foundation, with unverified claims deliberately left out.",
-      businessObjectiveLabel: "Business objective from public registry",
-      sourcePrefix: "Source:",
+      eyebrow: "Design reference",
+      title: "A working design language built from the studio DNA.",
+      businessObjectiveLabel: "Studio lens",
+      sourcePrefix: "Reference:",
       notes: [
-        "Public registry data confirms the company name, registration number, active status, registered capital, registered office, and stated business objective.",
-        "The public business category is listed as legal activities, while the business description includes engineering, architecture, and advertising services.",
-        "No verified public awards, client names, completed project list, phone number, email address, or social media channels were found during this research pass.",
-        "Project stories on this website are intentionally marked as placeholders until the studio owner supplies verified photos, areas, completion years, and client-approved copy.",
+        "Narrative leads the design before form, style, or decoration.",
+        "Atmosphere is shaped through light, proportion, material, movement, and sensory memory.",
+        "Quiet luxury comes from restraint, detail, comfort, and long-term value.",
       ],
     },
     contact: {
@@ -175,7 +173,7 @@ export const siteContent = {
     },
     footer: {
       note:
-        "Verified facts are sourced from public registry data. Project imagery and case studies remain placeholders until owner-approved material is supplied.",
+        "Aramphabot Studio is shaped by narrative, atmosphere, context, human memory, and the belief that design should create both emotional and long-term value.",
       backToTop: "Back to top",
     },
   },
@@ -208,41 +206,41 @@ export const siteContent = {
       ],
     },
     registryBar: [
-      `เลขทะเบียนนิติบุคคล ${companyFacts.registrationNumber}`,
-      "สถานะบริษัท: ยังดำเนินกิจการ",
-      "ที่ตั้งจดทะเบียน เขตสายไหม กรุงเทพฯ",
+      "Architecture as the Beginning of Experience",
+      "เรื่องเล่าก่อนรูปทรง",
+      "น่าจดจำ x ยั่งยืนในคุณค่า",
     ],
     manifesto: {
-      eyebrow: "จุดยืนการออกแบบ",
-      title: "ความละเอียดอ่อนของงานบริการ ความเป็นส่วนตัวของที่อยู่อาศัย และความชัดเจนของพื้นที่พาณิชย์ อยู่ในภาษาการออกแบบที่สงบเดียวกัน",
+      eyebrow: "Design DNA",
+      title: "ทุกโครงการเริ่มจากเรื่องเล่า ก่อนจะกลายเป็นรูปทรง",
       paragraphs: [
-        "Aramphabot Studio มองพื้นที่เป็นลำดับของประสบการณ์ ตั้งแต่การมาถึง ธรณีประตู การหยุดพัก วิว ผิวสัมผัส การบริการ และความทรงจำ",
-        "สตูดิโอทำงานเพื่อเจ้าของโครงการที่ต้องการมากกว่าการตกแต่ง พื้นที่ควรอธิบายได้ว่าผู้คนเคลื่อนที่อย่างไร รู้สึกอย่างไร ธุรกิจทำงานอย่างไร และทำไมสถานที่นั้นจึงน่าจดจำ",
+        "Aramphabot Studio ทำงานในฐานะ Architecture & Experience Design Studio โดยมองอาคารและพื้นที่ภายในเป็นบทเริ่มต้นของประสบการณ์ ความทรงจำ และคุณค่าระยะยาว",
+        "สตูดิโออ่านภูมิอากาศ วัฒนธรรม ไซต์ จังหวะการเคลื่อนไหว วัสดุ และเป้าหมายทางธุรกิจ ก่อนแปลงเป็นรูปทรงที่สงบ ชัดเจน ใช้งานได้จริง และน่าจดจำโดยไม่ต้องพึ่งความหวือหวา",
       ],
       principles: [
-        ["บริบท", "อ่านภูมิอากาศ ถนน ภูมิทัศน์ และบริบททางวัฒนธรรม ก่อนให้รูปทรงกับโครงการ"],
-        ["ลำดับ", "ออกแบบการเดินทางจากการมาถึงสู่ช่วงเวลาที่เป็นส่วนตัวหรือใกล้ชิด ด้วยความชัดเจนและพอดี"],
-        ["วัสดุ", "ใช้ผิวสัมผัส แสง เงา และงานฝีมือเพื่อสร้างบรรยากาศ โดยไม่พึ่งการตกแต่งเกินจำเป็น"],
+        ["Narrative", "วางเรื่องเล่าและความรู้สึกที่ต้องการ ก่อนเริ่มกำหนดรูปทรง"],
+        ["Atmosphere", "จัดแสง เงา วัสดุ เสียง ผิวสัมผัส และจังหวะการเดินทางให้กลายเป็นความทรงจำ"],
+        ["Value", "สร้างทั้งคุณค่าทางอารมณ์และคุณค่าทางธุรกิจผ่านความชัดเจน ความทนทาน การดูแลรักษา และการวางตำแหน่งโครงการ"],
       ],
     },
     about: {
       eyebrow: "สตูดิโอ",
-      title: "แนวปฏิบัติที่ค่อยเป็นค่อยไป เพื่อบรรยากาศ บริบท และความทรงจำของประสาทสัมผัส",
+      title: "Architecture & Experience Design Studio ที่ขับเคลื่อนด้วยเรื่องเล่า บรรยากาศ และคุณค่าระยะยาว",
       paragraphs: [
-        "Aramphabot Studio วางตำแหน่งเป็นสตูดิโอสถาปัตยกรรมและออกแบบภายในในกรุงเทพฯ สำหรับงานโรงแรม ที่อยู่อาศัย พื้นที่พาณิชย์ ร้านอาหาร คาเฟ่ และโครงการพัฒนาที่ขับเคลื่อนด้วยแนวคิด",
-        "ภาษาการออกแบบของสตูดิโอมีความอบอุ่น เรียบ สงบ ใส่ใจวัสดุ และขับเคลื่อนด้วยเรื่องเล่า พื้นที่จึงถูกสร้างผ่านสัดส่วน ลำดับการเดินทาง ภูมิอากาศ บริบท และความทรงจำเงียบ ๆ ที่ผู้คนพกกลับไปหลังจากออกจากสถานที่",
+        "Aramphabot Studio มองสถาปัตยกรรมและงานภายในเป็นลำดับของประสบการณ์ ไม่ใช่เพียงวัตถุชิ้นเดียว แต่เป็นการเดินทางผ่าน approach, threshold, compression, release, pause, memory point และ afterglow",
+        "ภาษาของสตูดิโอมีความสงบ อบอุ่น สัมผัสได้ และยึดโยงกับบริบท โดยให้สัดส่วน แสง วัสดุ ภูมิอากาศ วัฒนธรรม การใช้งานจริง และความทรงจำของผู้คนทำงานร่วมกัน",
       ],
       verificationNote:
-        "ข้อมูลสาธารณะยืนยันข้อเท็จจริงด้านทะเบียนบริษัท ส่วนรางวัล รายชื่อลูกค้า รายการผลงานที่สร้างเสร็จ เบอร์โทร อีเมล และช่องทางโซเชียล จะยังไม่ถูกกล่าวอ้างจนกว่าจะได้รับการยืนยันจากเจ้าของสตูดิโอ",
+        "จุดยืนและภาษาการออกแบบนี้สรุปจาก Aramphabot Studio DNA Handbook และบทความที่เจ้าของส่งมาให้ใช้เป็นแหล่งอ้างอิง",
       facts: [
-        ["ชื่อบริษัทภาษาอังกฤษ", companyFacts.legalNameEn],
-        ["ชื่อบริษัทภาษาไทย", "บริษัท อารัมภบท สตูดิโอ จำกัด"],
-        ["เลขทะเบียน", companyFacts.registrationNumber],
-        ["วันที่จดทะเบียน", "6 มิถุนายน 2568"],
-        ["สถานะ", "ยังดำเนินกิจการ"],
-        ["ทุนจดทะเบียน", "1,000,000 บาท"],
+        ["จุดยืนของสตูดิโอ", "Architecture & Experience Design Studio"],
+        ["ความเชื่อหลัก", "Architecture as the Beginning of Experience"],
+        ["มุมมองโครงการ", "Hospitality, lifestyle, private developments และพื้นที่เชิงพาณิชย์"],
+        ["ลำดับประสบการณ์", "Approach, threshold, release, pause, memory point, afterglow"],
+        ["ภาษาวัสดุ", "หิน ไม้โทนอุ่น ปูนฉาบนุ่ม โลหะบรอนซ์ ผ้า น้ำ และภูมิทัศน์"],
+        ["มุมมองคุณค่า", "คุณค่าทางอารมณ์และคุณค่าทางธุรกิจระยะยาวต้องทำงานร่วมกัน"],
       ],
-      officeLabel: "ที่ตั้งจดทะเบียน",
+      officeLabel: "ฐานของสตูดิโอ",
     },
     projects: {
       eyebrow: "ผลงาน",
@@ -285,15 +283,14 @@ export const siteContent = {
       title: "บันทึกเรื่องบรรยากาศ ความพอดีของวัสดุ และบริบท",
     },
     research: {
-      eyebrow: "การยืนยันข้อมูล",
-      title: "ฐานข้อมูลที่ยึดข้อเท็จจริง โดยตั้งใจละเว้นสิ่งที่ยังไม่ได้รับการยืนยัน",
-      businessObjectiveLabel: "วัตถุประสงค์บริษัทจากข้อมูลสาธารณะ",
-      sourcePrefix: "แหล่งข้อมูล:",
+      eyebrow: "Design reference",
+      title: "ภาษาการออกแบบที่ต่อยอดจาก DNA ของสตูดิโอ",
+      businessObjectiveLabel: "มุมมองของสตูดิโอ",
+      sourcePrefix: "อ้างอิง:",
       notes: [
-        "ข้อมูลทะเบียนสาธารณะยืนยันชื่อบริษัท เลขทะเบียน สถานะ ทุนจดทะเบียน ที่ตั้งจดทะเบียน และวัตถุประสงค์ทางธุรกิจ",
-        "หมวดธุรกิจสาธารณะระบุเป็นกิจกรรมด้านกฎหมาย ขณะที่คำอธิบายธุรกิจรวมถึงงานวิศวกรรม สถาปัตยกรรม และโฆษณา",
-        "ยังไม่พบข้อมูลสาธารณะที่ยืนยันรางวัล รายชื่อลูกค้า รายการโครงการที่สร้างเสร็จ เบอร์โทร อีเมล หรือช่องทางโซเชียล",
-        "เรื่องราวโครงการในเว็บไซต์นี้จึงตั้งใจระบุเป็นข้อมูลตัวอย่าง จนกว่าเจ้าของสตูดิโอจะส่งภาพจริง พื้นที่ ปีที่เสร็จ และข้อความที่อนุมัติแล้ว",
+        "เรื่องเล่านำการออกแบบก่อนรูปทรง สไตล์ หรือการตกแต่ง",
+        "บรรยากาศเกิดจากแสง สัดส่วน วัสดุ จังหวะการเคลื่อนไหว และความทรงจำของประสาทสัมผัส",
+        "Quiet luxury มาจากความพอดี รายละเอียด ความสบาย และคุณค่าระยะยาว",
       ],
     },
     contact: {
@@ -329,7 +326,7 @@ export const siteContent = {
     },
     footer: {
       note:
-        "ข้อเท็จจริงอ้างอิงจากข้อมูลทะเบียนสาธารณะ ภาพโครงการและกรณีศึกษายังคงเป็นข้อมูลตัวอย่างจนกว่าจะได้รับวัสดุที่เจ้าของอนุมัติ",
+        "Aramphabot Studio ขับเคลื่อนด้วยเรื่องเล่า บรรยากาศ บริบท ความทรงจำของผู้คน และความเชื่อว่างานออกแบบควรสร้างทั้งคุณค่าทางอารมณ์และคุณค่าระยะยาว",
       backToTop: "กลับด้านบน",
     },
   },
