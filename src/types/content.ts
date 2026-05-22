@@ -45,6 +45,7 @@ export type Project = {
   clientValue: string;
   editorialClosing: string;
   materials: string[];
+  photoCredit?: string;
   coverImage: ImageAsset;
   galleryImages: ImageAsset[];
   featured?: boolean;

@@ -22,6 +22,7 @@ import type { ImageAsset, Project, ProjectCategory } from "@/types/content";
   - memoryMoments: 1-3 moments people should remember after leaving.
   - materialLogic: why the material palette fits atmosphere, budget, maintenance, and context.
   - businessLogic: how design supports positioning, operations, perceived value, or repeat memory.
+  - photoCredit: optional photography credit, for example "Photography: Studio name".
 
   How to remove a project:
   - Delete the full object from the opening { to the closing }, including the comma.
@@ -108,6 +109,7 @@ export const projects: Project[] = [
       "Rattan and outdoor lounge furniture",
       "Hand-painted column graphics",
     ],
+    photoCredit: "Photography: Nai Review page",
     coverImage: image(
       "/images/projects/luca-beach-club-sichon/cover.webp",
       "Luca Beach Club Sichon beachfront restaurant and beach club by Aramphabot Architects with white fabric canopy, timber columns, lounge seating, palms, and sea view"

@@ -137,6 +137,7 @@ export const siteContent = {
         materialAtmosphere: "Material and atmosphere",
         clientValue: "Client value",
         materials: "Materials",
+        photoCredit: "Photography",
         gallery: "Gallery",
         relatedProjects: "Related projects",
       },
@@ -327,6 +328,7 @@ export const siteContent = {
         materialAtmosphere: "วัสดุและบรรยากาศ",
         clientValue: "คุณค่าต่อลูกค้า",
         materials: "วัสดุ",
+        photoCredit: "เครดิตภาพ",
         gallery: "แกลเลอรี",
         relatedProjects: "โครงการที่เกี่ยวข้อง",
       },
@@ -510,6 +512,7 @@ const projectTranslations: Record<string, Partial<Record<Language, Partial<Proje
         "เฟอร์นิเจอร์หวายและ outdoor lounge",
         "กราฟิกเพ้นท์บนเสาไม้",
       ],
+      photoCredit: "ภาพถ่ายโดยเพจ นายรีวิว",
     },
   },
   "boutique-hotel": {

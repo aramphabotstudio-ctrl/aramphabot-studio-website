@@ -1255,6 +1255,11 @@ function ProjectDetail({
             image={project.coverImage}
             className="h-full w-full object-cover"
           />
+          {project.photoCredit ? (
+            <p className="absolute bottom-4 left-4 bg-bone/86 px-3 py-2 text-[10px] font-medium uppercase tracking-[0.14em] text-charcoal/58 backdrop-blur">
+              {project.photoCredit}
+            </p>
+          ) : null}
         </div>
 
         <div className="lg:pl-6">
@@ -1396,7 +1401,14 @@ function ProjectDetail({
       </div>
 
       <div className="mt-16 lg:mt-24">
-        <p className="editorial-kicker mb-7 text-charcoal/45">{labels.gallery}</p>
+        <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <p className="editorial-kicker text-charcoal/45">{labels.gallery}</p>
+          {project.photoCredit ? (
+            <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-charcoal/42">
+              {labels.photoCredit}: {project.photoCredit.replace(/^Photography:\s*/i, "")}
+            </p>
+          ) : null}
+        </div>
         <div className="grid gap-4 md:grid-cols-[1.12fr_0.88fr_1fr]">
           {galleryImages.map((image, index) => (
             <div key={image.src + image.alt} className={`image-frame image-frame-subtle bg-stone ${index === 1 ? "md:mt-12" : ""} ${index === 2 ? "md:mt-4" : ""}`}>
