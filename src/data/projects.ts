@@ -44,6 +44,95 @@ export const projectImageFallback = image(
 
 export const projects: Project[] = [
   {
+    slug: "luca-beach-club-sichon",
+    title: "Luca Beach Club Sichon",
+    location: "Sichon, Nakhon Si Thammarat, Thailand",
+    year: "To be confirmed",
+    status: "Completed",
+    type: "Hospitality",
+    scope: "Architecture, interior, and spatial experience design",
+    area: "To be confirmed",
+    shortDescription:
+      "A completed beachfront restaurant and beach club shaped by shade, wind, white fabric, tropical craft, and the sensory memory of Sichon beach.",
+    concept:
+      "A beachside hospitality space where wind, filtered light, fabric movement, timber craft, and ocean atmosphere become the architecture of arrival and lingering.",
+    overview:
+      "Luca Beach Club Sichon is designed as a beachfront hospitality setting that draws people toward the sea through a relaxed sequence of arrival, shade, dining, lounging, and open-air gathering. The project responds to Sichon's golden beach, blue sea, coastal road, and the desire to make the shoreline more actively experienced.",
+    siteContext:
+      "The site sits within the coastal landscape of Sichon in Nakhon Si Thammarat, where sunlight, sea breeze, sand, palms, and ocean view are the primary context. The design frames these conditions as active design material rather than background scenery.",
+    spatialSequence:
+      "Guests move from the coastal approach into a shaded restaurant volume, then toward terraces, beach seating, open decks, and view moments that gradually loosen the boundary between building, landscape, and sea.",
+    brandPromise:
+      "A beach club that should be remembered for tropical ease, sensory atmosphere, craft detail, and the feeling of being drawn closer to the sea.",
+    spatialMetaphor:
+      "A wind-responsive canopy that behaves like a field of waves, filtering light like the shimmer below the surface of water.",
+    experienceSequence: [
+      "Approach through the coastal landscape of Sichon",
+      "Threshold beneath a curved roof and moving white fabric",
+      "Release into shaded dining, lounge seating, and ocean view",
+      "Pause in beach beds, decks, bar moments, and palm-filtered shade",
+      "Afterglow through the memory of wind, fabric, warm timber, and the sea",
+    ],
+    memoryMoments: [
+      "The white fabric canopy moving with the sea breeze",
+      "Filtered light rippling across the dining and lounge areas",
+      "The transition from shaded restaurant to open beachfront deck",
+    ],
+    materialLogic:
+      "White floors and walls, real timber, natural woven lighting, craft-based graphic painting, loose white fabric, and warm tropical textures create a relaxed beach atmosphere while filtering harsh sun and keeping the space visually light.",
+    businessLogic:
+      "The design turns the beachfront setting into a recognizable destination experience, supporting check-in value, guest dwell time, social photography, flexible outdoor use, and a hospitality identity rooted in the local coastal atmosphere.",
+    designNarrative: [
+      "The design begins from the potential of Sichon beach: sunlight, wind, sea smell, golden sand, and the desire for visitors to feel the beach with the body rather than only see it from a distance.",
+      "A curved roof with freely hanging white fabric creates shade while allowing natural light to pass through. As wind moves the fabric, light and shadow shift across the space, producing a soft, wave-like atmosphere that changes through the day.",
+      "The project combines a simple white architectural base with real timber, woven lamps, tropical furniture, blue accents, and hand-painted white graphics on timber columns to balance beachside ease with a memorable crafted identity.",
+    ],
+    keyDesignMoves: [
+      "Curved roof guiding movement toward the beach",
+      "Wind-responsive white fabric canopy",
+      "Filtered daylight and soft shade for outdoor use",
+      "Open restaurant, lounge, bar, deck, and beach seating sequence",
+      "Tropical Bohemian material and craft language",
+    ],
+    materialAtmosphere:
+      "The atmosphere is light, tactile, and coastal: white fabric, white surfaces, warm timber, woven natural material, rattan furniture, blue accents, sand, palms, and ocean light are composed into a relaxed hospitality setting.",
+    clientValue:
+      "For a beachfront hospitality operator, the project creates a recognizable destination image, supports outdoor activity in strong sun, extends the guest journey from dining to beach lounging, and gives the place a distinct visual memory.",
+    editorialClosing:
+      "Luca Beach Club Sichon turns natural phenomena into hospitality architecture: shade, wind, light, craft, and the sea become the project's remembered experience.",
+    materials: [
+      "White fabric canopy",
+      "Real timber",
+      "White rendered surfaces",
+      "Natural woven lighting",
+      "Rattan and outdoor lounge furniture",
+      "Hand-painted column graphics",
+    ],
+    coverImage: image(
+      "/images/projects/luca-beach-club-sichon/cover.webp",
+      "Luca Beach Club Sichon beachfront restaurant and beach club by Aramphabot Architects with white fabric canopy, timber columns, lounge seating, palms, and sea view"
+    ),
+    galleryImages: [
+      image("/images/projects/luca-beach-club-sichon/gallery-01.webp", "Curved white fabric canopy and shaded restaurant terrace at Luca Beach Club Sichon"),
+      image("/images/projects/luca-beach-club-sichon/gallery-02.webp", "Close view of wind-moving white fabric canopy with Luca Beach Club Sichon signage beyond"),
+      image("/images/projects/luca-beach-club-sichon/gallery-03.webp", "Curved roof edge, white fabric, timber columns, and palm landscape at Luca Beach Club Sichon"),
+      image("/images/projects/luca-beach-club-sichon/gallery-04.webp", "Palms, umbrellas, and layered beach club roofscape at Luca Beach Club Sichon"),
+      image("/images/projects/luca-beach-club-sichon/gallery-05.webp", "Restaurant lounge seating under white fabric canopy looking toward the sea at Luca Beach Club Sichon"),
+      image("/images/projects/luca-beach-club-sichon/gallery-06.webp", "Aerial view of Luca Beach Club Sichon within palm landscape and beachfront outdoor seating"),
+      image("/images/projects/luca-beach-club-sichon/gallery-07.webp", "Beachfront seating, timber columns, white canopy, and ocean view at Luca Beach Club Sichon"),
+      image("/images/projects/luca-beach-club-sichon/gallery-08.webp", "Close detail of layered white fabric canopy and timber column at Luca Beach Club Sichon"),
+      image("/images/projects/luca-beach-club-sichon/gallery-09.webp", "Beach club entry path with palms, white stepping forms, and Luca bar pavilion"),
+      image("/images/projects/luca-beach-club-sichon/gallery-10.webp", "Interior counter with Luca sign, woven lighting, and patterned column detail"),
+      image("/images/projects/luca-beach-club-sichon/gallery-11.webp", "Surfboard menu and ocean-facing bar detail at Luca Beach Club Sichon"),
+      image("/images/projects/luca-beach-club-sichon/gallery-12.webp", "Natural woven pendant light and white wall detail inside Luca Beach Club Sichon"),
+      image("/images/projects/luca-beach-club-sichon/gallery-13.webp", "Palm trees and white canopy edge under coastal sky at Luca Beach Club Sichon"),
+      image("/images/projects/luca-beach-club-sichon/gallery-14.webp", "Ocean-facing bar, timber shelf, and painted column detail at Luca Beach Club Sichon"),
+      image("/images/projects/luca-beach-club-sichon/gallery-15.webp", "Layered white fabric canopy detail filtering daylight at Luca Beach Club Sichon"),
+    ],
+    featured: true,
+    placeholder: false,
+  },
+  {
     slug: "boutique-hotel",
     title: "Boutique Hotel",
     location: "Phuket, Thailand",
