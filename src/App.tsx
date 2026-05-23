@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
-import type { FormEvent, MouseEvent, ReactNode } from "react";
+import type { FormEvent, MouseEvent, PointerEvent, ReactNode } from "react";
 import {
   ArrowUpRight,
+  ChevronLeft,
+  ChevronRight,
   CircleDot,
   Mail,
   MapPin,
@@ -47,7 +49,7 @@ import {
   seoByPath,
 } from "@/data/seo";
 import { navigation, siteConfig } from "@/data/site";
-import type { ImageAsset, Project, ProjectCategory } from "@/types/content";
+import type { ImageAsset, Project, ProjectCategory, ProjectImageCategory } from "@/types/content";
 import type { SeoEntry, SeoPageId } from "@/data/seo";
 
 const initialProject = featuredProjects[0] ?? projects[0];
@@ -64,6 +66,7 @@ type ContactStatus = {
 type NavigationKey = keyof typeof siteContent.en.navigation;
 type ContactFieldKey = Exclude<keyof typeof siteContent.en.contact.fields, "message">;
 type ProjectDetailLabels = Record<keyof typeof siteContent.en.projects.labels, string>;
+type GalleryCategoryLabelSet = Record<ProjectImageCategory, string>;
 
 const navigationKeyByHref: Record<string, NavigationKey> = {
   "/": "home",
@@ -98,6 +101,42 @@ const contactFieldKeys: Array<{
   { key: "timeline", name: "timeline", type: "text", autoComplete: "off", required: false },
   { key: "budgetRange", name: "budgetRange", type: "text", autoComplete: "off", required: false },
 ];
+
+const galleryCategoryOrder: ProjectImageCategory[] = ["Completed", "Before", "Diagram", "Plan"];
+
+const galleryCategoryLabels: Record<Language, GalleryCategoryLabelSet> = {
+  en: {
+    Completed: "Completed",
+    Before: "Before",
+    Diagram: "Diagram",
+    Plan: "Plan",
+  },
+  th: {
+    Completed: "ภาพผลงานจริง",
+    Before: "ก่อนปรับปรุง",
+    Diagram: "ไดอะแกรม",
+    Plan: "แปลน",
+  },
+};
+
+function getProjectImageCategory(image: ImageAsset): ProjectImageCategory {
+  if (image.category) {
+    return image.category;
+  }
+
+  const source = image.src.toLowerCase();
+  if (source.includes("before")) {
+    return "Before";
+  }
+  if (source.includes("diagram")) {
+    return "Diagram";
+  }
+  if (source.includes("plan")) {
+    return "Plan";
+  }
+
+  return "Completed";
+}
 
 function getRouteStateFromLocation(): RouteState {
   if (typeof window === "undefined") {
@@ -153,6 +192,15 @@ function getInitialLanguage(): Language {
 function scrollToPage(pageId: SeoPageId) {
   window.requestAnimationFrame(() => {
     const target = document.getElementById(pageId);
+    if (target) {
+      target.scrollIntoView({ block: "start" });
+    }
+  });
+}
+
+function scrollToProjectDetail() {
+  window.requestAnimationFrame(() => {
+    const target = document.getElementById("project-detail");
     if (target) {
       target.scrollIntoView({ block: "start" });
     }
@@ -390,6 +438,7 @@ function App() {
     setSelectedProjectSlug(project.slug);
     window.history.pushState(null, "", getLocalizedPath(getProjectPath(project), language));
     setRouteState({ pageId: "projects", projectSlug: project.slug });
+    scrollToProjectDetail();
   }
 
   function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
@@ -777,6 +826,7 @@ function App() {
 
           <ProjectDetail
             project={selectedProjectCopy}
+            language={language}
             selectedTemplateLabel={content.projects.selectedTemplate}
             typeLabel={getCategoryLabel(selectedProject.type, language)}
             statusLabel={getStatusLabel(selectedProject.status, language)}
@@ -1208,6 +1258,7 @@ function ProjectCard({
 
 function ProjectDetail({
   project,
+  language,
   selectedTemplateLabel,
   typeLabel,
   statusLabel,
@@ -1219,6 +1270,7 @@ function ProjectDetail({
   onDiscuss,
 }: {
   project: Project;
+  language: Language;
   selectedTemplateLabel: string;
   typeLabel: string;
   statusLabel: string;
@@ -1229,7 +1281,35 @@ function ProjectDetail({
   onRelatedSelect: (projectSlug: string) => void;
   onDiscuss: () => void;
 }) {
+  const [activeGalleryCategory, setActiveGalleryCategory] =
+    useState<ProjectImageCategory>("Completed");
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [pointerStartX, setPointerStartX] = useState<number | null>(null);
+  const [pointerDeltaX, setPointerDeltaX] = useState(0);
   const galleryImages = project.galleryImages.length > 0 ? project.galleryImages : [projectImageFallback];
+  const categorizedGalleryImages = galleryCategoryOrder.reduce<Record<ProjectImageCategory, ImageAsset[]>>(
+    (groups, category) => {
+      groups[category] = galleryImages.filter((image) => getProjectImageCategory(image) === category);
+      return groups;
+    },
+    {
+      Completed: [],
+      Before: [],
+      Diagram: [],
+      Plan: [],
+    }
+  );
+  const availableGalleryCategories = galleryCategoryOrder.filter(
+    (category) => categorizedGalleryImages[category].length > 0
+  );
+  const activeGalleryImages =
+    categorizedGalleryImages[activeGalleryCategory].length > 0
+      ? categorizedGalleryImages[activeGalleryCategory]
+      : galleryImages;
+  const activeGalleryLabel = galleryCategoryLabels[language][activeGalleryCategory];
+  const activeLightboxImage =
+    lightboxIndex === null ? null : activeGalleryImages[lightboxIndex] ?? activeGalleryImages[0];
+  const availableGalleryCategoryKey = availableGalleryCategories.join("|");
   const dnaChapters = [
     [labels.brandPromise, project.brandPromise],
     [labels.spatialMetaphor, project.spatialMetaphor],
@@ -1242,6 +1322,97 @@ function ProjectDetail({
     [labels.materialAtmosphere, project.materialAtmosphere],
     [labels.clientValue, project.clientValue],
   ];
+
+  useEffect(() => {
+    const firstCategory = availableGalleryCategories[0] ?? "Completed";
+    setActiveGalleryCategory((currentCategory) =>
+      availableGalleryCategories.includes(currentCategory) ? currentCategory : firstCategory
+    );
+    setLightboxIndex(null);
+  }, [availableGalleryCategoryKey, project.slug]);
+
+  useEffect(() => {
+    if (lightboxIndex === null) {
+      return;
+    }
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setLightboxIndex(null);
+      }
+      if (event.key === "ArrowRight") {
+        showNextImage();
+      }
+      if (event.key === "ArrowLeft") {
+        showPreviousImage();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [lightboxIndex, activeGalleryImages.length]);
+
+  function selectGalleryCategory(category: ProjectImageCategory) {
+    setActiveGalleryCategory(category);
+    setLightboxIndex(null);
+  }
+
+  function openGalleryImage(index: number) {
+    setLightboxIndex(index);
+  }
+
+  function showPreviousImage() {
+    setLightboxIndex((currentIndex) => {
+      if (currentIndex === null) {
+        return currentIndex;
+      }
+
+      return (currentIndex - 1 + activeGalleryImages.length) % activeGalleryImages.length;
+    });
+  }
+
+  function showNextImage() {
+    setLightboxIndex((currentIndex) => {
+      if (currentIndex === null) {
+        return currentIndex;
+      }
+
+      return (currentIndex + 1) % activeGalleryImages.length;
+    });
+  }
+
+  function handleLightboxPointerDown(event: PointerEvent<HTMLDivElement>) {
+    setPointerStartX(event.clientX);
+    setPointerDeltaX(0);
+  }
+
+  function handleLightboxPointerMove(event: PointerEvent<HTMLDivElement>) {
+    if (pointerStartX === null) {
+      return;
+    }
+
+    setPointerDeltaX(event.clientX - pointerStartX);
+  }
+
+  function handleLightboxPointerEnd() {
+    if (Math.abs(pointerDeltaX) > 48) {
+      if (pointerDeltaX < 0) {
+        showNextImage();
+      } else {
+        showPreviousImage();
+      }
+    }
+
+    setPointerStartX(null);
+    setPointerDeltaX(0);
+  }
 
   return (
     <article
@@ -1400,26 +1571,130 @@ function ProjectDetail({
         </div>
       </div>
 
-      <div className="mt-16 lg:mt-24">
-        <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-          <p className="editorial-kicker text-charcoal/45">{labels.gallery}</p>
-          {project.photoCredit ? (
-            <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-charcoal/42">
-              {labels.photoCredit}: {project.photoCredit.replace(/^Photography:\s*/i, "")}
-            </p>
-          ) : null}
+      <div id="project-gallery" className="mt-16 lg:mt-24">
+        <div className="mb-7 grid gap-5 border-t border-ink/12 pt-6 lg:grid-cols-[0.34fr_0.66fr]">
+          <div>
+            <p className="editorial-kicker text-charcoal/45">{labels.gallery}</p>
+            {project.photoCredit ? (
+              <p className="mt-4 text-[10px] font-medium uppercase leading-6 tracking-[0.14em] text-charcoal/42">
+                {labels.photoCredit}: {project.photoCredit.replace(/^Photography:\s*/i, "")}
+              </p>
+            ) : null}
+          </div>
+          <div className="flex gap-2 overflow-x-auto pb-1" aria-label={`${labels.gallery} categories`}>
+            {availableGalleryCategories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                onClick={() => selectGalleryCategory(category)}
+                aria-pressed={activeGalleryCategory === category}
+                className={`shrink-0 border px-4 py-2 text-[10px] font-medium uppercase tracking-[0.16em] transition duration-300 ${
+                  activeGalleryCategory === category
+                    ? "border-ink bg-ink text-bone"
+                    : "border-ink/12 text-charcoal/48 hover:border-ink/35 hover:text-ink"
+                }`}
+              >
+                {galleryCategoryLabels[language][category]}
+                <span className="ml-2 text-current/45">
+                  {String(categorizedGalleryImages[category].length).padStart(2, "0")}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
+
         <div className="grid gap-4 md:grid-cols-[1.12fr_0.88fr_1fr]">
-          {galleryImages.map((image, index) => (
-            <div key={image.src + image.alt} className={`image-frame image-frame-subtle bg-stone ${index === 1 ? "md:mt-12" : ""} ${index === 2 ? "md:mt-4" : ""}`}>
-              <ProjectImage
-                image={image}
-                className={`w-full object-cover ${index === 0 ? "aspect-[4/5] md:aspect-[3/4]" : "aspect-[4/5]"}`}
-              />
-            </div>
+          {activeGalleryImages.map((image, index) => (
+            <button
+              key={image.src + image.alt}
+              type="button"
+              onClick={() => openGalleryImage(index)}
+              className={`group block text-left focus:outline-none ${index === 1 ? "md:mt-12" : ""} ${index === 2 ? "md:mt-4" : ""}`}
+              aria-label={`${activeGalleryLabel} image ${index + 1}: ${image.alt}`}
+            >
+              <span className="image-frame image-frame-subtle block bg-stone">
+                <ProjectImage
+                  image={image}
+                  className={`w-full ${
+                    activeGalleryCategory === "Diagram" || activeGalleryCategory === "Plan"
+                      ? "aspect-[16/10] bg-bone object-contain"
+                      : index === 0
+                        ? "aspect-[4/5] object-cover md:aspect-[3/4]"
+                        : "aspect-[4/5] object-cover"
+                  } transition duration-700 group-hover:scale-[1.018]`}
+                />
+              </span>
+              <span className="mt-3 block text-[10px] font-medium uppercase tracking-[0.14em] text-charcoal/42">
+                {activeGalleryLabel} / {String(index + 1).padStart(2, "0")}
+              </span>
+            </button>
           ))}
         </div>
       </div>
+
+      {activeLightboxImage ? (
+        <div
+          className="fixed inset-0 z-[90] flex touch-none flex-col bg-ink/96 text-bone"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${project.title} ${labels.gallery}`}
+          onPointerDown={handleLightboxPointerDown}
+          onPointerMove={handleLightboxPointerMove}
+          onPointerUp={handleLightboxPointerEnd}
+          onPointerCancel={handleLightboxPointerEnd}
+        >
+          <div className="flex items-center justify-between border-b border-bone/12 px-4 py-3 sm:px-6">
+            <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-bone/56">
+              {activeGalleryLabel} / {String((lightboxIndex ?? 0) + 1).padStart(2, "0")} / {String(activeGalleryImages.length).padStart(2, "0")}
+            </p>
+            <button
+              type="button"
+              onClick={() => setLightboxIndex(null)}
+              className="inline-flex size-11 items-center justify-center border border-bone/20 text-bone/78 transition hover:border-bone hover:text-bone"
+              aria-label="Close gallery"
+            >
+              <X size={18} aria-hidden="true" />
+            </button>
+          </div>
+
+          <div className="relative grid min-h-0 flex-1 place-items-center px-4 py-5 sm:px-6">
+            {activeGalleryImages.length > 1 ? (
+              <button
+                type="button"
+                onClick={showPreviousImage}
+                className="absolute left-4 top-1/2 z-10 hidden size-12 -translate-y-1/2 items-center justify-center border border-bone/20 bg-ink/35 text-bone/78 backdrop-blur transition hover:border-bone hover:text-bone sm:inline-flex"
+                aria-label="Previous image"
+              >
+                <ChevronLeft size={22} aria-hidden="true" />
+              </button>
+            ) : null}
+
+            <img
+              src={activeLightboxImage.src}
+              alt={activeLightboxImage.alt}
+              className="max-h-[72svh] w-auto max-w-full object-contain"
+              draggable={false}
+            />
+
+            {activeGalleryImages.length > 1 ? (
+              <button
+                type="button"
+                onClick={showNextImage}
+                className="absolute right-4 top-1/2 z-10 hidden size-12 -translate-y-1/2 items-center justify-center border border-bone/20 bg-ink/35 text-bone/78 backdrop-blur transition hover:border-bone hover:text-bone sm:inline-flex"
+                aria-label="Next image"
+              >
+                <ChevronRight size={22} aria-hidden="true" />
+              </button>
+            ) : null}
+          </div>
+
+          <div className="border-t border-bone/12 px-4 py-4 sm:px-6">
+            <p className="mx-auto max-w-3xl text-center text-sm leading-7 text-bone/64">
+              {activeLightboxImage.alt}
+            </p>
+          </div>
+        </div>
+      ) : null}
 
       <div className="mt-16 grid gap-8 border-t border-ink/12 pt-8 lg:grid-cols-[0.32fr_0.68fr]">
         <div>

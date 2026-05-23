@@ -1,4 +1,4 @@
-import type { ImageAsset, Project, ProjectCategory } from "@/types/content";
+import type { ImageAsset, Project, ProjectCategory, ProjectImageCategory } from "@/types/content";
 
 /*
   Aramphabot Studio project data
@@ -23,6 +23,8 @@ import type { ImageAsset, Project, ProjectCategory } from "@/types/content";
   - materialLogic: why the material palette fits atmosphere, budget, maintenance, and context.
   - businessLogic: how design supports positioning, operations, perceived value, or repeat memory.
   - photoCredit: optional photography credit, for example "Photography: Studio name".
+  - galleryImages category: use "Completed", "Before", "Diagram", or "Plan" so the
+    project detail page can automatically group the images for visitors.
 
   How to remove a project:
   - Delete the full object from the opening { to the closing }, including the comma.
@@ -33,9 +35,14 @@ import type { ImageAsset, Project, ProjectCategory } from "@/types/content";
   - If an image path is empty or wrong, the website will show the fallback image.
 */
 
-const image = (src: string, alt: string): ImageAsset => ({
+const image = (
+  src: string,
+  alt: string,
+  category: ProjectImageCategory = "Completed"
+): ImageAsset => ({
   src,
   alt,
+  category,
 });
 
 export const projectImageFallback = image(
@@ -237,13 +244,13 @@ export const projects: Project[] = [
       image("/images/projects/soulciety/gallery-28.webp", "Full exterior elevation of Soulciety Coffee Rayong with gravel parking and neighborhood context"),
       image("/images/projects/soulciety/gallery-29.webp", "Garden tree, white facade, and shaded outdoor seating at Soulciety Coffee"),
       image("/images/projects/soulciety/gallery-30.webp", "Soulciety round sign, glass frontage, and white exterior wall with planting"),
-      image("/images/projects/soulciety/before-01.webp", "Existing storage building condition before Soulciety Coffee adaptive reuse"),
-      image("/images/projects/soulciety/before-02.webp", "Existing red gate and wall condition before the Soulciety Coffee renovation"),
-      image("/images/projects/soulciety/before-03.webp", "Existing street edge and storage building before design intervention"),
-      image("/images/projects/soulciety/before-04.webp", "Early site visit at the old storage building before Soulciety Coffee renovation"),
-      image("/images/projects/soulciety/diagram-01.webp", "Soulciety Coffee functional diagram showing cafe area, long table, counter bar, display, kitchen, garden, and parking"),
-      image("/images/projects/soulciety/diagram-02.webp", "Soulciety Coffee design diagram highlighting long table, slow bar, and counter bar"),
-      image("/images/projects/soulciety/plan.webp", "Soulciety Coffee architectural plan with cafe, service, outdoor, and parking areas"),
+      image("/images/projects/soulciety/before-01.webp", "Existing storage building condition before Soulciety Coffee adaptive reuse", "Before"),
+      image("/images/projects/soulciety/before-02.webp", "Existing red gate and wall condition before the Soulciety Coffee renovation", "Before"),
+      image("/images/projects/soulciety/before-03.webp", "Existing street edge and storage building before design intervention", "Before"),
+      image("/images/projects/soulciety/before-04.webp", "Early site visit at the old storage building before Soulciety Coffee renovation", "Before"),
+      image("/images/projects/soulciety/diagram-01.webp", "Soulciety Coffee functional diagram showing cafe area, long table, counter bar, display, kitchen, garden, and parking", "Diagram"),
+      image("/images/projects/soulciety/diagram-02.webp", "Soulciety Coffee design diagram highlighting long table, slow bar, and counter bar", "Diagram"),
+      image("/images/projects/soulciety/plan.webp", "Soulciety Coffee architectural plan with cafe, service, outdoor, and parking areas", "Plan"),
     ],
     featured: true,
     placeholder: false,
