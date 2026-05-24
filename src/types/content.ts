@@ -14,7 +14,7 @@ export type ProjectStatus =
   | "Completed"
   | "To be confirmed";
 
-export type ProjectImageCategory = "Completed" | "Before" | "Diagram" | "Plan";
+export type ProjectImageCategory = "Completed" | "Concept" | "Before" | "Diagram" | "Plan";
 
 export type ImageAsset = {
   src: string;

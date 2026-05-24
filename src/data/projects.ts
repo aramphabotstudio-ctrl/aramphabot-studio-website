@@ -256,6 +256,93 @@ export const projects: Project[] = [
     placeholder: false,
   },
   {
+    slug: "suk-sabai-home",
+    title: "Suk Sabai Home",
+    location: "Bangkok, Thailand",
+    year: "2025",
+    status: "Concept",
+    type: "Residential",
+    scope: "Architecture and interior schematic design",
+    area: "Site W12 x L14 m.",
+    shortDescription:
+      "An unbuilt private courtyard residence concept shaped by height, natural light, soft materiality, family routines, and quiet everyday restoration.",
+    concept:
+      "A narrow domestic volume transformed into a calm family retreat through height, rhythm, filtered daylight, and a private courtyard threshold.",
+    overview:
+      "Suk Sabai Home is a concept-stage architecture and interior study for a private courtyard residence. The design package frames a compact 12-by-14-metre site as a sequence of arrival, garden pause, lofty living, family study, bedroom retreat, and bathroom ritual, using quiet luxury as a discipline of proportion and restraint rather than decoration.",
+    siteContext:
+      "The source plan identifies a compact site with a 12-metre frontage and 14-metre depth, connected to the main house. The planning study includes foyer, shoes storage, terrace, private garden, living room, pantry, kid home work area, bedroom foyer, walk-in closet, bathroom, and master bathroom zones.",
+    spatialSequence:
+      "The experience begins at a softened exterior wall and courtyard tree, moves through a gentle threshold from outside to inside, releases into a lofty living room, then narrows into quieter domestic rooms where study, rest, bathing, storage, and daily rituals are held in warm light.",
+    brandPromise:
+      "A private home that should be remembered for calm living, natural light, family comfort, and a sense of soft everyday luxury.",
+    spatialMetaphor:
+      "A quiet courtyard vessel where light, height, and warm material surfaces turn ordinary routines into small rituals of rest.",
+    experienceSequence: [
+      "Approach along a restrained private facade",
+      "Threshold through the courtyard tree and warm exterior light",
+      "Release into the lofty living room and pantry edge",
+      "Pause at the kid home work area and family window seat",
+      "Retreat into the master bedroom and bathing sequence",
+      "Afterglow through stillness, soft tones, and a remembered sense of domestic calm",
+    ],
+    memoryMoments: [
+      "The courtyard arrival where a single tree marks the transition from outside to inside",
+      "The tall living room volume where stillness, light, and soft materiality shape family life",
+      "The bathroom ritual where stone, pendant glow, and framed landscape create everyday restoration",
+    ],
+    materialLogic:
+      "Warm plaster, light timber, soft upholstery, pale stone, bronze-toned lighting, sheer curtains, integrated storage, and muted wall panels create a calm domestic language that feels tactile, maintainable, and quietly refined within a compact home.",
+    businessLogic:
+      "Although this is a private residential concept, the design demonstrates how Aramphabot Studio can turn compact land, family routines, storage needs, and everyday comfort into a high-perception living environment with strong presentation value before construction.",
+    designNarrative: [
+      "The project begins with a tight domestic footprint rather than a large site. Instead of treating compactness as a limitation, the concept uses vertical volume, framed openings, built-in storage, and a courtyard tree to make the house feel composed, generous, and emotionally clear.",
+      "The living room is developed as the main spatial memory: a tall room with soft daylight, a long sofa, low stone table, warm shelving, pantry backdrop, and a curved upper volume that gives the narrow plan a sense of height and quiet release.",
+      "Private rooms continue the same restraint. The kid home work area turns storage, desk, window seat, and natural light into a calm study corner, while the master bedroom and bathroom use soft tones, rounded details, pendant glow, and stone-like surfaces to create rest without spectacle.",
+    ],
+    keyDesignMoves: [
+      "Private courtyard arrival with a single tree as the threshold marker",
+      "Lofty living room volume to expand a narrow footprint",
+      "Integrated storage for shoes, books, toys, wardrobe, and family routines",
+      "Soft material continuity between living, study, bedroom, and bathroom",
+      "Warm concealed lighting and natural daylight used as the primary atmosphere",
+      "Editorial concept presentation that clarifies mood before construction",
+    ],
+    materialAtmosphere:
+      "The atmosphere is warm, muted, and tactile: limestone-like surfaces, soft plaster, pale timber, linen-like upholstery, warm recessed lighting, sheer fabric, and stone-toned counters create quiet luxury through restraint, texture, and light.",
+    clientValue:
+      "For a private residential client, the concept clarifies how the home can feel larger, calmer, and more personal without relying on excessive decoration. It translates family needs into storage, study, rest, and ritual spaces that are easy to understand before construction begins.",
+    editorialClosing:
+      "Suk Sabai Home shows how an unbuilt residential concept can already carry a complete spatial story: arrival, light, family rhythm, private retreat, and the stillness of everyday life.",
+    materials: [
+      "Warm plaster",
+      "Light timber",
+      "Pale stone surfaces",
+      "Soft upholstery",
+      "Sheer curtains",
+      "Bronze-toned lighting",
+      "Integrated cabinetry",
+      "Muted wall panels",
+    ],
+    photoCredit: "Concept imagery: Aramphabot Studio",
+    coverImage: image(
+      "/images/projects/suk-sabai-home/cover.webp",
+      "Suk Sabai Home private courtyard residence concept with soft exterior wall, courtyard tree, warm lighting, and quiet arrival sequence",
+      "Concept"
+    ),
+    galleryImages: [
+      image("/images/projects/suk-sabai-home/gallery-01-arrival-sequence.webp", "Arrival sequence concept for Suk Sabai Home with private courtyard tree, warm threshold lighting, and restrained architectural volume", "Concept"),
+      image("/images/projects/suk-sabai-home/gallery-02-living-room.webp", "Lofty living room concept for Suk Sabai Home with soft sofa, stone table, warm shelving, pantry backdrop, and filtered daylight", "Concept"),
+      image("/images/projects/suk-sabai-home/gallery-03-kid-home-work-area.webp", "Kid home work area concept with built-in desk, storage, shelving, window seat, and natural light for quiet family routines", "Concept"),
+      image("/images/projects/suk-sabai-home/gallery-04-bathroom.webp", "Bathroom concept for Suk Sabai Home with pale stone surfaces, pendant glow, double vanity, and framed landscape view", "Concept"),
+      image("/images/projects/suk-sabai-home/gallery-05-living-room-alt.webp", "Alternative living room concept with tall ceiling, courtyard view, integrated shelving, pantry wall, and quiet luxury atmosphere", "Concept"),
+      image("/images/projects/suk-sabai-home/gallery-06-master-bedroom.webp", "Master bedroom concept with soft bed platform, display shelving, warm wall panels, and sheer daylight", "Concept"),
+      image("/images/projects/suk-sabai-home/gallery-07-master-bedroom-alt.webp", "Master bedroom concept with twin low beds, soft tones, integrated display shelf, and refined everyday comfort", "Concept"),
+    ],
+    featured: true,
+    placeholder: false,
+  },
+  {
     slug: "boutique-hotel",
     title: "Boutique Hotel",
     location: "Phuket, Thailand",

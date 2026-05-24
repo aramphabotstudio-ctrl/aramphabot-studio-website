@@ -102,16 +102,18 @@ const contactFieldKeys: Array<{
   { key: "budgetRange", name: "budgetRange", type: "text", autoComplete: "off", required: false },
 ];
 
-const galleryCategoryOrder: ProjectImageCategory[] = ["Completed", "Before", "Diagram", "Plan"];
+const galleryCategoryOrder: ProjectImageCategory[] = ["Completed", "Concept", "Before", "Diagram", "Plan"];
 
 const galleryCategoryLabels: Record<Language, GalleryCategoryLabelSet> = {
   en: {
     Completed: "Completed",
+    Concept: "Concept",
     Before: "Before",
     Diagram: "Diagram",
     Plan: "Plan",
   },
   th: {
+    Concept: "แบบแนวคิด",
     Completed: "ภาพผลงานจริง",
     Before: "ก่อนปรับปรุง",
     Diagram: "ไดอะแกรม",
@@ -127,6 +129,9 @@ function getProjectImageCategory(image: ImageAsset): ProjectImageCategory {
   const source = image.src.toLowerCase();
   if (source.includes("before")) {
     return "Before";
+  }
+  if (source.includes("concept")) {
+    return "Concept";
   }
   if (source.includes("diagram")) {
     return "Diagram";
@@ -1294,6 +1299,7 @@ function ProjectDetail({
     },
     {
       Completed: [],
+      Concept: [],
       Before: [],
       Diagram: [],
       Plan: [],
